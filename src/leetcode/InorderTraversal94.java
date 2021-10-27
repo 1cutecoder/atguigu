@@ -30,7 +30,7 @@ public class InorderTraversal94 {
     class Solution {
         //递归实现中序遍历
         public List<Integer> inorderTraversal(TreeNode root) {
-            while(root.left !=null ) root=root.left;
+            while(root.left !=null ){ root=root.left;}
             List<Integer> res = new ArrayList<Integer>();
             inorder(root, res);
             return res;
