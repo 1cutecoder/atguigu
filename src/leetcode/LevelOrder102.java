@@ -1,7 +1,5 @@
 package leetcode;
 
-import sun.misc.Queue;
-
 import java.util.*;
 
 /**
@@ -11,46 +9,29 @@ import java.util.*;
 public class LevelOrder102 {
     class Solution {
         public List<List<Integer>> levelOrder(TreeNode root) {
-            LinkedHashMap<Integer, Integer> linkedHashMap = new LinkedHashMap<>();
-            ArrayList<>
-            Queue<TreeNode> queue = new Queue<>();
-            queue.enqueue(root);
-            List<int[][]> list = new ArrayList<>();
-            Map<Integer, List<Integer>> integerHashMap = new HashMap<>();
+            Queue<TreeNode> queue = new LinkedList<TreeNode>();
+            List<List<Integer>> lists = new ArrayList<>();
+            if(root == null) {
+                return lists;
+            }
+            queue.offer(root);
+            while (!queue.isEmpty()) {
+                List<Integer> list = new ArrayList<>();
+                int queueSize = queue.size();
+                for (int i = 0; i < queueSize; i++) {
+                    TreeNode node = queue.poll();
+                    if (node.left != null) {
+                        queue.add(node.left);
 
-            while (root != null || !queue.isEmpty()) {
-                try {
-                    root = queue.dequeue();
-                    if (root != null) {
-                        queue.enqueue(root.left);
-                        queue.enqueue(root.right);
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    if (node.right != null) {
+                        queue.add(node.right);
+                    }
+                    list.add(node.val);
                 }
-
+                lists.add(list);
             }
-
-
-            list = getLevelOrder(root, linkedHashMap, queue);
-            return list;
-        }
-
-        private void getLevelOrder(TreeNode root, LinkedHashMap<Integer, Integer> linkedHashMap, Queue queue) {
-            try {
-
-                Integer dequeue = (Integer) queue.dequeue();
-                if (dequeue == null) {
-                    return;
-                }
-                if (root == null) {
-                    return;
-                }
-                queue.enqueue(root.val);
-                getLevelOrder();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            return lists;
         }
     }
 }
