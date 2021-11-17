@@ -22,7 +22,7 @@ public class IsBalanced110 {
             if (Math.abs(leftHeight - rightHeight) >= 2) {
                 isBalanced = false;
             }
-            return Math.max(leftHeight++, rightHeight++);
+            return Math.max(++leftHeight, ++rightHeight);
         }
     }
 }
