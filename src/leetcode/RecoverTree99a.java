@@ -8,7 +8,7 @@ import java.util.List;
  * @author zcl
  * @date 2021/11/15 14:02
  */
-public class RecoverTree99 {
+public class RecoverTree99a {
     class Solution {
         public void recoverTree(TreeNode root) {
             List<Integer> nums = new ArrayList<Integer>();
