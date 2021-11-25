@@ -9,7 +9,7 @@ import java.util.concurrent.*;
  */
 public class Singleton {
     static Singleton singleton = null;
-    private int beforeInitial = 1;
+    private Integer x = new Integer(1);
 
     public static Singleton getInstance() {
         if (singleton == null) {
@@ -29,23 +29,26 @@ public class Singleton {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         ExecutorService executorService = Executors.newCachedThreadPool();
         //启动100个线程，之心20_000次，只要一次生成了两个对象就抛异常
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(100);
-        for (int i = 0; i < 20; i++) {
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(1000);
+        for (int i = 0; i < 1000_000; i++) {
+            if (i % 50000 == 0 ) {
+                System.out.println("i = " + i);
+            }
             cyclicBarrier.reset();
             List<Callable<Singleton>> list = new ArrayList<>();
-            for (int j = 0; j < 100; j++) {
+            for (int j = 0; j < 1000; j++) {
                 list.add(() -> {
                     cyclicBarrier.await();
-                    return Singleton.getInstance();
+                    Singleton instance = Singleton.getInstance();
+                    if (instance.x == null) {
+                        throw  new RuntimeException("拿到了未被初始化的对象");
+                    }
+                    return instance ;
                 });
             }
             List<Future<Singleton>> futures = executorService.invokeAll(list);
             Set<Singleton> singletonHashSet = new HashSet<>();
             for (Future<Singleton> future : futures) {
-                Singleton singleton = future.get();
-                if (singleton.beforeInitial == 0) {
-                    System.out.println("并发还是生成了半个实例");
-                }
                 singletonHashSet.add(future.get());
             }
             if (singletonHashSet.size() > 1) {
