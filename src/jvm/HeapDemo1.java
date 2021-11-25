@@ -7,6 +7,10 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/11/25 17:34
  */
 public class HeapDemo1 {
+    /**
+     * -Xms10m -Xmx10m
+     * @param args
+     */
     public static void main(String[] args) {
         System.out.println("start***********");
         try {
