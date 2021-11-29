@@ -12,7 +12,7 @@ public class SougouImput {
         this.skin = skin;
     }
 
-    public void dispaly(){
+    public void dispaly() {
         skin.display();
     }
 }
