@@ -1,35 +1,35 @@
-package designpattern.principles.LiscovSubstitution.before;
+package designpattern.principles.DependenceInversion.after;
 
 /**
  * @author zcl
  * @date 2021/11/29 16:26
  */
 public class Computer {
-    private XiJieHardDisk hardDisk;
-    private IntelCpu cpu;
-    private KingstonMemory memory;
+    private HardDisk hardDisk;
+    private Cpu cpu;
+    private Memory memory;
 
-    public void setHardDisk(XiJieHardDisk hardDisk) {
+    public void setHardDisk( HardDisk hardDisk) {
         this.hardDisk = hardDisk;
     }
 
-    public void setCpu(IntelCpu cpu) {
+    public void setCpu( Cpu cpu) {
         this.cpu = cpu;
     }
 
-    public void setMemory(KingstonMemory memory) {
+    public void setMemory( Memory memory) {
         this.memory = memory;
     }
 
-    public XiJieHardDisk getHardDisk() {
+    public HardDisk getHardDisk() {
         return hardDisk;
     }
 
-    public IntelCpu getCpu() {
+    public Cpu getCpu() {
         return cpu;
     }
 
-    public KingstonMemory getMemory() {
+    public Memory getMemory() {
         return memory;
     }
     public void run(){

@@ -1,4 +1,4 @@
-package designpattern.principles.OpenClosed.before;
+package designpattern.principles.LiscovSubstitution.before;
 
 /**
  * @author zcl

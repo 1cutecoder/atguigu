@@ -1,4 +1,4 @@
-package designpattern.principles.SingleResponsibilty;
+package designpattern.principles.OpenClosed;
 
 /**
  * @author zcl

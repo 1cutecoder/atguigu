@@ -1,4 +1,4 @@
-package designpattern.principles.LiscovSubstitution.before;
+package designpattern.principles.DependenceInversion.before;
 
 /**
  * @author zcl
