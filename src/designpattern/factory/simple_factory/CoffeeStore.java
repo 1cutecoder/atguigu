@@ -5,7 +5,7 @@ package designpattern.factory.simple_factory;
  * @date 2021/12/7 17:29
  */
 public class CoffeeStore {
-    public Coffee orderCoffee(String type ) throws Exception {
+    public Coffee orderCoffee(CoffeeType type ) throws Exception {
         SimpleCoffeeFactory simpleCoffeeFactory = new SimpleCoffeeFactory();
         Coffee coffee = simpleCoffeeFactory.createCoffee(type);
         coffee.addMilk();
