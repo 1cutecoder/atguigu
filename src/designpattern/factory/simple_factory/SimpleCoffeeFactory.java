@@ -8,7 +8,7 @@ import static designpattern.factory.simple_factory.CoffeeType.AMERICAN;
  */
 public class SimpleCoffeeFactory {
     /**
-     * 后续加个咖啡类，还需要修改咖啡工厂代码
+     * 后续加个咖啡类，还需要修改咖啡工厂代码，违反了开闭原则
      */
     public Coffee createCoffee(CoffeeType type) throws Exception {
         Coffee coffee;
