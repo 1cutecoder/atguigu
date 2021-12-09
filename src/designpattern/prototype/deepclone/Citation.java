@@ -1,10 +1,12 @@
 package designpattern.prototype.deepclone;
 
+import java.io.Serializable;
+
 /**
  * @author zcl
  * @date 2021/12/8 17:30
  */
-public class Citation implements Cloneable {
+public class Citation implements Cloneable, Serializable {
     private Student student;
 
     public void setStudent(Student student) {

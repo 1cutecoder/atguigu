@@ -1,10 +1,12 @@
 package designpattern.prototype.deepclone;
 
+import java.io.Serializable;
+
 /**
  * @author zcl
  * @date 2021/12/8 17:36
  */
-public class Student {
+public class Student implements Serializable {
     private String name;
 
 
