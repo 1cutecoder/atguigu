@@ -13,11 +13,14 @@ public class ProxyFactory {
 
     public SellTickets getProxyObject() {
         //返回代理对象即可
-        SellTickets proxyInstance = (SellTickets) Proxy.newProxyInstance(trainStation.getClass().getClassLoader(), trainStation.getClass().getInterfaces(), new InvocationHandler() {
+        SellTickets proxyInstance = (SellTickets) Proxy.newProxyInstance(
+                trainStation.getClass().getClassLoader(),
+                trainStation.getClass().getInterfaces(),
+                new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 System.out.println("代理点收点服务费start");
-                method.invoke(trainStation,args);
+                method.invoke(trainStation, args);
                 System.out.println("代理点收点服务费end");
                 return null;
             }
