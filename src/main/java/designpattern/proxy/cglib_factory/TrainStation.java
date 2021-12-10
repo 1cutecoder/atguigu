@@ -1,4 +1,4 @@
-package designpattern.proxy.cdlib_factory;
+package designpattern.proxy.cglib_factory;
 
 /**
  * @author zcl
