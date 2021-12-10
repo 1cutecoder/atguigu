@@ -22,4 +22,14 @@ public class HonDaBodyWork extends BodyWork{
         sb.append('}');
         return sb.toString();
     }
+
+    @Override
+    public void setColor() {
+
+    }
+
+    @Override
+    public String show() {
+        return this.toString();
+    }
 }
