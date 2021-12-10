@@ -1,4 +1,4 @@
-package designpattern.proxy;
+package designpattern.proxy.jdk_proxy;
 
 /**
  * @author zcl

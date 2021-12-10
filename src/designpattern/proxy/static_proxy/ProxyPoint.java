@@ -1,10 +1,13 @@
-package designpattern.proxy;
+package designpattern.proxy.static_proxy;
+
+import designpattern.proxy.jdk_proxy.SellTickets;
+import designpattern.proxy.jdk_proxy.TrainStation;
 
 /**
  * @author zcl
  * @date 2021/12/10 14:23
  */
-public class ProxyPoint implements SellTickets{
+public class ProxyPoint implements SellTickets {
     private TrainStation trainStation = new TrainStation();
     /**
      * Âô»ð³µÆ±
