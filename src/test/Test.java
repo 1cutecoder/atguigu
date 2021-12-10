@@ -5,7 +5,7 @@ import juc.Noodles;
  */
 public class Test {
     public static void main(String[] args) {
-        Noodles noodles = new Noodles();
+        final Noodles noodles = new Noodles();
         new Thread(new Runnable() {
             @Override
             public void run() {

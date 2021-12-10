@@ -1,7 +1,5 @@
 package designpattern.factory.config_factory;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +17,7 @@ public class CoffeeFactory {
     private static Map<String,Coffee> map = new HashMap<>();
     static {
         Properties properties = new Properties();
-        InputStream inputStream = CoffeeFactory.class.getClassLoader().getResourceAsStream("bean.properties");
+        InputStream inputStream = CoffeeFactory.class.getClassLoader().getResourceAsStream("main/java/bean.properties");
         try {
             properties.load(inputStream);
             for (Object key: properties.keySet()) {

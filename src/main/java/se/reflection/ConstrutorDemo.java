@@ -38,7 +38,7 @@ import java.lang.reflect.Modifier;
  *  */
 public class ConstrutorDemo {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-        Class<?> aClass = Class.forName("se.reflection.Animal");
+        Class<?> aClass = Class.forName("main.java.se.reflection.Animal");
         String name = aClass.getName();
         System.out.println("name = " + name);
         Object o = aClass.newInstance();

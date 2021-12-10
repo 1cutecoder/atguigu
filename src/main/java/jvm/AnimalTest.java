@@ -20,7 +20,6 @@ class Dog extends Animal implements Huntable {
         System.out.println("狗吃骨头");
     }
 
-    @Override
     public void hunt() {
         System.out.println("捕食耗子，多管闲事");
     }
@@ -32,7 +31,6 @@ class Cat extends Animal implements Huntable {
         System.out.println("猫吃鱼");
     }
 
-    @Override
     public void hunt() {
         System.out.println("猫捉老鼠，天经地义");
     }

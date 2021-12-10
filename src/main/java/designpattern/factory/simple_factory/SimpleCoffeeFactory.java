@@ -1,7 +1,5 @@
 package designpattern.factory.simple_factory;
 
-import static designpattern.factory.simple_factory.CoffeeType.AMERICAN;
-
 /**
  * @author zcl
  * @date 2021/12/7 17:42

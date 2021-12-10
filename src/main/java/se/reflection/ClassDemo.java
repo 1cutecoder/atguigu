@@ -21,7 +21,7 @@ public class ClassDemo {
         Class<Animal> animalClass1 = Animal.class;
         System.out.println("animalClass1 = " + animalClass1);
         //·½Ê½Èý
-        Class<?> aClass = Class.forName("se.reflection.Animal");
+        Class<?> aClass = Class.forName("main.java.se.reflection.Animal");
         System.out.println("aClass = " + aClass);
     }
 }
