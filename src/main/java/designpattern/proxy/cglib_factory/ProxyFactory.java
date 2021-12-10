@@ -11,6 +11,7 @@ import java.lang.reflect.Method;
  * @date 2021/12/10 16:17
  */
 public class ProxyFactory implements MethodInterceptor {
+    private TrainStation trainStation = new TrainStation();
     public TrainStation getProxyObject(){
         //创建Enhancer对象，类似于JDK动态代理的Proxy类
         Enhancer enhancer = new Enhancer();
@@ -25,6 +26,10 @@ public class ProxyFactory implements MethodInterceptor {
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        System.out.println("代理点收取一点手续费start");
+        method.invoke(trainStation,objects);
+        System.out.println("代理点收取一点手续费end");
+
         return null;
     }
 }
