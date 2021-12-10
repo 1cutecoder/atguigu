@@ -5,6 +5,10 @@ package designpattern.factory.abstract_factory;
  * @date 2021/12/7 17:25
  */
 public abstract class Coffee {
+    /**
+     * »ñÈ¡Ãû³Æ
+     * @return
+     */
     public abstract String getName();
 
 
