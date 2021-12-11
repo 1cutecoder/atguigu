@@ -26,7 +26,7 @@ public class ReflectionDemo3 {
         Class<?> aClass = Class.forName(className);
         String s = Modifier.toString(aClass.getModifiers());
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("").append(s);
+        stringBuffer.append(s);
         if (s.length() != 0) {
             stringBuffer.append(" ");
         }
