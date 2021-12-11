@@ -14,9 +14,19 @@ public class Main {
         sorter.sort(a);
         System.out.println(Arrays.toString(a));*/
         //泛型
-       Dog[] a = {new Dog(1),new Dog(5),new Dog(3)};
+       /*Dog[] a = {new Dog(1),new Dog(5),new Dog(3)};
         Sorter sorter = new Sorter();
         sorter.sort(a);
+        System.out.println(Arrays.toString(a));*/
+        Dog[] a = {new Dog(1),new Dog(5),new Dog(3)};
+        Sorter sorter = new Sorter<Dog>();
+        sorter.sort(a,new DogComparator());
         System.out.println(Arrays.toString(a));
+        //按重量对猫进行排序
+        System.out.println("======================");
+        Cat[] cats = {new Cat(7,1),new Cat(5,5),new Cat(3,3)};
+        Sorter<Cat> sorter1 = new Sorter();
+        sorter.sort(cats,new CatWeightComparator());
+        System.out.println(Arrays.toString(cats));
     }
 }
