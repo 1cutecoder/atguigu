@@ -1,4 +1,4 @@
-package designpattern.adapter.class_adapter;
+package designpattern.adapter.object_adapter;
 
 /**
  * @author zcl

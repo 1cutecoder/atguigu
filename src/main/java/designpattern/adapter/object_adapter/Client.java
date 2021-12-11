@@ -1,4 +1,6 @@
-package designpattern.adapter.class_adapter;
+package designpattern.adapter.object_adapter;
+
+import java.io.Reader;
 
 /**
  * @author zcl
@@ -10,7 +12,7 @@ public class Client {
         String msg = computer.readSD(new SDCardImpl());
         System.out.println("msg = " + msg);
         System.out.println("=================================");
-        String readSD = computer.readSD(new SDAdapterTF());
+        String readSD = computer.readSD(new SDAdapterTF(new TFCardImpl()));
         System.out.println("readSD = " + readSD);
     }
 }
