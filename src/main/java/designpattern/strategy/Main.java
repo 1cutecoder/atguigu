@@ -26,7 +26,11 @@ public class Main {
         System.out.println("======================");
         Cat[] cats = {new Cat(7,1),new Cat(5,5),new Cat(3,3)};
         Sorter<Cat> sorter1 = new Sorter();
-        sorter.sort(cats,new CatWeightComparator());
+        sorter1.sort(cats,(t1,t2)->{
+            if (t1.weight < t2.weight) return -1;
+            else if (t1.weight > t2.weight) return 1;
+            return 0;
+        });
         System.out.println(Arrays.toString(cats));
     }
 }
