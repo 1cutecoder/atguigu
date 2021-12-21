@@ -24,11 +24,12 @@ class Child {
     public void wakeup() {
         cry = true;
         for (Observer observer : observers) {
-            observer.actionOnWakeup(new WakeupEvent(System.currentTimeMillis(),"bed",this));
+            observer.actionOnWakeup(new WakeupEvent(System.currentTimeMillis(), "bed", this));
         }
     }
 }
-class WakeupEvent{
+
+class WakeupEvent {
     long timeStamp;
     String loc;
     Child source;
