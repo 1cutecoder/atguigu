@@ -54,11 +54,13 @@ public class Main {
         BranchNode chapter2 = new BranchNode("chapter2");
         LeafNode c11 = new LeafNode("c11");
         LeafNode c12 = new LeafNode("c12");
+        LeafNode r1 = new LeafNode("r1");
         BranchNode b21 = new BranchNode("section21");
         LeafNode c211 = new LeafNode("c211");
         LeafNode c212 = new LeafNode("c212");
         root.add(chapter1);
         root.add(chapter2);
+        root.add(r1);
         chapter1.add(c11);
         chapter1.add(c12);
         chapter2.add(b21);
