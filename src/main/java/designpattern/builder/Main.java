@@ -6,8 +6,7 @@ package designpattern.builder;
  */
 public class Main {
     public static void main(String[] args) {
-        ComplexTerrainBuilder builder = new ComplexTerrainBuilder();
-        Terrain t = builder.buildFort().buildMine().buildWall().build();
-        System.out.println(t.toString());
+        Person person = new Person.PersonBuilder().basicInfo(1, "zhangsan", 18).weight(200).build();
+        System.out.println(person);
     }
 }

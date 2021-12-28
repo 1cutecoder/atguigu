@@ -15,6 +15,19 @@ public class Person {
     private Person() {
     }
 
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Person{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", age=").append(age);
+        sb.append(", weight=").append(weight);
+        sb.append(", score=").append(score);
+        sb.append(", loc=").append(loc);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public static class PersonBuilder {
         Person p = new Person();
 
@@ -39,6 +52,10 @@ public class Person {
             Location loc = new Location(street, roomNo);
             p.loc = loc;
             return this;
+        }
+
+        public Person build() {
+            return p;
         }
     }
 }

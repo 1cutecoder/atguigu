@@ -10,4 +10,13 @@ public class Location {
 
     public Location(String street, String roomNo) {
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Location{");
+        sb.append("street='").append(street).append('\'');
+        sb.append(", roomNo='").append(roomNo).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
