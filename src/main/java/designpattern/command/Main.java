@@ -11,7 +11,6 @@ public class Main {
     public static void main(String[] args) {
         Content c = new Content();
         InsertCommand insertCommand = new InsertCommand(c);
-        System.out.println(c.msg);
         insertCommand.doit();
         insertCommand.undoit();
         CopyCommand copyCommand = new CopyCommand(c);
@@ -20,7 +19,6 @@ public class Main {
         DeleteCommand deleteCommand = new DeleteCommand(c);
         deleteCommand.doit();
         deleteCommand.undoit();
-        System.out.println(c.msg);
         List<Command> commands = new ArrayList<>();
         commands.add(new InsertCommand(c));
         commands.add(new CopyCommand(c));
