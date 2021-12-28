@@ -1,6 +1,5 @@
-package designpattern.prototype;
+package designpattern.prototype.v1;
 
-import designpattern.builder.Location;
 
 /**
  * @author zcl
@@ -12,9 +11,9 @@ public class Person implements Cloneable{
     int age;
     double weight;
     int score;
-    Location loc;
+    Location loc = new Location("bj",2);
 
-    private Person() {
+    public Person() {
     }
 
     @Override

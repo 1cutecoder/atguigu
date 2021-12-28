@@ -1,14 +1,16 @@
-package designpattern.prototype;
+package designpattern.prototype.v1;
 
 /**
  * @author zcl
  * @date 2021/12/28 14:41
  */
 public class Location {
-    String street;
-    String roomNo;
+    public String street;
+    public int roomNo;
 
-    public Location(String street, String roomNo) {
+    public Location(String street, int roomNo) {
+        this.street = street;
+        this.roomNo = roomNo;
     }
 
     @Override
