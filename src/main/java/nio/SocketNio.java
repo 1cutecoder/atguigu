@@ -14,6 +14,12 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/12/29 17:04
  */
 public class SocketNio {
+    /**
+     * NIO
+     * 优势：规避多线程问题 C10k
+     * 弊端：假设1w个连接 只有一个连接发送数据，每循环一次，必须向内核发送1w次系统调用，有999次是无意义的，浪费的，消耗时间和资源
+     * 用户控件向内核空间的循环遍历，复杂度在系统调用上
+     */
     public static void main(String[] args) throws IOException, InterruptedException {
         List<SocketChannel> clients = new LinkedList<>();
         ServerSocketChannel ss = ServerSocketChannel.open();
