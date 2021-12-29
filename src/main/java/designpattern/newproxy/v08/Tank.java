@@ -26,6 +26,7 @@ public class Tank implements Movable {
     public static void main(String[] args) {
         Tank tank = new Tank();
         System.out.println("1=================");
+//        System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles", "true");
         //reflection 通过二进制字节码分析类的属性和方法
         Movable m = (Movable) Proxy.newProxyInstance(Tank.class.getClassLoader(), new Class[]{Movable.class}, new InvocationHandler() {
             @Override
