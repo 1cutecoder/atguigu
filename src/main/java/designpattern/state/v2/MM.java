@@ -10,6 +10,11 @@ public class MM {
 
     MMState state;
 
+    public MM(String name, MMState state) {
+        this.name = name;
+        this.state = state;
+    }
+
     public void smile() {
         state.smile();
     }
