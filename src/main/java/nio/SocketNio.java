@@ -38,6 +38,7 @@ public class SocketNio {
                 clients.add(client);
             }
             ByteBuffer buffer = ByteBuffer.allocateDirect(4096);
+            //传1w个客户端给系统调用，系统调用返回其中有数据的一个客户端，之后只进行一次系统调用 -->多路复用器
             for (SocketChannel c : clients) {
                 int num = c.read(buffer);
                 //-1 0 1 阻塞
