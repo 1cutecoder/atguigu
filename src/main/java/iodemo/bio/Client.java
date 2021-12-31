@@ -23,7 +23,8 @@ public class Client {
             closeResource(s);
         }
     }
-   private static void closeResource(Socket s) {
+
+    private static void closeResource(Socket s) {
         if (s != null) {
             try {
                 s.close();

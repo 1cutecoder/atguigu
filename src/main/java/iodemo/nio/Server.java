@@ -21,7 +21,7 @@ public class Server {
             ssc.configureBlocking(false);
             Selector selector = Selector.open();
             ssc.register(selector, SelectionKey.OP_ACCEPT);
-            while (true){
+            while (true) {
                 Set<SelectionKey> keys = selector.selectedKeys();
                 Iterator<SelectionKey> it = keys.iterator();
                 while (it.hasNext()) {
@@ -38,25 +38,25 @@ public class Server {
 
     private static void handle(SelectionKey key) throws IOException {
         if (key.isAcceptable()) {
-            ServerSocketChannel ssc =null;
+            ServerSocketChannel ssc = null;
             try {
-                ssc =  (ServerSocketChannel) key.channel();
+                ssc = (ServerSocketChannel) key.channel();
                 SocketChannel sc = ssc.accept();
                 sc.configureBlocking(false);
-                sc.register(key.selector(),SelectionKey.OP_READ);
+                sc.register(key.selector(), SelectionKey.OP_READ);
             } catch (IOException e) {
                 e.printStackTrace();
                 ssc.close();
             }
         } else if (key.isReadable()) {
-            SocketChannel sc =null;
+            SocketChannel sc = null;
             try {
                 sc = (SocketChannel) key.channel();
                 ByteBuffer buffer = ByteBuffer.allocate(512);
-               buffer.clear();
+                buffer.clear();
                 int len = sc.read(buffer);
                 if (len != -1) {
-                    System.out.println(new String(buffer.array(),0,len));
+                    System.out.println(new String(buffer.array(), 0, len));
                 }
                 ByteBuffer bufferToWrite = ByteBuffer.wrap("HelloClient".getBytes());
                 sc.write(bufferToWrite);
