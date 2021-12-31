@@ -15,12 +15,19 @@ import static netty.c1.ByteBufferUtil.debugAll;
 public class TestByteBufferRead {
     public static void main(String[] args) {
         ByteBuffer buffer = ByteBuffer.allocate(10);
-      buffer.put(new byte[]{'a','b','c','d'});
-      buffer.flip();
-      buffer.get(new byte[4]);
+        buffer.put(new byte[]{'a', 'b', 'c', 'd'});
+        buffer.flip();
+       // buffer.get(new byte[4]);
+        debugAll(buffer);
+      /*buffer.rewind();
       debugAll(buffer);
-      buffer.rewind();
-      debugAll(buffer);
-      System.out.println((char)buffer.get());
+      System.out.println((char)buffer.get());*/
+        System.out.println((char) buffer.get());
+        System.out.println((char) buffer.get());
+        buffer.mark();
+        System.out.println((char) buffer.get());
+        System.out.println((char) buffer.get());
+        buffer.reset();
+        debugAll(buffer);
     }
 }
