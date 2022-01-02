@@ -12,10 +12,9 @@ public class LocalVariablesTest {
     public static void main(String[] args) {
         LocalVariablesTest test = new LocalVariablesTest();
         int num = 10;
-        test.test1();
     }
 
-    //Á·Ï°
+    //ç»ƒä¹ 
     public static void testStatic() {
         LocalVariablesTest test = new LocalVariablesTest();
         Date date = new Date();
@@ -24,7 +23,7 @@ public class LocalVariablesTest {
     }
 
     /**
-     * ¹ØÓÚslotµÄÀí½â
+     * å…³äºslotçš„ç†è§£
      */
     public LocalVariablesTest() {
         this.count = 1;
@@ -41,7 +40,7 @@ public class LocalVariablesTest {
         date = null;
         name1 = "songhongkang";
         double weight = 120.5;
-        char gender = 'ÄĞ';
+        char gender = 'ç”·';
         return date + name1;
     }
 
@@ -55,20 +54,20 @@ public class LocalVariablesTest {
             int b = 0;
             b = a + 1;
         }
-        //±äÁ¿cÊ¹ÓÃÖ®Ç°ÒÑ¾­Ïú»ÙµÄ±äÁ¿bÕ¼¾İµÄslotÎ»ÖÃ
+        //å˜é‡cä½¿ç”¨ä¹‹å‰å·²ç»é”€æ¯çš„å˜é‡bå æ®çš„slotä½ç½®
         int c = a+1;
     }
     /**
-     * ±äÁ¿µÄ·ÖÀà:
-     *      °´ÕÕÊı¾İÀàĞÍ·İ£º1¡¢»ù±¾Êı¾İÀàĞÍ 2¡¢ÒıÓÃÊı¾İÀàĞÍ
-     *      °´ÕÕÔÚÀàÖĞÉùÃ÷µÄÎ»ÖÃ·Ö£º1¡¢³ÉÔ±±äÁ¿£º
-     *                              Àà±äÁ¿£ºlinking µÄprepare½×¶Î¸øÁËÀà±äÁ¿Ä¬ÈÏ¸³Öµ -->initial½×¶Î£¬¸øÀà±äÁ¿ÏÔÊ½¸³Öµ£¬µ÷¹¹Ôì·½·¨
-     *                              ÊµÀı±äÁ¿£ºËæ×Å¶ÔÏóµÄ´´½¨£¬»áÔÚ¶Ñ¿Õ¼äÖĞ·ÖÅäÊµÀı±äÁ¿¿Õ¼ä£¬²¢½øĞĞÄ¬ÈÏ¸³Öµ
-     *                           2¡¢¾Ö²¿±äÁ¿
+     * å˜é‡çš„åˆ†ç±»:
+     *      æŒ‰ç…§æ•°æ®ç±»å‹ä»½ï¼š1ã€åŸºæœ¬æ•°æ®ç±»å‹ 2ã€å¼•ç”¨æ•°æ®ç±»å‹
+     *      æŒ‰ç…§åœ¨ç±»ä¸­å£°æ˜çš„ä½ç½®åˆ†ï¼š1ã€æˆå‘˜å˜é‡ï¼š
+     *                              ç±»å˜é‡ï¼šlinking çš„prepareé˜¶æ®µç»™äº†ç±»å˜é‡é»˜è®¤èµ‹å€¼ -->initialé˜¶æ®µï¼Œç»™ç±»å˜é‡æ˜¾å¼èµ‹å€¼ï¼Œè°ƒæ„é€ æ–¹æ³•
+     *                              å®ä¾‹å˜é‡ï¼šéšç€å¯¹è±¡çš„åˆ›å»ºï¼Œä¼šåœ¨å †ç©ºé—´ä¸­åˆ†é…å®ä¾‹å˜é‡ç©ºé—´ï¼Œå¹¶è¿›è¡Œé»˜è®¤èµ‹å€¼
+     *                           2ã€å±€éƒ¨å˜é‡
      */
     public void testTemp(){
         int num;
-        //´íÎóĞÅÏ¢£º±äÁ¿numÎ´³õÊ¼»¯ Variable 'num' might not have been initialized
+        //é”™è¯¯ä¿¡æ¯ï¼šå˜é‡numæœªåˆå§‹åŒ– Variable 'num' might not have been initialized
         // System.out.println(num);
     }
 }

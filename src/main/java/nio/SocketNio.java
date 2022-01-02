@@ -16,9 +16,9 @@ import java.util.concurrent.TimeUnit;
 public class SocketNio {
     /**
      * NIO
-     * ÓÅÊÆ£º¹æ±Ü¶àÏß³ÌÎÊÌâ C10k
-     * ±×¶Ë£º¼ÙÉè1w¸öÁ¬½Ó Ö»ÓĞÒ»¸öÁ¬½Ó·¢ËÍÊı¾İ£¬Ã¿Ñ­»·Ò»´Î£¬±ØĞëÏòÄÚºË·¢ËÍ1w´ÎÏµÍ³µ÷ÓÃ£¬ÓĞ999´ÎÊÇÎŞÒâÒåµÄ£¬ÀË·ÑµÄ£¬ÏûºÄÊ±¼äºÍ×ÊÔ´
-     * ÓÃ»§¿Ø¼şÏòÄÚºË¿Õ¼äµÄÑ­»·±éÀú£¬¸´ÔÓ¶ÈÔÚÏµÍ³µ÷ÓÃÉÏ
+     * ä¼˜åŠ¿ï¼šè§„é¿å¤šçº¿ç¨‹é—®é¢˜ C10k
+     * å¼Šç«¯ï¼šå‡è®¾1wä¸ªè¿æ¥ åªæœ‰ä¸€ä¸ªè¿æ¥å‘é€æ•°æ®ï¼Œæ¯å¾ªç¯ä¸€æ¬¡ï¼Œå¿…é¡»å‘å†…æ ¸å‘é€1wæ¬¡ç³»ç»Ÿè°ƒç”¨ï¼Œæœ‰999æ¬¡æ˜¯æ— æ„ä¹‰çš„ï¼Œæµªè´¹çš„ï¼Œæ¶ˆè€—æ—¶é—´å’Œèµ„æº
+     * ç”¨æˆ·æ§ä»¶å‘å†…æ ¸ç©ºé—´çš„å¾ªç¯éå†ï¼Œå¤æ‚åº¦åœ¨ç³»ç»Ÿè°ƒç”¨ä¸Š
      */
     public static void main(String[] args) throws IOException, InterruptedException {
         List<SocketChannel> clients = new LinkedList<>();
@@ -31,17 +31,17 @@ public class SocketNio {
             if (client == null) {
                 System.out.println("null......");
             } else {
-                //·Ç×èÈûÖ®ºó ¶¼»áÓĞ¿Í»§¶Ë£¬Çø±ğÔÚÓÚÓĞÎŞÊı¾İ
+                //éé˜»å¡ä¹‹å éƒ½ä¼šæœ‰å®¢æˆ·ç«¯ï¼ŒåŒºåˆ«åœ¨äºæœ‰æ— æ•°æ®
                 client.configureBlocking(false);
                 int port = client.socket().getPort();
                 System.out.println("client...port: " + port);
                 clients.add(client);
             }
             ByteBuffer buffer = ByteBuffer.allocateDirect(4096);
-            //´«1w¸ö¿Í»§¶Ë¸øÏµÍ³µ÷ÓÃ£¬ÏµÍ³µ÷ÓÃ·µ»ØÆäÖĞÓĞÊı¾İµÄÒ»¸ö¿Í»§¶Ë£¬Ö®ºóÖ»½øĞĞÒ»´ÎÏµÍ³µ÷ÓÃ -->¶àÂ·¸´ÓÃÆ÷
+            //ä¼ 1wä¸ªå®¢æˆ·ç«¯ç»™ç³»ç»Ÿè°ƒç”¨ï¼Œç³»ç»Ÿè°ƒç”¨è¿”å›å…¶ä¸­æœ‰æ•°æ®çš„ä¸€ä¸ªå®¢æˆ·ç«¯ï¼Œä¹‹ååªè¿›è¡Œä¸€æ¬¡ç³»ç»Ÿè°ƒç”¨ -->å¤šè·¯å¤ç”¨å™¨
             for (SocketChannel c : clients) {
                 int num = c.read(buffer);
-                //-1 0 1 ×èÈû
+                //-1 0 1 é˜»å¡
                 if (num > 0) {
                     buffer.flip();
                     byte[] aaa = new byte[buffer.limit()];
