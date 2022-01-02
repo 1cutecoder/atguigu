@@ -23,7 +23,6 @@ public class TestFileChannelTransferTo {
             for (long left = size; left > 0; ) {
                 System.out.println("position:" + (size - left) + " left:" + left);
                 left -= from.transferTo((size - left), left, to);
-
             }
         } catch (IOException e) {
             closeResouece(from);
