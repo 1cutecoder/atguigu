@@ -8,7 +8,7 @@ import static netty.c1.ByteBufferUtil.debugAll;
  * 类描述
  *
  * @author zcl
- * @Description TODO
+ * @Description 处理粘包半包
  * @Date 2022/1/2 15:07
  */
 public class TestByteBufferExam {
