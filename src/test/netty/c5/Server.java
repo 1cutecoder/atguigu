@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import static netty.c1.ByteBufferUtil.debugAll;
 import static netty.c1.ByteBufferUtil.debugRead;
 
 /**
@@ -21,7 +22,6 @@ import static netty.c1.ByteBufferUtil.debugRead;
 @Slf4j
 public class Server {
     public static void main(String[] args) {
-        ByteBuffer buffer = ByteBuffer.allocate(1 << 4);
         ServerSocketChannel ssc = null;
         Selector selector = null;
         try {
@@ -45,20 +45,26 @@ public class Server {
                         ServerSocketChannel channel = (ServerSocketChannel) key.channel();
                         SocketChannel sc = channel.accept();
                         sc.configureBlocking(false);
-                        SelectionKey scKey = sc.register(selector, 0, null);
+                        ByteBuffer buffer = ByteBuffer.allocate(6);
+                        SelectionKey scKey = sc.register(selector, 0, buffer);
                         scKey.interestOps(SelectionKey.OP_READ);
                         log.info("{}", sc);
                         log.info("scKey{}", scKey);
                     } else if (key.isReadable()) {
                         try {
                             SocketChannel channel = (SocketChannel) key.channel();
+                            ByteBuffer buffer = (ByteBuffer) key.attachment();
                             int read = channel.read(buffer);
                             if (read == -1) {
-                               key.cancel();
+                                key.cancel();
                             } else {
-                                buffer.flip();
-                                debugRead(buffer);
-                                buffer.clear();
+                                split(buffer);
+                                if (buffer.position() == buffer.limit()) {
+                                    ByteBuffer newBuffer = ByteBuffer.allocate(buffer.capacity() * 3);
+                                    buffer.flip();
+                                    newBuffer.put(buffer);
+                                    key.attach(newBuffer);
+                                }
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -74,6 +80,21 @@ public class Server {
             closeResource(ssc);
         }
 
+    }
+
+    private static void split(ByteBuffer source) {
+        source.flip();
+        for (int i = 0; i < source.limit(); i++) {
+            if (source.get(i) == '\n') {
+                int length = i - source.position() + 1;
+                ByteBuffer target = ByteBuffer.allocate(length);
+                for (int j = 0; j < length; j++) {
+                    target.put(source.get());
+                }
+                debugAll(target);
+            }
+        }
+        source.compact();
     }
 
 
