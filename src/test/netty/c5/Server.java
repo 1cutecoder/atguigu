@@ -39,13 +39,15 @@ public class Server {
                 while (iterator.hasNext()) {
                     SelectionKey key = iterator.next();
                     log.info("key:{}", key);
+                    iterator.remove();
                     if (key.isAcceptable()) {
                         ServerSocketChannel channel = (ServerSocketChannel) key.channel();
                         SocketChannel sc = channel.accept();
                         sc.configureBlocking(false);
-                        SelectionKey sckey = sc.register(selector, 0, null);
-                        sckey.interestOps(SelectionKey.OP_READ);
+                        SelectionKey scKey = sc.register(selector, 0, null);
+                        scKey.interestOps(SelectionKey.OP_READ);
                         log.info("{}", sc);
+                        log.info("scKey{}", scKey);
                     } else if (key.isReadable()) {
                         SocketChannel channel = (SocketChannel) key.channel();
                         channel.read(buffer);
