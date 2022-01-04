@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -49,10 +50,20 @@ public class Server {
                         log.info("{}", sc);
                         log.info("scKey{}", scKey);
                     } else if (key.isReadable()) {
-                        SocketChannel channel = (SocketChannel) key.channel();
-                        channel.read(buffer);
-                        buffer.flip();
-                        debugRead(buffer);
+                        try {
+                            SocketChannel channel = (SocketChannel) key.channel();
+                            int read = channel.read(buffer);
+                            if (read == -1) {
+                               key.cancel();
+                            } else {
+                                buffer.flip();
+                                debugRead(buffer);
+                                buffer.clear();
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            key.cancel();
+                        }
                     }
                 }
             }
