@@ -1,4 +1,4 @@
-package netty.c5;
+package netty.test;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -62,7 +62,21 @@ public class WriteServer {
                 }
             }
         } catch (IOException e) {
+            closeResource(ssc);
             e.printStackTrace();
+        } finally {
+            closeResource(ssc);
         }
+    }
+
+    public static void closeResource(ServerSocketChannel ssc) {
+        if (ssc != null) {
+            try {
+                ssc.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }

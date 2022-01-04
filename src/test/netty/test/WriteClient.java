@@ -1,4 +1,4 @@
-package netty.c5;
+package netty.test;
 
 import lombok.extern.slf4j.Slf4j;
 

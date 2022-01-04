@@ -1,4 +1,4 @@
-package netty.c5;
+package netty.test;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -6,14 +6,10 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import static netty.c1.ByteBufferUtil.debugAll;
-import static netty.c1.ByteBufferUtil.debugRead;
 
 /**
  * @author zcl
