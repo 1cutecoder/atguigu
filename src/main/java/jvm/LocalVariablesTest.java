@@ -40,7 +40,7 @@ public class LocalVariablesTest {
         date = null;
         name1 = "songhongkang";
         double weight = 120.5;
-        char gender = '男';
+        char gender ='M';
         return date + name1;
     }
 
