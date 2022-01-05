@@ -15,11 +15,11 @@ public class TestSocket {
     public static void main(String[] args) throws IOException {
         /**
          * socket==>3  -> bind(3,8090) -->listen(3)
-         * while(true) accept(3,=5 ×èÈû
-         * BIO Ò»¸öÏß³Ì¶ÔÓ¦Ò»¸öÁ¬½Ó
-         * ÓÅÊÆ£º¿ÉÒÔ½ÓÊÕºÜ¶àÁ¬½Ó
-         * ÁÓÊÆ£ºÏß³ÌÄÚ´æÀË·Ñ cpuµ÷¶ÈÏûºÄ
-         * ¸ùÔ´£ºBlocking ×èÈû accept recv
+         * while(true) accept(3,=5 é˜»å¡
+         * BIO ä¸€ä¸ªçº¿ç¨‹å¯¹åº”ä¸€ä¸ªè¿æ¥
+         * ä¼˜åŠ¿ï¼šå¯ä»¥æ¥æ”¶å¾ˆå¤šè¿æ¥
+         * åŠ£åŠ¿ï¼šçº¿ç¨‹å†…å­˜æµªè´¹ cpuè°ƒåº¦æ¶ˆè€—
+         * æ ¹æºï¼šBlocking é˜»å¡ accept recv
          */
         ServerSocket server = new ServerSocket(8090);
         System.out.println("step1: new ServerSocket(8090) ");

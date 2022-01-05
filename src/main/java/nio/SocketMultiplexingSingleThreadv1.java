@@ -32,7 +32,7 @@ public class SocketMultiplexingSingleThreadv1 {
 
     public void start() {
         initServer();
-        System.out.println("·şÎñÆ÷Æô¶¯ÁË");
+        System.out.println("æœåŠ¡å™¨å¯åŠ¨äº†");
         try {
             while (true) {
                 Set<SelectionKey> keys = selector.keys();
@@ -40,7 +40,7 @@ public class SocketMultiplexingSingleThreadv1 {
                 while (selector.select(500) > 0) {
                     Set<SelectionKey> selectionKeys = selector.selectedKeys();
                     Iterator<SelectionKey> iter = selectionKeys.iterator();
-                    //±éÀúÃ¿Ò»¸öIO
+                    //éå†æ¯ä¸€ä¸ªIO
                     while (iter.hasNext()) {
                         SelectionKey key = iter.next();
                         iter.remove();
@@ -70,12 +70,16 @@ public class SocketMultiplexingSingleThreadv1 {
             ByteBuffer buffer = ByteBuffer.allocate(8192);
             client.register(selector,SelectionKey.OP_READ,buffer);
             System.out.println("----------------------------------");
-            System.out.println("ĞÂ¿Í»§¶Ë£º" + client.getRemoteAddress());
+            System.out.println("æ–°å®¢æˆ·ç«¯ï¼š" + client.getRemoteAddress());
             System.out.println("----------------------------------");
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public static void main(String[] args) {
 
     }
 }
