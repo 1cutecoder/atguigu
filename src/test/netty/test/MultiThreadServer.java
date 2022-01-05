@@ -8,6 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static netty.c1.ByteBufferUtil.debugAll;
 
@@ -27,7 +28,11 @@ public class MultiThreadServer {
             Selector boss = Selector.open();
             SelectionKey bossKey = ssc.register(boss, 0, null);
             bossKey.interestOps(SelectionKey.OP_ACCEPT);
-            Worker worker = new Worker("worker-0");
+            Worker[] workers = new Worker[Runtime.getRuntime().availableProcessors()];
+            for (int i = 0; i < workers.length; i++) {
+               workers[i] = new Worker("worker-" + i);
+            }
+            AtomicInteger index = new AtomicInteger();
             while (true) {
                 boss.select();
                 Iterator<SelectionKey> iterator = boss.selectedKeys().iterator();
@@ -39,7 +44,7 @@ public class MultiThreadServer {
                         sc.configureBlocking(false);
                         log.info("connected...{}", sc.getRemoteAddress());
                         log.info("before register...{}", sc.getRemoteAddress());
-                        worker.register(sc);
+                        workers[index.getAndIncrement() % workers.length].register(sc);
                         log.info("after register...{}", sc.getRemoteAddress());
                     }
                 }
