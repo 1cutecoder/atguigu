@@ -30,7 +30,6 @@ public class MultiThreadServer {
             SelectionKey bossKey = ssc.register(boss, 0, null);
             bossKey.interestOps(SelectionKey.OP_ACCEPT);
             Worker worker = new Worker("worker-0");
-            worker.register();
             while (true) {
                 boss.select();
                 Iterator<SelectionKey> iterator = boss.selectedKeys().iterator();
@@ -40,8 +39,11 @@ public class MultiThreadServer {
                     if (key.isAcceptable()) {
                         SocketChannel sc = ssc.accept();
                         sc.configureBlocking(false);
-                        sc.register(worker.selector,SelectionKey.OP_READ);
-                        log.info("connected...{}",sc.getRemoteAddress());
+                        log.info("connected...{}", sc.getRemoteAddress());
+                        log.info("before register...{}", sc.getRemoteAddress());
+                        worker.register();
+                        sc.register(worker.selector, SelectionKey.OP_READ, null);
+                        log.info("after register...{}", sc.getRemoteAddress());
                     }
                 }
             }
@@ -79,18 +81,16 @@ public class MultiThreadServer {
             if (!start) {
                 synchronized (this) {
                     if (!start) {
-                        thread = new Thread(this, name);
-                        thread.start();
                         try {
                             selector = Selector.open();
+                            thread = new Thread(this, name);
+                            thread.start();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         start = true;
                     }
-
                 }
-
             }
         }
 
@@ -106,7 +106,11 @@ public class MultiThreadServer {
                         if (key.isReadable()) {
                             ByteBuffer buffer = ByteBuffer.allocate(16);
                             SocketChannel sc = (SocketChannel) key.channel();
-                            sc.read(buffer);
+                            log.info("read...{}",sc.getRemoteAddress());
+                            int read = sc.read(buffer);
+                            if (read == -1) {
+                                key.cancel();
+                            }
                             buffer.flip();
                             debugAll(buffer);
                         }
