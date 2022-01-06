@@ -2,6 +2,7 @@ package netty.c3;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -13,7 +14,7 @@ import io.netty.handler.codec.string.StringEncoder;
  */
 public class EventLoopClient {
     public static void main(String[] args) throws InterruptedException {
-        Channel channel = new Bootstrap()
+        ChannelFuture channelFuture = new Bootstrap()
                 .group(new NioEventLoopGroup())
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<NioSocketChannel>() {
@@ -22,10 +23,11 @@ public class EventLoopClient {
                         ch.pipeline().addLast(new StringEncoder());
                     }
                 })
-                .connect("localhost", 8080)
-                .sync()
-                .channel();
-        System.out.println(channel);
+                .connect("localhost", 8080);
+      channelFuture.sync();
+      channelFuture.channel();
+        Channel channel = channelFuture.channel();
+        channel.writeAndFlush("hello,world");
         System.out.println("");
     }
 }
