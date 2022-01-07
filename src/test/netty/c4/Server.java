@@ -29,18 +29,18 @@ public class Server {
             while (true) {
                 SocketChannel sc = ssc.accept();
                 if (sc != null) {
-                    log.info("connected...{}",sc);
+                    log.debug("connected...{}",sc);
                     sc.configureBlocking(false);
                     channels.add(sc);
                 }
                 for (SocketChannel channel : channels) {
                     int read = channel.read(buffer);
                     if (read > 0) {
-                        log.info("before read...{}",channel);
+                        log.debug("before read...{}",channel);
                         buffer.flip();
                         debugRead(buffer);
                         buffer.clear();
-                        log.info("after read...{}",channel);
+                        log.debug("after read...{}",channel);
                     }
                 }
             }

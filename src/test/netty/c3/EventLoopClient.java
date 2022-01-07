@@ -8,7 +8,10 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
+import java.util.Scanner;
 
 /**
  * @author zcl
@@ -17,30 +20,47 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EventLoopClient {
     public static void main(String[] args) throws InterruptedException {
+        NioEventLoopGroup group = new NioEventLoopGroup();
         ChannelFuture channelFuture = new Bootstrap()
-                .group(new NioEventLoopGroup())
+                .group(group)
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
+                        ch.pipeline().addLast(new LoggingHandler(LogLevel.DEBUG));
                         ch.pipeline().addLast(new StringEncoder());
                     }
                 })
                 .connect("localhost", 8080);
-        //1¡¢Ê¹ÓÃsync ·½·¨´¦ÀíÍ¬²½½á¹û
-        /**channelFuture.sync();
-         channelFuture.channel();
-         Channel channel = channelFuture.channel();
-         channel.writeAndFlush("hello,world");*/
-        //2¡¢Ê¹ÓÃaddListener(»Øµ÷¶ÔÏó) ·½·¨Òì²½´¦Àí½á¹û
-        channelFuture.addListener(new ChannelFutureListener() {
+        channelFuture.sync();
+        Channel channel = channelFuture.channel();
+        log.debug("{}",channel);
+        channel.writeAndFlush("hello,world");
+        new Thread(() -> {
+            Scanner scanner = new Scanner(System.in);
+            while (true) {
+                String line = scanner.nextLine();
+                if ("q".equals(line)) {
+                    channel.close();
+                    break;
+                }
+                channel.writeAndFlush(line);
+            }
+        }, "input").start();
+        /*channelFuture.addListener(new ChannelFutureListener() {
+            //è¿æ¥å»ºç«‹åè¢«è°ƒç”¨
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
                 Channel channel = channelFuture.channel();
-                log.info("{}", channel);
+                log.debug("{}", channel);
                 channel.writeAndFlush("hello,world");
             }
-        });
+        });*/
         System.out.println("");
+        //1ã€åŒæ­¥å¤„ç†å…³é—­ 2ã€å¼‚æ­¥å¤„ç†å…³é—­
+        ChannelFuture closeFuture = channel.closeFuture();
+        closeFuture.sync();
+        log.debug("å¤„ç†å…³é—­ä¹‹åçš„æ“ä½œ");
+        group.shutdownGracefully();
     }
 }

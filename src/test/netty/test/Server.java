@@ -27,15 +27,15 @@ public class Server {
             selector = Selector.open();
             SelectionKey sscKey = ssc.register(selector, 0, null);
             sscKey.interestOps(SelectionKey.OP_ACCEPT);
-            log.info("register key:{}", sscKey);
+            log.debug("register key:{}", sscKey);
             while (true) {
                 selector.select();
-                //°üº¬ÁËËùÓÐ·¢ÉúµÄÊÂ¼þ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
                 Iterator<SelectionKey> iterator = selectionKeys.iterator();
                 while (iterator.hasNext()) {
                     SelectionKey key = iterator.next();
-                    log.info("key:{}", key);
+                    log.debug("key:{}", key);
                     iterator.remove();
                     if (key.isAcceptable()) {
                         ServerSocketChannel channel = (ServerSocketChannel) key.channel();
@@ -44,8 +44,8 @@ public class Server {
                         ByteBuffer buffer = ByteBuffer.allocate(6);
                         SelectionKey scKey = sc.register(selector, 0, buffer);
                         scKey.interestOps(SelectionKey.OP_READ);
-                        log.info("{}", sc);
-                        log.info("scKey{}", scKey);
+                        log.debug("{}", sc);
+                        log.debug("scKey{}", scKey);
                     } else if (key.isReadable()) {
                         try {
                             SocketChannel channel = (SocketChannel) key.channel();

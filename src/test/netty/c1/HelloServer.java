@@ -16,7 +16,6 @@ import io.netty.handler.codec.string.StringDecoder;
  */
 public class HelloServer {
     public static void main(String[] args) {
-        //启动器 负责组装netty组件
         new ServerBootstrap()
                 .group(new NioEventLoopGroup())
                 .channel(NioServerSocketChannel.class)

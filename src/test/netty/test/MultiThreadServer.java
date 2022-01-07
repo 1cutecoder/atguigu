@@ -42,10 +42,10 @@ public class MultiThreadServer {
                     if (key.isAcceptable()) {
                         SocketChannel sc = ssc.accept();
                         sc.configureBlocking(false);
-                        log.info("connected...{}", sc.getRemoteAddress());
-                        log.info("before register...{}", sc.getRemoteAddress());
+                        log.debug("connected...{}", sc.getRemoteAddress());
+                        log.debug("before register...{}", sc.getRemoteAddress());
                         workers[index.getAndIncrement() % workers.length].register(sc);
-                        log.info("after register...{}", sc.getRemoteAddress());
+                        log.debug("after register...{}", sc.getRemoteAddress());
                     }
                 }
             }
@@ -122,7 +122,7 @@ public class MultiThreadServer {
                         if (key.isReadable()) {
                             ByteBuffer buffer = ByteBuffer.allocate(16);
                             SocketChannel sc = (SocketChannel) key.channel();
-                            log.info("read...{}", sc.getRemoteAddress());
+                            log.debug("read...{}", sc.getRemoteAddress());
                             int read = sc.read(buffer);
                             if (read == -1) {
                                 key.cancel();

@@ -22,7 +22,7 @@ public class TestByteBuffer {
             ByteBuffer buffer = ByteBuffer.allocate(10);
             while (true) {
                 int len = channel.read(buffer);
-                log.info("读到的字节数:" + len);
+                log.debug("读到的字节数:" + len);
                 if (len == -1) {
                     break;
                 }

@@ -21,15 +21,15 @@ public class TestEventLoop {
         System.out.println(group.next());
         System.out.println(group.next());
         System.out.println("submit---------------------------------------------------------------------------------------------------------------");
-        //3.Ö´ÐÐÆÕÍ¨ÈÎÎñ
-       /* log.info("main");
+        //3.Ö´ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½
+       /* log.debug("main");
         group.next().execute(() ->{
             try {TimeUnit.SECONDS.sleep(1);} catch (InterruptedException e) {e.printStackTrace();}
-           log.info("ok");
+           log.debug("ok");
         });*/
-        //4.Ö´ÐÐ¶¨Ê±ÈÎÎñ
+        //4.Ö´ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
         group.next().scheduleAtFixedRate(()->{
-            log.info("ok");
+            log.debug("ok");
         },0,1,TimeUnit.SECONDS);
     }
 }

@@ -22,7 +22,7 @@ public class EventLoopServer {
     public static void main(String[] args) {
         DefaultEventLoopGroup group = new DefaultEventLoopGroup();
         new ServerBootstrap()
-                //Ï¸·Ö1£ºbossÖ»¸ºÔðServerSocketChannelÉÏacceptÊÂ¼þ workerÖ»¸ºÔðSocketChannelÉÏµÄ¶ÁÐ´
+                //Ï¸ï¿½ï¿½1ï¿½ï¿½bossÖ»ï¿½ï¿½ï¿½ï¿½ServerSocketChannelï¿½ï¿½acceptï¿½Â¼ï¿½ workerÖ»ï¿½ï¿½ï¿½ï¿½SocketChannelï¿½ÏµÄ¶ï¿½Ð´
                 .group(new NioEventLoopGroup(),new NioEventLoopGroup(2))
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
@@ -32,14 +32,14 @@ public class EventLoopServer {
                             @Override
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                 ByteBuf buf = (ByteBuf) msg;
-                                log.info(buf.toString(Charset.defaultCharset()));
+                                log.debug(buf.toString(Charset.defaultCharset()));
                                 ctx.fireChannelRead(msg);
                             }
                         }).addLast(group,"handler2",new ChannelInboundHandlerAdapter() {
                             @Override
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                 ByteBuf buf = (ByteBuf) msg;
-                                log.info(buf.toString(Charset.defaultCharset()));
+                                log.debug(buf.toString(Charset.defaultCharset()));
                             }
                         });
                     };

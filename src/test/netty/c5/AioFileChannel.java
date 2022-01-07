@@ -23,12 +23,12 @@ public class AioFileChannel {
         try {
             channel = AsynchronousFileChannel.open(Paths.get("src/data.txt"), StandardOpenOption.READ);
             ByteBuffer buffer = ByteBuffer.allocate(16);
-            log.info("read begin...");
+            log.debug("read begin...");
             channel.read(buffer, 0, buffer, new CompletionHandler<Integer, ByteBuffer>() {
                 @Override
                 public void completed(Integer result, ByteBuffer attachment) {
                     attachment.flip();
-                    log.info("read completed...");
+                    log.debug("read completed...");
                     debugAll(attachment);
                 }
 
@@ -38,7 +38,7 @@ public class AioFileChannel {
                 }
             });
             try {TimeUnit.SECONDS.sleep(5);} catch (InterruptedException e) {e.printStackTrace();}
-            log.info("read end...");
+            log.debug("read end...");
         } catch (IOException e) {
             closeResource(channel);
             e.printStackTrace();
