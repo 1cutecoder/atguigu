@@ -1,4 +1,4 @@
-package designpattern.prototype.v4.v2;
+package designpattern.prototype.v4;
 
 
 /**
