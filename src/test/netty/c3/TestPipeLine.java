@@ -19,9 +19,9 @@ public class TestPipeLine {
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
-                    protected void initChannel(NioSocketChannel ch) throws Exception {
+                    protected void initChannel(final NioSocketChannel ch) throws Exception {
                         ChannelPipeline pipeline = ch.pipeline();
-                        //添加处理器 head-->h1->h2-->h3-->4-->5-->6-->tail 双向链表
+                        //添加处理器 head-->h1->h2-->h3-->h4-->h5-->h6-->tail 双向链表
                         pipeline.addLast("h1",new ChannelInboundHandlerAdapter() {
                             @Override
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -36,14 +36,6 @@ public class TestPipeLine {
                                 super.channelRead(ctx, msg);
                             }
                         });
-                        pipeline.addLast("h3",new ChannelInboundHandlerAdapter() {
-                            @Override
-                            public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-                                log.debug("3");
-                                super.channelRead(ctx, msg);
-                                ch.writeAndFlush(ctx.alloc().buffer().writeBytes("server..".getBytes()));
-                            }
-                        });
                         pipeline.addLast("h4",new ChannelOutboundHandlerAdapter() {
                             @Override
                             public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
@@ -51,6 +43,18 @@ public class TestPipeLine {
                                 super.write(ctx, msg, promise);
                             }
                         });
+                        pipeline.addLast("h3",new ChannelInboundHandlerAdapter() {
+                            @Override
+                            public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+                                log.debug("3");
+                                super.channelRead(ctx, msg);
+                                //从tail往head找
+                                //ch.writeAndFlush(ctx.alloc().buffer().writeBytes("server..".getBytes()));
+                                //添加处理器 head-->h1->h2-->h4-->h3-->h5-->h6-->tail 双向链表 从h3往head找
+                                ctx.writeAndFlush(ctx.alloc().buffer().writeBytes("server..".getBytes()));
+                            }
+                        });
+
                         pipeline.addLast("h5",new ChannelOutboundHandlerAdapter() {
                             @Override
                             public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
