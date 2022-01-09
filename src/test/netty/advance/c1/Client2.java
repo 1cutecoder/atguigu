@@ -19,7 +19,7 @@ import java.util.Random;
  * 类描述
  *
  * @author zcl
- * @Description TODO
+ * @Description 定长解码器
  * @Date 2022/1/9 13:14
  */
 @Slf4j

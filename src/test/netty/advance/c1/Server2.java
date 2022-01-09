@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
  * 类描述
  *
  * @author zcl
- * @Description TODO
+ * @Description 定长解码器解决粘包半包问题，浪费空间
  * @Date 2022/1/9 12:43
  */
 @Slf4j
