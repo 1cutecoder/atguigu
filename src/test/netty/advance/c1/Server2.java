@@ -1,15 +1,17 @@
-package netty.advance;
+package netty.advance.c1;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.*;
+import io.netty.channel.AdaptiveRecvByteBufAllocator;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
+import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
-
-import java.nio.charset.Charset;
 
 /**
  * 类描述
@@ -19,7 +21,7 @@ import java.nio.charset.Charset;
  * @Date 2022/1/9 12:43
  */
 @Slf4j
-public class HelloWorldServer {
+public class Server2 {
     public static void main(String[] args) throws InterruptedException {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         //调整系统的接收缓冲器(滑动窗口)
@@ -32,7 +34,8 @@ public class HelloWorldServer {
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new LoggingHandler());
+                        ch.pipeline().addLast(new FixedLengthFrameDecoder(10));
+                        ch.pipeline().addLast(new LoggingHandler(LogLevel.DEBUG));
                     }
                 })
                 .bind(8080);
