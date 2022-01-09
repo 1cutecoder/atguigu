@@ -22,7 +22,7 @@ import java.nio.charset.Charset;
 public class HelloWorldServer {
     public static void main(String[] args) throws InterruptedException {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
-        serverBootstrap.option(ChannelOption.SO_RCVBUF,10);
+ //       serverBootstrap.option(ChannelOption.SO_RCVBUF,10); 接受缓冲区设小一些
         ChannelFuture future = serverBootstrap
                 .group(new NioEventLoopGroup())
                 .channel(NioServerSocketChannel.class)

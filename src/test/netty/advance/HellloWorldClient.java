@@ -24,29 +24,40 @@ import java.util.Scanner;
  */
 @Slf4j
 public class HellloWorldClient {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
+        for (int i = 0; i < 10; i++) {
+            send();
+        }
+        System.out.println("finish");
+    }
+
+    private static void send() {
         NioEventLoopGroup group = new NioEventLoopGroup();
-        Channel channel = new Bootstrap()
-                .group(group)
-                .channel(NioSocketChannel.class)
-                .handler(new ChannelInitializer<NioSocketChannel>() {
-                    @Override
-                    protected void initChannel(NioSocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
-                            @Override
-                            public void channelActive(ChannelHandlerContext ctx) throws Exception {
-                                for (int i = 0; i < 10; i++) {
-                                    ByteBuf buf = ctx.alloc().buffer();
-                                    buf.writeBytes(new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 31, 32, 33, 34, 35, 36});
-                                    ctx.writeAndFlush(buf);
+        Channel channel = null;
+        try {
+            channel = new Bootstrap()
+                    .group(group)
+                    .channel(NioSocketChannel.class)
+                    .handler(new ChannelInitializer<NioSocketChannel>() {
+                        @Override
+                        protected void initChannel(NioSocketChannel ch) throws Exception {
+                            ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
+                                @Override
+                                public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                                        ByteBuf buf = ctx.alloc().buffer();
+                                        buf.writeBytes(new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 31, 32, 33, 34, 35, 36});
+                                        ctx.writeAndFlush(buf);
+                                    ctx.channel().close();
                                 }
-                            }
-                        });
-                    }
-                })
-                .connect(new InetSocketAddress(8080))
-                .sync()
-                .channel();
+                            });
+                        }
+                    })
+                    .connect(new InetSocketAddress(8080))
+                    .sync()
+                    .channel();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         channel.closeFuture().addListener(future -> {
             group.shutdownGracefully();
         });
