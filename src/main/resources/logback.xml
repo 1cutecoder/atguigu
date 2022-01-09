@@ -23,9 +23,9 @@
     <logger name="netty" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger name="io.netty.handler.logging.LoggingHandler" level="debug" additivity="false">
+   <!-- <logger name="io.netty.handler.logging.LoggingHandler" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
-    </logger>
+    </logger>-->
     <root level="ERROR">
         <appender-ref ref="STDOUT"/>
     </root>
