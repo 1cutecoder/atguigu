@@ -22,7 +22,6 @@ public class EventLoopServer {
     public static void main(String[] args) {
         DefaultEventLoopGroup group = new DefaultEventLoopGroup();
         new ServerBootstrap()
-                //ϸ��1��bossֻ����ServerSocketChannel��accept�¼� workerֻ����SocketChannel�ϵĶ�д
                 .group(new NioEventLoopGroup(),new NioEventLoopGroup(2))
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
