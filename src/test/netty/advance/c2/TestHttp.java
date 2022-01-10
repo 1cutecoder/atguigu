@@ -5,9 +5,7 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.http.HttpContent;
-import io.netty.handler.codec.http.HttpRequest;
-import io.netty.handler.codec.http.HttpServerCodec;
+import io.netty.handler.codec.http.*;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +33,10 @@ public class TestHttp {
                         @Override
                         protected void channelRead0(ChannelHandlerContext ctx, HttpRequest msg) throws Exception {
                             log.debug("channelRead0 HttpRequest get");
+                            log.debug("uri{}",msg.getUri());
+                            DefaultFullHttpResponse response = new DefaultFullHttpResponse(msg.getProtocolVersion(),HttpResponseStatus.OK);
+                            response.content().writeBytes("<h1>Hello,World!</h1>".getBytes());
+                            ctx.writeAndFlush(response);
                         }
                     });
                     /*ch.pipeline().addLast(new ChannelInboundHandlerAdapter(){
