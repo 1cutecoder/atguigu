@@ -8,7 +8,7 @@ import java.io.*;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        FileInputStream fis = new FileInputStream("d:/test.txt");
+        FileInputStream fis = new FileInputStream("d:/test.properties");
         InputStreamReader isr = new InputStreamReader(fis);
         BufferedReader br = new BufferedReader(isr);
         String s = br.readLine();
