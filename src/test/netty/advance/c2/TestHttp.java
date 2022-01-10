@@ -10,6 +10,8 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
 
+import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_LENGTH;
+
 /**
  * @author zcl
  * @date 2022/1/10 13:57
@@ -35,7 +37,9 @@ public class TestHttp {
                             log.debug("channelRead0 HttpRequest get");
                             log.debug("uri{}",msg.getUri());
                             DefaultFullHttpResponse response = new DefaultFullHttpResponse(msg.getProtocolVersion(),HttpResponseStatus.OK);
-                            response.content().writeBytes("<h1>Hello,World!</h1>".getBytes());
+                            byte[] bytes = "<h1>Hello,World!</h1>".getBytes();
+                            response.headers().set(CONTENT_LENGTH,bytes.length);
+                            response.content().writeBytes(bytes);
                             ctx.writeAndFlush(response);
                         }
                     });
