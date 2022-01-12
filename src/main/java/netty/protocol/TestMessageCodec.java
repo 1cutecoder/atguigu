@@ -19,7 +19,7 @@ public class TestMessageCodec {
                 new ProtocolFrameDecoder(),
                 new LoggingHandler(),
                 new MessageCodec());
-        LoginRequestMessage message = new LoginRequestMessage("zhangsan", "123", "张三");
+        LoginRequestMessage message = new LoginRequestMessage("zhangsan", "123");
         //channel.writeOutbound(message);
         ByteBuf buf = ByteBufAllocator.DEFAULT.buffer();
         new MessageCodec().encode(null,message,buf);

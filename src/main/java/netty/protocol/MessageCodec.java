@@ -18,7 +18,6 @@ import java.util.List;
  * @date 2022/1/10 17:57
  */
 @Slf4j
-@ChannelHandler.Sharable
 public class MessageCodec extends ByteToMessageCodec<Message> {
 
     @Override
