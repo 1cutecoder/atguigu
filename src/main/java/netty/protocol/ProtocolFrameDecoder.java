@@ -1,5 +1,6 @@
 package netty.protocol;
 
+import io.netty.channel.ChannelHandler;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 /**

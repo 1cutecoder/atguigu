@@ -1,6 +1,7 @@
 package netty.server.session;
 
-import java.nio.channels.Channel;
+import io.netty.channel.Channel;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;

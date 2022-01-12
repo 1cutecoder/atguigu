@@ -29,6 +29,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ChatClient {
     public static void main(String[] args) {
         NioEventLoopGroup group = new NioEventLoopGroup();
+        ProtocolFrameDecoder decoder = new ProtocolFrameDecoder();
         LoggingHandler LOOGING_HANDLER = new LoggingHandler();
         try {
             Bootstrap bootstrap = new Bootstrap();
@@ -39,7 +40,7 @@ public class ChatClient {
             bootstrap.handler(new ChannelInitializer<NioSocketChannel>() {
                 @Override
                 protected void initChannel(NioSocketChannel ch) throws Exception {
-                    ch.pipeline().addLast(new ProtocolFrameDecoder());
+                    ch.pipeline().addLast(decoder);
                     ch.pipeline().addLast(LOOGING_HANDLER);
                     ch.pipeline().addLast(new MessageCodec());
                     ch.pipeline().addLast("clientHandler", new ChannelInboundHandlerAdapter() {
@@ -103,7 +104,6 @@ public class ChatClient {
                                     }
                                 }
                             }, "systemIn").start();
-                            super.channelActive(ctx);
                         }
 
                         @Override

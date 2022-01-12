@@ -1,6 +1,6 @@
 package netty.server.session;
 
-import java.nio.channels.Channel;
+import io.netty.channel.Channel;
 
 /**
  * @author zcl
