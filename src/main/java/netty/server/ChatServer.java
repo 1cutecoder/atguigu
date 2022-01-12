@@ -9,6 +9,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
 import netty.protocol.MessageCodec;
+import netty.protocol.MessageCodecSharable;
 import netty.protocol.ProtocolFrameDecoder;
 import netty.server.handler.ChatRequestMessageHandler;
 import netty.server.handler.LoginRequestMessageHandler;
@@ -23,7 +24,7 @@ public class ChatServer {
         NioEventLoopGroup boss = new NioEventLoopGroup();
         NioEventLoopGroup worker = new NioEventLoopGroup();
         LoggingHandler LOOGING_HANDLER = new LoggingHandler();
-        MessageCodec codec = new MessageCodec();
+        MessageCodecSharable codec = new MessageCodecSharable();
         LoginRequestMessageHandler requestMessageHandler = new LoginRequestMessageHandler();
         ChatRequestMessageHandler messageHandler = new ChatRequestMessageHandler();
         try {
