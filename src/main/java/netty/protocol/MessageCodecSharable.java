@@ -4,6 +4,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageCodec;
+import io.netty.handler.codec.MessageToMessageCodec;
 import lombok.extern.slf4j.Slf4j;
 import netty.message.Message;
 
@@ -16,13 +17,16 @@ import java.util.List;
 /**
  * @author zcl
  * @date 2022/1/10 17:57
+ * 必须和LengthFieldBasedFrameDecoder一起使用，确保接受的ByteBuf是完整的
  */
 @Slf4j
 @ChannelHandler.Sharable
-public class MessageCodec extends ByteToMessageCodec<Message> {
+public class MessageCodecSharable extends MessageToMessageCodec<ByteBuf,Message> {
+
 
     @Override
-    protected void encode(ChannelHandlerContext ctx, Message msg, ByteBuf out) throws Exception {
+    protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> outList) throws Exception {
+        ByteBuf out = ctx.alloc().buffer();
         //magic num
         out.writeBytes(new byte[]{1,2,3,4});
         //version
@@ -42,8 +46,6 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         //7.长度
         out.writeInt(bytes.length);
         out.writeBytes(bytes);
-
-
     }
 
     @Override
@@ -64,6 +66,5 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         log.debug("{},{},{},{},{},{}",magicNum,version,serializerAlgorithm,messageType,sequenceId,length);
         log.debug("{}",message);
         out.add(message);
-
     }
 }
