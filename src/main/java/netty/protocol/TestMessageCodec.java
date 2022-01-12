@@ -25,6 +25,9 @@ public class TestMessageCodec {
         new MessageCodec().encode(null,message,buf);
         ByteBuf buf1 = buf.slice(0, 100);
         ByteBuf buf2 = buf.slice(100, buf.readableBytes() - 100);
+        buf1.retain();
+        buf2.retain();
         channel.writeInbound(buf1);
+        channel.writeInbound(buf2);
     }
 }
