@@ -16,7 +16,7 @@ import netty.message.LoginRequestMessage;
 public class TestMessageCodec {
     public static void main(String[] args) throws Exception {
         EmbeddedChannel channel = new EmbeddedChannel(
-                new LengthFieldBasedFrameDecoder(1024,12,4,0,0),
+                new ProtocolFrameDecoder(),
                 new LoggingHandler(),
                 new MessageCodec());
         LoginRequestMessage message = new LoginRequestMessage("zhangsan", "123", "张三");
