@@ -38,11 +38,7 @@ public class MessageCodecSharable extends MessageToMessageCodec<ByteBuf,Message>
         out.writeInt(msg.getSequenceId());
         //对齐用 2的整数倍
         out.writeByte(0xff);
-        ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
-        //6.获取内容的字节数组
-        ObjectOutputStream outputStream = new ObjectOutputStream(arrayOutputStream);
-        outputStream.writeObject(msg);
-        byte[] bytes = arrayOutputStream.toByteArray();
+        byte[] bytes = Serializer.Algorithom.Java.serializer(msg);
         //7.长度
         out.writeInt(bytes.length);
         out.writeBytes(bytes);
@@ -61,8 +57,7 @@ public class MessageCodecSharable extends MessageToMessageCodec<ByteBuf,Message>
         byte[] content = new byte[length];
         in.readBytes(content,0,length); Message message = null;
         if (serializerAlgorithm == 0) {
-            ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(content));
-            message = (Message) ois.readObject();
+            message = Serializer.Algorithom.Java.deSerializer(Message.class, content);
         }
         log.debug("magicNum:{},version:{},serializerAlgorithm:{},messageType:{},sequenceId:{},length:{}",magicNum,version,serializerAlgorithm,messageType,sequenceId,length);
         log.debug("message:{}",message);
