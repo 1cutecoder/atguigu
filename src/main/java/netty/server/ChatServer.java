@@ -12,6 +12,7 @@ import netty.protocol.MessageCodec;
 import netty.protocol.MessageCodecSharable;
 import netty.protocol.ProtocolFrameDecoder;
 import netty.server.handler.ChatRequestMessageHandler;
+import netty.server.handler.GroupCreateRequestMessageHandler;
 import netty.server.handler.LoginRequestMessageHandler;
 
 /**
@@ -27,6 +28,7 @@ public class ChatServer {
         MessageCodecSharable messageCodecSharable = new MessageCodecSharable();
         LoginRequestMessageHandler requestMessageHandler = new LoginRequestMessageHandler();
         ChatRequestMessageHandler messageHandler = new ChatRequestMessageHandler();
+        GroupCreateRequestMessageHandler groupCreateRequestHandler = new GroupCreateRequestMessageHandler();
         try {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(boss, worker);
@@ -39,6 +41,7 @@ public class ChatServer {
                     ch.pipeline().addLast(messageCodecSharable);
                     ch.pipeline().addLast(requestMessageHandler);
                     ch.pipeline().addLast(messageHandler);
+                    ch.pipeline().addLast(groupCreateRequestHandler);
                 }
             });
             ChannelFuture future = serverBootstrap.bind(8080).sync();
