@@ -7,10 +7,12 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
 import netty.message.*;
 import netty.protocol.MessageCodec;
+import netty.protocol.MessageCodecSharable;
 import netty.protocol.ProtocolFrameDecoder;
 
 import java.io.IOException;
@@ -29,8 +31,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ChatClient {
     public static void main(String[] args) {
         NioEventLoopGroup group = new NioEventLoopGroup();
-        ProtocolFrameDecoder decoder = new ProtocolFrameDecoder();
-        LoggingHandler LOOGING_HANDLER = new LoggingHandler();
+        LoggingHandler LOOGING_HANDLER = new LoggingHandler(LogLevel.DEBUG);
+        MessageCodecSharable messageCodecSharable = new MessageCodecSharable();
+        Scanner scanner = new Scanner(System.in);
         try {
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(group);
@@ -40,14 +43,13 @@ public class ChatClient {
             bootstrap.handler(new ChannelInitializer<NioSocketChannel>() {
                 @Override
                 protected void initChannel(NioSocketChannel ch) throws Exception {
-                    ch.pipeline().addLast(decoder);
+                    ch.pipeline().addLast(new ProtocolFrameDecoder());
                     ch.pipeline().addLast(LOOGING_HANDLER);
-                    ch.pipeline().addLast(new MessageCodec());
+                    ch.pipeline().addLast(messageCodecSharable);
                     ch.pipeline().addLast("clientHandler", new ChannelInboundHandlerAdapter() {
                         @Override
                         public void channelActive(ChannelHandlerContext ctx) throws Exception {
                             new Thread(() -> {
-                                Scanner scanner = new Scanner(System.in);
                                 System.out.println("请输入用户名");
                                 String username = scanner.nextLine();
                                 System.out.println("请输入密码");
@@ -113,8 +115,8 @@ public class ChatClient {
                                 if (message.isSuccess()) {
                                     login.set(true);
                                 }
+                                waitForLogin.countDown();
                             }
-                            waitForLogin.countDown();
                         }
                     });
                 }

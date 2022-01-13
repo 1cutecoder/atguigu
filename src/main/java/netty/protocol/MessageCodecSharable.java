@@ -46,6 +46,7 @@ public class MessageCodecSharable extends MessageToMessageCodec<ByteBuf,Message>
         //7.长度
         out.writeInt(bytes.length);
         out.writeBytes(bytes);
+        outList.add(out);
     }
 
     @Override
@@ -63,8 +64,8 @@ public class MessageCodecSharable extends MessageToMessageCodec<ByteBuf,Message>
             ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(content));
             message = (Message) ois.readObject();
         }
-        log.debug("{},{},{},{},{},{}",magicNum,version,serializerAlgorithm,messageType,sequenceId,length);
-        log.debug("{}",message);
+        log.debug("magicNum:{},version:{},serializerAlgorithm:{},messageType:{},sequenceId:{},length:{}",magicNum,version,serializerAlgorithm,messageType,sequenceId,length);
+        log.debug("message:{}",message);
         out.add(message);
     }
 }

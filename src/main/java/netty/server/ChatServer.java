@@ -24,7 +24,7 @@ public class ChatServer {
         NioEventLoopGroup boss = new NioEventLoopGroup();
         NioEventLoopGroup worker = new NioEventLoopGroup();
         LoggingHandler LOOGING_HANDLER = new LoggingHandler();
-        MessageCodecSharable codec = new MessageCodecSharable();
+        MessageCodecSharable messageCodecSharable = new MessageCodecSharable();
         LoginRequestMessageHandler requestMessageHandler = new LoginRequestMessageHandler();
         ChatRequestMessageHandler messageHandler = new ChatRequestMessageHandler();
         try {
@@ -36,7 +36,7 @@ public class ChatServer {
                 protected void initChannel(NioSocketChannel ch) throws Exception {
                     ch.pipeline().addLast(new ProtocolFrameDecoder());
                     ch.pipeline().addLast(LOOGING_HANDLER);
-                    ch.pipeline().addLast(codec);
+                    ch.pipeline().addLast(messageCodecSharable);
                     ch.pipeline().addLast(requestMessageHandler);
                     ch.pipeline().addLast(messageHandler);
                 }
