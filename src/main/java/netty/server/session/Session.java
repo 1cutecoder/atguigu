@@ -16,4 +16,6 @@ public interface Session {
     Object setAttribute(Channel channel, String name, String value);
 
     Channel getChannel(String username);
+
+    String getNameByChannel(Channel channel);
 }

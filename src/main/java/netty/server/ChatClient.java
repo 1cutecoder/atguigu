@@ -120,6 +120,9 @@ public class ChatClient {
                             }
                         }
                     });
+
+
+
                 }
             });
             Channel channel = bootstrap.connect(new InetSocketAddress("localhost", 8080)).sync().channel();
