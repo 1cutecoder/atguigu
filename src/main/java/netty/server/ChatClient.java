@@ -40,6 +40,7 @@ public class ChatClient {
             bootstrap.channel(NioSocketChannel.class);
             CountDownLatch waitForLogin = new CountDownLatch(1);
             AtomicBoolean login = new AtomicBoolean(false);
+            AtomicBoolean exit = new AtomicBoolean(false);
             bootstrap.handler(new ChannelInitializer<NioSocketChannel>() {
                 @Override
                 protected void initChannel(NioSocketChannel ch) throws Exception {
@@ -52,8 +53,14 @@ public class ChatClient {
                             new Thread(() -> {
                                 System.out.println("请输入用户名");
                                 String username = scanner.nextLine();
+                                if(exit.get()){
+                                    return;
+                                }
                                 System.out.println("请输入密码");
                                 String password = scanner.nextLine();
+                                if(exit.get()){
+                                    return;
+                                }
                                 LoginRequestMessage message = new LoginRequestMessage(username, password);
                                 ctx.writeAndFlush(message);
                                 System.out.println("等待后续操作...");
@@ -77,6 +84,9 @@ public class ChatClient {
                                     System.out.println("quit");
                                     System.out.println("==================================");
                                     String command = scanner.nextLine();
+                                    if(exit.get()){
+                                        return;
+                                    }
                                     String[] s = command.split(" ");
                                     switch (CommandType.valueOf(s[0])) {
                                         case send:
@@ -118,6 +128,20 @@ public class ChatClient {
                                 }
                                 waitForLogin.countDown();
                             }
+                        }
+
+                        // 在连接断开时触发
+                        @Override
+                        public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+                            log.debug("连接已经断开，按任意键退出..");
+                            exit.set(true);
+                        }
+
+                        // 在出现异常时触发
+                        @Override
+                        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+                            log.debug("连接已经断开，按任意键退出..{}", cause.getMessage());
+                            exit.set(true);
                         }
                     });
 
