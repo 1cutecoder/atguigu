@@ -41,6 +41,10 @@ public class ChatServer {
             serverBootstrap.childHandler(new ChannelInitializer<NioSocketChannel>() {
                 @Override
                 protected void initChannel(NioSocketChannel ch) throws Exception {
+
+                    ch.pipeline().addLast(new ProtocolFrameDecoder());
+                    ch.pipeline().addLast(LOOGING_HANDLER);
+                    ch.pipeline().addLast(messageCodecSharable);
                     ch.pipeline().addLast(new IdleStateHandler(60,0,0));
                     //入站和出站处理器
                     ch.pipeline().addLast(new ChannelDuplexHandler(){
@@ -52,9 +56,6 @@ public class ChatServer {
                             }
                         }
                     });
-                    ch.pipeline().addLast(new ProtocolFrameDecoder());
-                    ch.pipeline().addLast(LOOGING_HANDLER);
-                    ch.pipeline().addLast(messageCodecSharable);
                     ch.pipeline().addLast(requestMessageHandler);
                     ch.pipeline().addLast(messageHandler);
                     ch.pipeline().addLast(groupCreateRequestHandler);
