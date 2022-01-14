@@ -1,6 +1,7 @@
 package netty.protocol;
 
-import netty.message.Message;
+
+import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.*;
 
@@ -46,7 +47,32 @@ public interface Serializer {
                 }
                 return bytes;
             }
+        },
+        Json{
+
+            @Override
+            public <T> T deSerializer(Class<T> clazz, byte[] bytes) {
+                ObjectMapper mapper = new ObjectMapper();
+                T t = null;
+                try {
+                    t = mapper.readValue(bytes, clazz);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return t;
+            }
+
+            @Override
+            public <T> byte[] serializer(T object) {
+                ObjectMapper mapper = new ObjectMapper();
+                byte[] bytes = new byte[0];
+                try {
+                    bytes = mapper.writeValueAsBytes(object);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return bytes;
+            }
         }
     }
-
 }
