@@ -21,10 +21,16 @@ public class Calculate224a {
                         calculate(num, op);
                         break;
                     case '+':
-                        op.push('+');
+                        if ('(' != newStr.charAt(i + 1)) {
+                            num.push(num.pop() + newStr.charAt(i + 1) - '0');
+                            i++;
+                        }
                         break;
                     case '-':
-                        op.push('-');
+                        if ('(' != newStr.charAt(i + 1)) {
+                            num.push(num.pop() - newStr.charAt(i + 1));
+                            i++;
+                        }
                         break;
                     default:
                         num.push(newStr.charAt(i) - '0');
@@ -32,7 +38,7 @@ public class Calculate224a {
                 }
             }
             if (!op.isEmpty()) {
-                calculate(num,op);
+                calculate(num, op);
             }
             return num.pop();
         }
@@ -61,7 +67,7 @@ public class Calculate224a {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int calculate = solution.calculate(" 2-1 + 2 ");
+        int calculate = solution.calculate("(1+(4+5+2)-3)+(6+8)");
         System.out.println(calculate);
     }
 }
