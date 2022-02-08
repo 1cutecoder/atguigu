@@ -28,4 +28,19 @@ public class GraphGenerator {
         }
         return graph;
     }
+
+    public static void main(String[] args) {
+        Integer[][] integers = new Integer[][]{
+                {0,2,7},
+                {1,2,9},
+                {1,3,1},
+                {2,0,7},
+                {2,1,9},
+                {2,3,11},
+                {3,2,11},
+                {3,1,1}
+        };
+        Graph graph = createGraph(integers);
+        System.out.println(graph);
+    }
 }
