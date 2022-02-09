@@ -34,14 +34,6 @@ public class Code05_Prim {
         }
     }
 
-    public static class EdgeComparator implements Comparator<Edge> {
-
-        @Override
-        public int compare(Edge o1, Edge o2) {
-            return o1.weight - o2.weight;
-        }
-    }
-
     public static Set<Edge> primBST(Graph graph) {
         PriorityQueue<Edge> priorityQueue = new PriorityQueue<>();
         Set<Node> set = new HashSet<>();
