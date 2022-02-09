@@ -9,10 +9,10 @@ import java.util.HashSet;
  */
 public class Graph {
     public HashMap<Integer,Node> nodes;
-    public HashSet<Edge> deges;
+    public HashSet<Edge> edges;
 
     public Graph() {
         this.nodes = new HashMap<Integer, Node>();
-        this.deges = new HashSet();
+        this.edges = new HashSet();
     }
 }

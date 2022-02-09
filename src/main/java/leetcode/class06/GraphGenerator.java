@@ -24,7 +24,7 @@ public class GraphGenerator {
             fromNode.out++;
             toNode.in++;
             fromNode.edges.add(newEdge);
-            graph.deges.add(newEdge);
+            graph.edges.add(newEdge);
         }
         return graph;
     }
