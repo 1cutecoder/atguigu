@@ -21,7 +21,7 @@ public class Code06_Dijkstra {
                 if (!distanceMap.containsKey(toNode)) {
                     distanceMap.put(toNode, distance + edge.weight);
                 }
-                distanceMap.put(edge.to, Math.min(distanceMap.get(toNode), distanceMap.get(minNode) + edge.weight));
+                distanceMap.put(edge.to, Math.min(distanceMap.get(toNode), distance + edge.weight));
             }
             selectedNodes.add(minNode);
             minNode = getMinDistanceAndUnselectedNode(distanceMap, selectedNodes);
