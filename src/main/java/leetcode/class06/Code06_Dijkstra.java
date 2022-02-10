@@ -9,7 +9,7 @@ import java.util.HashSet;
  * 最短路径算法
  */
 public class Code06_Dijkstra {
-    public static HashMap<Node, Integer> dijkstral(Node head) {
+    public static HashMap<Node, Integer> dijkstr1l(Node head) {
         HashMap<Node, Integer> distanceMap = new HashMap<>();
         distanceMap.put(head, 0);
         HashSet<Node> selectedNodes = new HashSet<>();
