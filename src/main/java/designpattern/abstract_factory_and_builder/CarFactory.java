@@ -6,27 +6,31 @@ package designpattern.abstract_factory_and_builder;
  */
 public interface CarFactory {
     /**
-     * ´´½¨ÂÖ×Ó
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     *
      * @return
      */
-    public  Wheel createWheel();
+    public Wheel createWheel();
 
     /**
-     * ´´½¨³µÉí
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     *
      * @return
      */
-    public  BodyWork createBodyWork();
+    public BodyWork createBodyWork();
 
     /**
-     * ´´½¨·¢¶¯»ú
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     *
      * @return
      */
-    public  Engine createEngine();
+    public Engine createEngine();
 
     /**
-     * ´´½¨³µ´°
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     *
      * @return
      */
-    public  Windows createWindows();
+    public Windows createWindows();
 
 }

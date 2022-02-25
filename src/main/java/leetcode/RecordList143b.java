@@ -14,7 +14,7 @@ public class RecordList143b {
             middleNode.next = null;
             ListNode leftList = head;
             ListNode rightList = reverseHead;
-            mergeListNode(leftList,rightList);
+            mergeListNode(leftList, rightList);
         }
 
         private void mergeListNode(ListNode leftList, ListNode rightList) {
@@ -24,7 +24,7 @@ public class RecordList143b {
                 leftNode = leftList.next;
                 rightNode = rightList.next;
                 leftList.next = rightList;
-                leftList =leftNode;
+                leftList = leftNode;
                 rightList.next = leftList;
                 rightList = rightNode;
             }

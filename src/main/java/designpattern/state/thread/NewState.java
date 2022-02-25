@@ -4,7 +4,7 @@ package designpattern.state.thread;
  * @author zcl
  * @date 2021/12/29 11:13
  */
-public class NewState extends ThreadState_{
+public class NewState extends ThreadState_ {
     private Thread_ t;
 
     public NewState(Thread_ t) {

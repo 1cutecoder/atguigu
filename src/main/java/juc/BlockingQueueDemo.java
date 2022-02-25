@@ -10,13 +10,13 @@ import java.util.concurrent.TimeUnit;
 public class BlockingQueueDemo {
     public static void main(String[] args) throws InterruptedException {
         ArrayBlockingQueue<String> blockingQueue = new ArrayBlockingQueue<String>(3);
-        System.out.println(blockingQueue.offer("a",2L, TimeUnit.SECONDS));
-        System.out.println(blockingQueue.offer("a",2L, TimeUnit.SECONDS));
-        System.out.println(blockingQueue.offer("a",2L, TimeUnit.SECONDS));
-        System.out.println(blockingQueue.offer("a",2L, TimeUnit.SECONDS));
-        System.out.println(blockingQueue.poll(2L,TimeUnit.SECONDS));
-        System.out.println(blockingQueue.poll(2L,TimeUnit.SECONDS));
-        System.out.println(blockingQueue.poll(2L,TimeUnit.SECONDS));
-        System.out.println(blockingQueue.poll(2L,TimeUnit.SECONDS));
+        System.out.println(blockingQueue.offer("a", 2L, TimeUnit.SECONDS));
+        System.out.println(blockingQueue.offer("a", 2L, TimeUnit.SECONDS));
+        System.out.println(blockingQueue.offer("a", 2L, TimeUnit.SECONDS));
+        System.out.println(blockingQueue.offer("a", 2L, TimeUnit.SECONDS));
+        System.out.println(blockingQueue.poll(2L, TimeUnit.SECONDS));
+        System.out.println(blockingQueue.poll(2L, TimeUnit.SECONDS));
+        System.out.println(blockingQueue.poll(2L, TimeUnit.SECONDS));
+        System.out.println(blockingQueue.poll(2L, TimeUnit.SECONDS));
     }
 }

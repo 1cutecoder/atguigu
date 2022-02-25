@@ -8,18 +8,20 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/9/3 9:33
  */
 
-public class UseVolatileDemo{
+public class UseVolatileDemo {
     /**
-     * Ê¹ÓÃ:µ±¶ÁÔ¶¶àÓÚÐ´£¬½áºÏÊ¹ÓÃÄÚ²¿ËøºÍ volatile ±äÁ¿À´¼õÉÙÍ¬²½µÄ¿ªÏú
-     * ÀíÓÉ:ÀûÓÃvolatile±£Ö¤¶ÁÈ¡²Ù×÷µÄ¿É¼ûÐÔ;ÀûÓÃsynchronized±£Ö¤¸´ºÏ²Ù×÷µÄÔ­×ÓÐÔ
+     * Ê¹ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ volatile ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½
+     * ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½volatileï¿½ï¿½Ö¤ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿É¼ï¿½ï¿½ï¿½;ï¿½ï¿½ï¿½ï¿½synchronizedï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½
      */
-    public class Counter{
+    public class Counter {
         private volatile int value;
-        public int getValue(){
-            return value;   //ÀûÓÃvolatile±£Ö¤¶ÁÈ¡²Ù×÷µÄ¿É¼ûÐÔ
+
+        public int getValue() {
+            return value;   //ï¿½ï¿½ï¿½ï¿½volatileï¿½ï¿½Ö¤ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿É¼ï¿½ï¿½ï¿½
         }
-        public synchronized int increment(){
-            return value++; //ÀûÓÃsynchronized±£Ö¤¸´ºÏ²Ù×÷µÄÔ­×ÓÐÔ
+
+        public synchronized int increment() {
+            return value++; //ï¿½ï¿½ï¿½ï¿½synchronizedï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½
         }
     }
 }

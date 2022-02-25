@@ -18,9 +18,10 @@ public interface GroupSession {
 
     Group removeGroup(String name);
 
-    Set<String> getMembers (String name);
+    Set<String> getMembers(String name);
+
     /**
-     *  简单写才加这个获取操作
+     * 简单写才加这个获取操作
      */
     List<Channel> getMembersChannel(String name);
 }

@@ -6,17 +6,18 @@ package designpattern.factory.abstract_factory;
  */
 public class Client {
     /**
-     * ³éÏó¹¤³§Ä£Ê½¶àÓÃÓÚÍ¬Ò»ÏµÁÐ£¬Èç¸ü»»Æ¤·ô£¬¶à¸öÍ¼±êÅäÌ×¸Ä±ä
+     * ï¿½ï¿½ï¿½ó¹¤³ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»Ïµï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½×¸Ä±ï¿½
+     *
      * @param args
      */
     public static void main(String[] args) {
         ItalyDessertFactory italyDessertFactory = new ItalyDessertFactory();
-        System.out.println("==============Òâ´óÀû·çÎ¶ÌðÆ·==========");
+        System.out.println("==============ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½Æ·==========");
         Coffee coffee = italyDessertFactory.createCoffee();
         Dessert dessert = italyDessertFactory.createDessert();
         System.out.println(coffee.getName());
         dessert.show();
-        System.out.println("==============ÃÀÊ½·çÎ¶ÌðÆ·==============");
+        System.out.println("==============ï¿½ï¿½Ê½ï¿½ï¿½Î¶ï¿½ï¿½Æ·==============");
         AmericanDessertFactory americanDessertFactory = new AmericanDessertFactory();
         Coffee coffee1 = americanDessertFactory.createCoffee();
         Dessert dessert1 = americanDessertFactory.createDessert();

@@ -11,7 +11,7 @@ public class LevelOrder102 {
         public List<List<Integer>> levelOrder(TreeNode root) {
             Queue<TreeNode> queue = new LinkedList<TreeNode>();
             List<List<Integer>> lists = new ArrayList<>();
-            if(root == null) {
+            if (root == null) {
                 return lists;
             }
             queue.offer(root);

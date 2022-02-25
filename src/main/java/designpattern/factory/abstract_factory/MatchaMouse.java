@@ -4,9 +4,9 @@ package designpattern.factory.abstract_factory;
  * @author zcl
  * @date 2021/12/8 13:57
  */
-public class MatchaMouse extends Dessert{
+public class MatchaMouse extends Dessert {
     @Override
     public void show() {
-        System.out.println("Ĩ��Ľ˹");
+        System.out.println("Ĩ��Ľ˹");
     }
 }

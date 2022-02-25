@@ -16,7 +16,7 @@ public class TestBackLogServer {
     public static void main(String[] args) throws InterruptedException {
         new ServerBootstrap()
                 .group(new NioEventLoopGroup())
-                .option(ChannelOption.TCP_NODELAY,Boolean.TRUE)
+                .option(ChannelOption.TCP_NODELAY, Boolean.TRUE)
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override

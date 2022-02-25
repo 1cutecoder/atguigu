@@ -21,7 +21,7 @@ public class Merge56 {
                 }
             });
             ArrayList<int[]> merged = new ArrayList<>();
-            for (int i = 0; i < intervals.length;++i) {
+            for (int i = 0; i < intervals.length; ++i) {
                 int L = intervals[i][0], R = intervals[i][1];
                 if (merged.size() == 0 || merged.get(merged.size() - 1)[1] < L) {
                     merged.add(new int[]{L, R});
@@ -29,7 +29,7 @@ public class Merge56 {
                     merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], R);
                 }
             }
-            return  merged.toArray(new int[merged.size()][]);
+            return merged.toArray(new int[merged.size()][]);
         }
     }
 }

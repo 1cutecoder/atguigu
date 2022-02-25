@@ -24,7 +24,7 @@ public class RomanToInt13a {
             int length = s.length();
             for (int i = 0; i < length; i++) {
                 Integer value = symbolValues.get(s.charAt(i));
-                if (i < length -1 && value < symbolValues.get(s.charAt(i + 1))) {
+                if (i < length - 1 && value < symbolValues.get(s.charAt(i + 1))) {
                     ans -= value;
                 } else {
                     ans += value;

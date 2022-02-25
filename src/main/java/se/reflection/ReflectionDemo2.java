@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
  * @date 2021/10/8 15:06
  */
 public class ReflectionDemo2 {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Dog dog = new Dog();
         System.out.println("---------------------------------------");
         Class<? extends Dog> aClass = dog.getClass();

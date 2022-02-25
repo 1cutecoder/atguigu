@@ -21,12 +21,13 @@ public class Agent {
         this.company = company;
     }
 
-    //ºÍ·ÛË¿¼ûÃæ
+    //ï¿½Í·ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½
     public void meeting() {
-        System.out.println(star.getName() +"ºÍ·ÛË¿"+fans.getName()+"¼ûÃæ");
+        System.out.println(star.getName() + "ï¿½Í·ï¿½Ë¿" + fans.getName() + "ï¿½ï¿½ï¿½ï¿½");
     }
-    //ºÍÃ½Ìå¹«Ë¾Ç¢Ì¸
-    public void business(){
-        System.out.println(star.getName()+"ºÍ" + company.getName()+"Ç¢Ì¸");
+
+    //ï¿½ï¿½Ã½ï¿½å¹«Ë¾Ç¢Ì¸
+    public void business() {
+        System.out.println(star.getName() + "ï¿½ï¿½" + company.getName() + "Ç¢Ì¸");
     }
 }

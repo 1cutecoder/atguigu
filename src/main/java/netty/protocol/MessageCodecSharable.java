@@ -21,14 +21,14 @@ import java.util.List;
  */
 @Slf4j
 @ChannelHandler.Sharable
-public class MessageCodecSharable extends MessageToMessageCodec<ByteBuf,Message> {
+public class MessageCodecSharable extends MessageToMessageCodec<ByteBuf, Message> {
 
 
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> outList) throws Exception {
         ByteBuf out = ctx.alloc().buffer();
         //magic num
-        out.writeBytes(new byte[]{1,2,3,4});
+        out.writeBytes(new byte[]{1, 2, 3, 4});
         //version
         out.writeByte(1);
         //序列化方式 0 jdk 1 json
@@ -55,12 +55,13 @@ public class MessageCodecSharable extends MessageToMessageCodec<ByteBuf,Message>
         in.readByte();
         int length = in.readInt();
         byte[] content = new byte[length];
-        in.readBytes(content,0,length); Message message = null;
+        in.readBytes(content, 0, length);
+        Message message = null;
         if (serializerAlgorithm == 0) {
             message = Serializer.Algorithm.Java.deSerializer(Message.class, content);
         }
-        log.debug("magicNum:{},version:{},serializerAlgorithm:{},messageType:{},sequenceId:{},length:{}",magicNum,version,serializerAlgorithm,messageType,sequenceId,length);
-        log.debug("message:{}",message);
+        log.debug("magicNum:{},version:{},serializerAlgorithm:{},messageType:{},sequenceId:{},length:{}", magicNum, version, serializerAlgorithm, messageType, sequenceId, length);
+        log.debug("message:{}", message);
         out.add(message);
     }
 }

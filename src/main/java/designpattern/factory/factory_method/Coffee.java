@@ -8,10 +8,11 @@ public abstract class Coffee {
     public abstract String getName();
 
 
-    public void addSugar(){
-        System.out.println("╪слг");
+    public void addSugar() {
+        System.out.println("О©╫О©╫О©╫О©╫");
     }
-    public void addMilk(){
-        System.out.println("╪сдл");
+
+    public void addMilk() {
+        System.out.println("О©╫О©╫О©╫О©╫");
     }
 }

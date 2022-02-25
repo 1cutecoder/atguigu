@@ -4,7 +4,7 @@ package designpattern.adapter.object_adapter;
  * @author zcl
  * @date 2021/12/10 17:40
  */
-public class TFCardImpl implements TFCard{
+public class TFCardImpl implements TFCard {
     @Override
     public String readTF() {
         return "hello TFCard";

@@ -32,9 +32,10 @@ public class Computer {
     public KingstonMemory getMemory() {
         return memory;
     }
-    public void run(){
-        System.out.println("ÔËÐÐ¼ÆËã»ú");
-        System.out.println("´ÓÓ²ÅÌÉÏ»ñÈ¡µÄÊý¾Ý£º" + hardDisk.get());
+
+    public void run() {
+        System.out.println("ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½");
+        System.out.println("ï¿½ï¿½Ó²ï¿½ï¿½ï¿½Ï»ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½" + hardDisk.get());
         cpu.run();
         memory.save();
     }

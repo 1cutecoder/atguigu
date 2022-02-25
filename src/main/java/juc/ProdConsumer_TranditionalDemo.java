@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-class ShareData {//×ÊÔ´Àà
+class ShareData {//ï¿½ï¿½Ô´ï¿½ï¿½
     private int number = 0;
     private Lock lock = new ReentrantLock();
     private Condition condition = lock.newCondition();
@@ -12,32 +12,33 @@ class ShareData {//×ÊÔ´Àà
     public void increment() throws Exception {
         lock.lock();
         try {
-            //1 ÅÐ¶Ï
+            //1 ï¿½Ð¶ï¿½
             while (number != 0) {
-                //µÈ´ý£¬²»ÄÜÉú²ú
+                //ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 condition.await();
             }
-            //¸É»î
+            //ï¿½É»ï¿½
             number++;
             System.out.println(Thread.currentThread().getName() + "\t increment number=" + number);
-            //Í¨Öª»½ÐÑ
+            //Í¨Öªï¿½ï¿½ï¿½ï¿½
             condition.signalAll();
         } finally {
             lock.unlock();
         }
     }
+
     public void decrement() throws Exception {
         lock.lock();
         try {
-            //1 ÅÐ¶Ï
+            //1 ï¿½Ð¶ï¿½
             while (number == 0) {
-                //µÈ´ý£¬²»ÄÜÉú²ú
+                //ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 condition.await();
             }
-            //¸É»î
+            //ï¿½É»ï¿½
             number--;
             System.out.println(Thread.currentThread().getName() + "\t decrement number= " + number);
-            //Í¨Öª»½ÐÑ
+            //Í¨Öªï¿½ï¿½ï¿½ï¿½
             condition.signalAll();
         } finally {
             lock.unlock();
@@ -48,10 +49,10 @@ class ShareData {//×ÊÔ´Àà
 /**
  * @author zcl
  * @date 2021/9/6 11:19
- * Ò»¸ö³õÊ¼ÖµÎªÁãµÄ±äÁ¿£¬Á½¸öÏß³Ì¶ÔÆä½»Ìæ²Ù×÷£¬Ò»¸ö¼Ó1Ò»¸ö¼õ1£¬À´5ÂÖ
- * 1 Ïß³Ì    ²Ù×÷(·½·¨)      ×ÊÔ´Àà
- * 2 ÅÐ¶Ï    ¸É»î      Í¨Öª
- * 3 ·ÀÖ¹Ðé¼Ù»½ÐÑ»úÖÆ
+ * Ò»ï¿½ï¿½ï¿½ï¿½Ê¼ÖµÎªï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì¶ï¿½ï¿½ä½»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½1Ò»ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½
+ * 1 ï¿½ß³ï¿½    ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)      ï¿½ï¿½Ô´ï¿½ï¿½
+ * 2 ï¿½Ð¶ï¿½    ï¿½É»ï¿½      Í¨Öª
+ * 3 ï¿½ï¿½Ö¹ï¿½ï¿½Ù»ï¿½ï¿½Ñ»ï¿½ï¿½ï¿½
  */
 public class ProdConsumer_TranditionalDemo {
     public static void main(String[] args) {

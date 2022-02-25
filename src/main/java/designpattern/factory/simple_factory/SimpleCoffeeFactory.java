@@ -6,11 +6,11 @@ package designpattern.factory.simple_factory;
  */
 public class SimpleCoffeeFactory {
     /**
-     * ºóÐø¼Ó¸ö¿§·ÈÀà£¬»¹ÐèÒªÐÞ¸Ä¿§·È¹¤³§´úÂë£¬Î¥·´ÁË¿ª±ÕÔ­Ôò
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½Òªï¿½Þ¸Ä¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬Î¥ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½Ô­ï¿½ï¿½
      */
     public Coffee createCoffee(CoffeeType type) throws Exception {
         Coffee coffee;
-        switch (type){
+        switch (type) {
             case AMERICAN:
                 coffee = new AmericanCoffee();
                 break;
@@ -18,8 +18,8 @@ public class SimpleCoffeeFactory {
                 coffee = new LatteCoffee();
                 break;
             default:
-                System.out.println("¶Ô²»Æð£¬ÄúËùµãµÄ¿§·ÈÃ»ÓÐ");
-                throw new Exception("¶Ô²»Æð£¬ÄúËùµãµÄ¿§·ÈÃ»ÓÐ");
+                System.out.println("ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ã»ï¿½ï¿½");
+                throw new Exception("ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ã»ï¿½ï¿½");
         }
         return coffee;
     }

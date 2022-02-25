@@ -21,7 +21,7 @@ public class LoginRequestMessageHandler extends SimpleChannelInboundHandler<Logi
     protected void channelRead0(ChannelHandlerContext ctx, LoginRequestMessage msg) throws Exception {
         String username = msg.getUsername();
         String password = msg.getPassword();
-        log.debug("server receive login msg username:{} password:{}",username,password);
+        log.debug("server receive login msg username:{} password:{}", username, password);
         UserService userService = UserServiceFactory.getUserService();
         boolean login = userService.login(username, password);
         LoginResponseMessage message;
@@ -31,7 +31,7 @@ public class LoginRequestMessageHandler extends SimpleChannelInboundHandler<Logi
         } else {
             message = new LoginResponseMessage(false, "用户名或密码错误");
         }
-        log.debug("server response login result:{}",message);
+        log.debug("server response login result:{}", message);
         ctx.writeAndFlush(message);
     }
 }

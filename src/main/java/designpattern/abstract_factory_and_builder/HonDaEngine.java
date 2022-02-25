@@ -4,7 +4,7 @@ package designpattern.abstract_factory_and_builder;
  * @author zcl
  * @date 2021/12/9 15:43
  */
-public class HonDaEngine extends Engine{
+public class HonDaEngine extends Engine {
     private double oilConsume;
 
     public void setOilConsume(double oilConsume) {

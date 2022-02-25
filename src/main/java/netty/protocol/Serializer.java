@@ -48,8 +48,7 @@ public interface Serializer {
                 return bytes;
             }
         },
-        Json{
-
+        Json {
             @Override
             public <T> T deSerializer(Class<T> clazz, byte[] bytes) {
                 ObjectMapper mapper = new ObjectMapper();

@@ -13,12 +13,12 @@ public class Main {
      */
     public static void main(String[] args) {
         Request request = new Request();
-        request.str = "´ó¼ÒºÃ£º),<script>,»¶Ó­·ÃÎÊ mashibing.com ,´ó¼Ò¶¼ÊÇ996 ";
+        request.str = "ï¿½ï¿½ÒºÃ£ï¿½),<script>,ï¿½ï¿½Ó­ï¿½ï¿½ï¿½ï¿½ mashibing.com ,ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½996 ";
         Response response = new Response();
         response.str = "response";
         FilterChain filterChain = new FilterChain();
         filterChain.add(new HTMLFilter()).add(new SensitiveFilter());
-        filterChain.doFilter(request,response);
+        filterChain.doFilter(request, response);
         System.out.println(request.str);
         System.out.println(response.str);
     }

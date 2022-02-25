@@ -44,7 +44,7 @@ public class SocketMultiplexingSingleThreadv1 {
                     while (iter.hasNext()) {
                         SelectionKey key = iter.next();
                         iter.remove();
-                        if(key.isAcceptable()) {
+                        if (key.isAcceptable()) {
                             acceptHandler(key);
                         } else if (key.isReadable()) {
                             readHandler(key);
@@ -68,7 +68,7 @@ public class SocketMultiplexingSingleThreadv1 {
             SocketChannel client = ssc.accept();
             client.configureBlocking(false);
             ByteBuffer buffer = ByteBuffer.allocate(8192);
-            client.register(selector,SelectionKey.OP_READ,buffer);
+            client.register(selector, SelectionKey.OP_READ, buffer);
             System.out.println("----------------------------------");
             System.out.println("新客户端：" + client.getRemoteAddress());
             System.out.println("----------------------------------");

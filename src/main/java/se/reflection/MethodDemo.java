@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
         getModifiers()
  */
 public class MethodDemo {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Class<Dog> dogClass = Dog.class;
         Method[] methods = dogClass.getMethods();
         for (Method method : methods) {

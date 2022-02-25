@@ -12,14 +12,14 @@ public class Demo1_5 {
         int i = 0;
         try {
             List<String> list = new ArrayList<>();
-            String a ="hello";
+            String a = "hello";
             while (true) {
                 list.add(a);
                 a = a + a;
                 i++;
             }
         } catch (Exception e) {
-                e.printStackTrace();
+            e.printStackTrace();
         }
 
     }

@@ -12,12 +12,12 @@ import java.util.Scanner;
  */
 public class ReflectionDemo3 {
     /*
-    ½âÆÊÒ»¸ö×Ö½ÚÂëÎÄ¼þµÄËùÓÐÐÅÏ¢
+    ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
     public java.lang.String
     {
-        // ³ÉÔ±±äÁ¿
-        // ¹¹ÔìÆ÷
-        // ·½·¨
+        // ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        // ï¿½ï¿½ï¿½ï¿½
     }
  */
     public static void main(String[] args) throws Exception {
@@ -51,7 +51,7 @@ public class ReflectionDemo3 {
                 if (s.length() != 0) {
                     result.append(" ");
                 }
-                //Êý¾ÝÀàÐÍ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 Class<?> type = declaredFields[i].getType();
                 result.append(type.getName()).append(" ").append(declaredFields[i].getName()).append(";\n");
 
@@ -72,7 +72,7 @@ public class ReflectionDemo3 {
                     result.append(" ");
                 }
                 String name = declaredConstructors[i].getName();
-                result.append(name.substring(name.lastIndexOf(".")+1)).append("(");
+                result.append(name.substring(name.lastIndexOf(".") + 1)).append("(");
                 int parameterCount = declaredConstructors[i].getParameterCount();
                 Class<?>[] parameterTypes = declaredConstructors[i].getParameterTypes();
                 if (parameterTypes.length != 0) {

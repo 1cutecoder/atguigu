@@ -1,7 +1,6 @@
 package designpattern.factory.factory_method;
 
 
-
 /**
  * @author zcl
  * @date 2021/12/7 17:32
@@ -10,10 +9,10 @@ public class Client {
     public static void main(String[] args) throws Exception {
         CoffeeStore coffeeStore = new CoffeeStore();
         coffeeStore.setCoffeeFactory(new AmericanCoffeeFactory());
-       Coffee coffee = coffeeStore.orderCoffee();
-        System.out.println("ÄúµãµÄÊÇ" + coffee.getName());
+        Coffee coffee = coffeeStore.orderCoffee();
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + coffee.getName());
         coffeeStore.setCoffeeFactory(new LatteFactory());
         Coffee coffee2 = coffeeStore.orderCoffee();
-        System.out.println("ÄúµãµÄÊÇ" + coffee2.getName());
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + coffee2.getName());
     }
 }

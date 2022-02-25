@@ -6,22 +6,31 @@ package designpattern.factory.static_factory;
  */
 public enum CoffeeType {
     /**
-     * ÄÃÌú¿§·È
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     LATTE(),
     /**
-     * ÄÃÌú¿§·È
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     AMERICAN();
     /**
-     * ÃèÊö
+     * ï¿½ï¿½ï¿½ï¿½
      */
     private String desc;
-    String getCode(){return toString();}
 
-    String getDesc(){return this.name();}
+    String getCode() {
+        return toString();
+    }
 
-    boolean eq(String val){return this.getCode().equalsIgnoreCase(val);}
+    String getDesc() {
+        return this.name();
+    }
 
-    String getValue(){return getCode();}
+    boolean eq(String val) {
+        return this.getCode().equalsIgnoreCase(val);
+    }
+
+    String getValue() {
+        return getCode();
+    }
 }

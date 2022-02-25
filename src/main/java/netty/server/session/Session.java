@@ -11,7 +11,7 @@ public interface Session {
 
     void unbind(Channel channel);
 
-    Object getAttribute(Channel channel,String name);
+    Object getAttribute(Channel channel, String name);
 
     Object setAttribute(Channel channel, String name, String value);
 

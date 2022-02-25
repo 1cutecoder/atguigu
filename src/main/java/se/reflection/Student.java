@@ -4,16 +4,17 @@ package se.reflection;
  * @author zcl
  * @date 2021/10/8 15:15
  */
-public class Student extends Person{
+public class Student extends Person {
 
     /**
-     * ²âÊÔ·´Éä
+     * ï¿½ï¿½ï¿½Ô·ï¿½ï¿½ï¿½
      */
     @Override
     public void show() {
-        System.out.println("°®Éú»î£¬°®java");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½î£¬ï¿½ï¿½java");
     }
-    public void eat(){
+
+    public void eat() {
         System.out.println("eat");
     }
 }

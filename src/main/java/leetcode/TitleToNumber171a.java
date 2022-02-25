@@ -9,7 +9,7 @@ public class TitleToNumber171a {
         public int titleToNumber(String columnTitle) {
             int n = 0;
             int multiple = 1;
-            for (int i = columnTitle.length() -1; i >= 0; i--) {
+            for (int i = columnTitle.length() - 1; i >= 0; i--) {
                 n += (columnTitle.charAt(i) - 'A' + 1) * multiple;
                 multiple *= 26;
             }

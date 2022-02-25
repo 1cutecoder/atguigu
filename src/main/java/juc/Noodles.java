@@ -5,26 +5,28 @@ package juc;
  * @date 2021/9/3 14:34
  */
 public class Noodles {
-    //ÃæµÄÊýÁ¿
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private int num = 0;
+
     public synchronized void makeNoodles() throws InterruptedException {
         if (num != 0) {
             this.wait();
         }
         if (num == 0) {
             num++;
-            System.out.println(Thread.currentThread().getName()+"×öºÃÁËÒ»·ÝÃæ£¬µ±Ç°ÓÐ"+num+"·ÝÃæ");
+            System.out.println(Thread.currentThread().getName() + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½æ£¬ï¿½ï¿½Ç°ï¿½ï¿½" + num + "ï¿½ï¿½ï¿½ï¿½");
             this.notifyAll();
         }
 
     }
+
     public synchronized void eatNoodles() throws InterruptedException {
         if (num == 0) {
             this.wait();
         }
-        if (num!=0) {
+        if (num != 0) {
             num--;
-            System.out.println(Thread.currentThread().getName()+"³ÔÁËÒ»·ÝÃæ£¬µ±Ç°ÓÐ"+num+"·ÝÃæ");
+            System.out.println(Thread.currentThread().getName() + "ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½æ£¬ï¿½ï¿½Ç°ï¿½ï¿½" + num + "ï¿½ï¿½ï¿½ï¿½");
             this.notifyAll();
         }
 

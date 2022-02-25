@@ -28,21 +28,23 @@ public class InorderTraversal94 {
     }
 
     class Solution {
-        //µÝ¹éÊµÏÖÖÐÐò±éÀú
+        //ï¿½Ý¹ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         public List<Integer> inorderTraversal(TreeNode root) {
-            while(root.left !=null ){ root=root.left;}
+            while (root.left != null) {
+                root = root.left;
+            }
             List<Integer> res = new ArrayList<Integer>();
             inorder(root, res);
             return res;
         }
 
-        public void inorder(TreeNode root,List res){
-            if(root==null) {
+        public void inorder(TreeNode root, List res) {
+            if (root == null) {
                 return;
             }
-            inorder(root.left,res);
+            inorder(root.left, res);
             res.add(root.val);
-            inorder(root.right,res);
+            inorder(root.right, res);
         }
 
     }

@@ -8,9 +8,9 @@ public class StudentDemo {
     public static void main(String[] args) {
         Student student = new Student("CuteCoder", 18);
         System.out.println("student = " + student);
-        Student student1 = new Student("ÎÒÊÇÇ§ÄêÎ×ÑıÍõ",1000);
+        Student student1 = new Student("ï¿½ï¿½ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", 1000);
         System.out.println("student1 = " + student1);
-        Student student2 = StudentFactory.getStudent("ÎÒÊÇÇ§ÄêÎ×ÑıÍõ121", 100);
+        Student student2 = StudentFactory.getStudent("ï¿½ï¿½ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½121", 100);
         System.out.println("student2 = " + student2);
     }
 }

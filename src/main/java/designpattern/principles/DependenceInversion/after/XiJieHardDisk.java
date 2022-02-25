@@ -4,15 +4,15 @@ package designpattern.principles.DependenceInversion.after;
  * @author zcl
  * @date 2021/11/29 16:21
  */
-public class XiJieHardDisk implements HardDisk{
+public class XiJieHardDisk implements HardDisk {
     @Override
     public void save(String data) {
-        System.out.println("Ê¹ÓÃÏ£½ÝÓ²ÅÌ´æ´¢Êý¾Ý" + data);
+        System.out.println("Ê¹ï¿½ï¿½Ï£ï¿½ï¿½Ó²ï¿½Ì´æ´¢ï¿½ï¿½ï¿½ï¿½" + data);
     }
 
     @Override
     public String get() {
-        System.out.println("Ê¹ÓÃÏ£½ÝÏ£½ÝÓ²ÅÌÈ¡Êý¾Ý");
-        return "Êý¾Ý";
+        System.out.println("Ê¹ï¿½ï¿½Ï£ï¿½ï¿½Ï£ï¿½ï¿½Ó²ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½");
+        return "ï¿½ï¿½ï¿½ï¿½";
     }
 }

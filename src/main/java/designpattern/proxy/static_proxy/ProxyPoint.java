@@ -9,13 +9,14 @@ import designpattern.proxy.jdk_proxy.TrainStation;
  */
 public class ProxyPoint implements SellTickets {
     private TrainStation trainStation = new TrainStation();
+
     /**
-     * Âô»ð³µÆ±
+     * ï¿½ï¿½ï¿½ï¿½Æ±
      */
     @Override
     public void sell() {
-        System.out.println("============´úÊÕµãstart===================");
+        System.out.println("============ï¿½ï¿½ï¿½Õµï¿½start===================");
         trainStation.sell();
-        System.out.println("============´úÊÕµãend=================");
+        System.out.println("============ï¿½ï¿½ï¿½Õµï¿½end=================");
     }
 }

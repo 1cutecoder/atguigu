@@ -3,7 +3,7 @@ package juc;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
-class  MyThread2 implements Callable<Integer> {
+class MyThread2 implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         System.out.println("*************come in callable");
@@ -18,7 +18,7 @@ class  MyThread2 implements Callable<Integer> {
 public class CallableDemo {
     public static void main(String[] args) {
         FutureTask<Integer> futureTask = new FutureTask<>(new MyThread2());
-        Thread t1 = new Thread(futureTask,"AA");
+        Thread t1 = new Thread(futureTask, "AA");
         t1.start();
     }
 }

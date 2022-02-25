@@ -19,7 +19,10 @@ public class FooBar1113 {
         public void foo(Runnable printFoo) throws InterruptedException {
             for (int i = 0; i < n; i++) {
                 // printFoo.run() outputs "foo". Do not change or remove this line.
-                while (foo.get() != 1) {Thread.yield();};
+                while (foo.get() != 1) {
+                    Thread.yield();
+                }
+                ;
                 foo.decrementAndGet();
                 printFoo.run();
                 bar.incrementAndGet();
@@ -29,7 +32,10 @@ public class FooBar1113 {
         public void bar(Runnable printBar) throws InterruptedException {
             for (int i = 0; i < n; i++) {
                 // printBar.run() outputs "bar". Do not change or remove this line.
-                while (bar.get() != 1) {Thread.yield();};
+                while (bar.get() != 1) {
+                    Thread.yield();
+                }
+                ;
                 bar.decrementAndGet();
                 printBar.run();
                 foo.incrementAndGet();

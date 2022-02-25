@@ -5,15 +5,15 @@ package designpattern.factory.before;
  * @date 2021/12/7 17:29
  */
 public class CoffeeStore {
-    public Coffee orderCoffee(String type ) throws Exception {
+    public Coffee orderCoffee(String type) throws Exception {
         Coffee coffee = null;
         if ("american".equals(type)) {
             coffee = new AmericanCoffee();
         } else if ("latte".equals(type)) {
             coffee = new LatteCoffee();
         } else {
-            System.out.println("¶Ô²»Æð£¬ÄúËùµãµÄ¿§·ÈÃ»ÓÐ");
-            throw new Exception("¶Ô²»Æð£¬ÄúËùµãµÄ¿§·ÈÃ»ÓÐ");
+            System.out.println("ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ã»ï¿½ï¿½");
+            throw new Exception("ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ã»ï¿½ï¿½");
         }
         coffee.addMilk();
         coffee.addSugar();

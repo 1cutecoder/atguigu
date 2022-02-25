@@ -8,58 +8,59 @@ import java.util.concurrent.TimeUnit;
  */
 public class eightlockdemo {
     /**
-     * ¢ÙÒ»¸ö¶ÔÏóÀïÃæÈç¹ûÓÐ¶à¸ösynchronized·½·¨£¬Ä³Ò»¸öÊ±¿ÌÄÚ£¬Ö»ÒªÒ»¸öÏß³ÌÈ¥µ÷ÓÃÆäÖÐµÄÒ»¸ösynchronized·½·¨ÁË£¬
-     * ÆäËûµÄÏß³Ì¶¼Ö»ÄÜµÈ´ý£¬»»¾ä»°Ëµ£¬Ä³Ò»Ê±¿ÌÄÚ£¬Ö»ÄÜÓÐÎ¨Ò»Ò»¸öÏß³ÌÈ¥·ÃÎÊÕâÐ©synchronized·½·¨¡£
+     * ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½synchronizedï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ú£ï¿½Ö»ÒªÒ»ï¿½ï¿½ï¿½ß³ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ò»ï¿½ï¿½synchronizedï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì¶ï¿½Ö»ï¿½ÜµÈ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä»°Ëµï¿½ï¿½Ä³Ò»Ê±ï¿½ï¿½ï¿½Ú£ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Î¨Ò»Ò»ï¿½ï¿½ï¿½ß³ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð©synchronizedï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * <p>
-     * ¢ÚËøµÄÊÇµ±Ç°¶ÔÏóthis£¬±»Ëø¶¨ºó£¬ÆäËûÏß³Ì¶¼²»ÄÜ½øÈëµ½µ±Ç°¶ÔÏóµÄÆäËûµÄsynchronized·½·¨¡£
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Ç°ï¿½ï¿½ï¿½ï¿½thisï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì¶ï¿½ï¿½ï¿½ï¿½Ü½ï¿½ï¿½ëµ½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½synchronizedï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * <p>
-     * ¢Û¼Ó¸öÆÕÍ¨·½·¨ºó·¢ÏÖºÍÍ¬²½ËøÎÞ¹Ø¡£
+     * ï¿½Û¼Ó¸ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öºï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Þ¹Ø¡ï¿½
      * <p>
-     * ¢Ü»»³É¾²Ì¬Í¬²½·½·¨ºó£¬Çé¿öÓÖ±ä»¯
+     * ï¿½Ü»ï¿½ï¿½É¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ä»¯
      * <p>
-     * ¢ÝËùÓÐµÄ·Ç¾²Ì¬Í¬²½·½·¨ÓÃµÄ¶¼ÊÇÍ¬Ò»°ÑËø -- ÊµÀý¶ÔÏó±¾Éí£¬Ò²¾ÍÊÇËµÈç¹ûÒ»¸öÊµÀý¶ÔÏóµÄ·Ç¾²Ì¬Í¬²½·½·¨»ñÈ¡Ëøºó£¬
-     * ¸ÃÊµÀý¶ÔÏóµÄÆäËû·Ç¾²Ì¬Í¬²½·½·¨±ØÐëµÈ´ý»ñÈ¡ËøµÄ·½·¨ÊÍ·ÅËøºó²ÅÄÜ»ñÈ¡Ëø£¬¿ÉÊÇ±ðµÄÊµÀý¶ÔÏóµÄ·Ç¾²Ì¬Í¬²½·½·¨ÒòÎª
-     * ¸ú¸ÃÊµÀý¶ÔÏóµÄ·Ç¾²Ì¬Í¬²½·½·¨ÓÃµÄÊÇ²»Í¬µÄËø£¬ËùÒÔÎãÐëµÈ´ý¸ÃÊµÀý¶ÔÏóÒÑ¾­È¡ËøµÄ·Ç¾²Ì¬Í¬²½·½·¨ÊÍ·ÅËø¾Í¿ÉÒÔ»ñÈ¡
-     * ËûÃÇ×Ô¼ºµÄËø¡£
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ·Ç¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ¶ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ -- Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ò»ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·Ç¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+     * ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü»ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·Ç¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª
+     * ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·Ç¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ç²ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½È¡ï¿½ï¿½ï¿½Ä·Ç¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½Ô»ï¿½È¡
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * <p>
-     * ¢ÞËùÓÐµÄ¾²Ì¬Í¬²½·½·¨ÓÃµÄÒ²ÊÇÍ¬Ò»°ÑËø -- Àà¶ÔÏó±¾Éí£¬ÕâÁ½°ÑËøÊÇÁ½¸ö²»Í¬µÄ¶ÔÏó£¬ËùÒÔ¾²Ì¬Í¬²½·½·¨Óë·Ç¾²Ì¬Í¬²½
-     * ·½·¨Ö®¼ä²»»áÓÐ¾ºÕùÌõ¼þ¡£µ«ÊÇÒ»µ©Ò»¸ö¾²Ì¬Í¬²½·½·¨»ñÈ¡Ëøºó£¬ÆäËûµÄ¾²Ì¬Í¬²½·½·¨¶¼±ØÐëµÈ´ý¸Ã·½·¨ÊÍ·ÅËøºó²ÅÄÜ»ñ
-     * È¡Ëø£¬¶ø²»¹ÜÊÇÍ¬Ò»¸öÊµÀý¶ÔÏóµÄ¾²Ì¬Í¬²½·½·¨Ö®¼ä£¬»¹ÊÇ²»Í¬µÄÊµÀý¶ÔÏóµÄ¾²Ì¬Í¬²½·½·¨Ö®¼ä£¬Ö»ÒªËüÃÇÊÇÍ¬Ò»¸ölei
-     * ¶ÔÏó
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ò²ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½Ì¬Í¬ï¿½ï¿½
+     * ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ä²»ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü»ï¿½
+     * È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ä£¬ï¿½ï¿½ï¿½Ç²ï¿½Í¬ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ä£¬Ö»Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½lei
+     * ï¿½ï¿½ï¿½ï¿½
      */
     public static void main(String[] args) {
-            Animal4 animal1=new Animal4();
-            Animal4 animal2=new Animal4();
+        Animal4 animal1 = new Animal4();
+        Animal4 animal2 = new Animal4();
 
-            new Thread(()->{
-                animal2.wuGui();
-            }).start();
+        new Thread(() -> {
+            animal2.wuGui();
+        }).start();
 
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            new Thread(()->{
-                animal2.tuZi();
-            }).start();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
+        new Thread(() -> {
+            animal2.tuZi();
+        }).start();
+    }
+}
+
+class Animal4 {
+
+    public static synchronized void wuGui() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
 
-    class Animal4{
-
-        public static synchronized void wuGui(){
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            System.out.println("ÎÚ¹êÏÈÅÜ");
-        }
-        public synchronized void tuZi(){
-            System.out.println("ÍÃ×ÓÏÈÅÜ");
-        }
+    public synchronized void tuZi() {
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
+}
 

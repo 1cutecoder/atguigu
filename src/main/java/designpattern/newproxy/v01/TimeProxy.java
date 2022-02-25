@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @Aspect
 public class TimeProxy {
     @Before("execution (void designpattern.newproxy.v01.Tank.move())")
-    public void before(){
+    public void before() {
         System.out.println("method start .." + LocalDateTime.now());
     }
 
     @After("execution (void designpattern.newproxy.v01.Tank.move())")
-    public void after(){
+    public void after() {
         System.out.println("method end .." + LocalDateTime.now());
     }
 }

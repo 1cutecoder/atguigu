@@ -8,17 +8,17 @@ import java.util.ArrayList;
  * @date 2021/10/8 16:50
  */
 public class ReflectionDemo4 {
-    public static void main(String[] args) throws Exception{
-        // ·ºÐÍ²Á³ý, T --> Object
+    public static void main(String[] args) throws Exception {
+        // ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½, T --> Object
         ArrayList<Object> list = new ArrayList<>();
         list.add("Hello");
         list.add("Reflection");
         Class<? extends ArrayList> aClass = list.getClass();
         Method addMethod = aClass.getDeclaredMethod("add", Object.class);
         Method getMethod = aClass.getDeclaredMethod("get", int.class);
-        addMethod.invoke(list,"add demo");
+        addMethod.invoke(list, "add demo");
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(getMethod.invoke(list,i));
+            System.out.println(getMethod.invoke(list, i));
         }
     }
 }

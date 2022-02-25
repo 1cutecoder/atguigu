@@ -22,13 +22,13 @@ class MyResource {
             data = atomicInteger.incrementAndGet() + "";
             retValue = blockingQueue.offer(data, 2L, TimeUnit.SECONDS);
             if (retValue) {
-                System.out.println(Thread.currentThread().getName() + "\t ²åÈë¶ÓÁÐ" + data + "³É¹¦");
+                System.out.println(Thread.currentThread().getName() + "\t ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + data + "ï¿½É¹ï¿½");
             } else {
-                System.out.println(Thread.currentThread().getName() + "\t ²åÈë¶ÓÁÐ" + data + "Ê§°Ü");
+                System.out.println(Thread.currentThread().getName() + "\t ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + data + "Ê§ï¿½ï¿½");
             }
             TimeUnit.SECONDS.sleep(1);
         }
-        System.out.println(Thread.currentThread().getName() + "\t´óÀÏ°å½ÐÍ£ÁË£¬±íÊ¾FLAG=false,Éú²ú¶¯×÷½áÊø");
+        System.out.println(Thread.currentThread().getName() + "\tï¿½ï¿½ï¿½Ï°ï¿½ï¿½Í£ï¿½Ë£ï¿½ï¿½ï¿½Ê¾FLAG=false,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
 
     public void myConsumer() throws Exception {
@@ -37,11 +37,11 @@ class MyResource {
             result = blockingQueue.poll(2L, TimeUnit.SECONDS);
             if (result == null || "".equalsIgnoreCase(result)) {
                 FLAG = false;
-                System.out.println(Thread.currentThread().getName() + "\t ³¬¹ý2ÃëÖÓÃ»ÓÐÈ¡µ½µ°¸â£¬Ïû·ÑÍË³ö");
+                System.out.println(Thread.currentThread().getName() + "\t ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½");
             }
-            System.out.println(Thread.currentThread().getName() + "\t Ïû·Ñ¶ÓÁÐ" + result + "³É¹¦");
+            System.out.println(Thread.currentThread().getName() + "\t ï¿½ï¿½ï¿½Ñ¶ï¿½ï¿½ï¿½" + result + "ï¿½É¹ï¿½");
         }
-        System.out.println(Thread.currentThread().getName() + "\t´óÀÏ°å½ÐÍ£ÁË£¬±íÊ¾FLAG=false,Ïû·Ñ¶¯×÷½áÊø");
+        System.out.println(Thread.currentThread().getName() + "\tï¿½ï¿½ï¿½Ï°ï¿½ï¿½Í£ï¿½Ë£ï¿½ï¿½ï¿½Ê¾FLAG=false,ï¿½ï¿½ï¿½Ñ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
 
     public void stop() {
@@ -59,7 +59,7 @@ public class ProdConsumer_BlockQueueDemo {
     public static void main(String[] args) throws Exception {
         MyResource myResource = new MyResource(new ArrayBlockingQueue<>(10));
         new Thread(() -> {
-            System.out.println(Thread.currentThread().getName() + "\t Éú²úÏß³ÌÆô¶¯");
+            System.out.println(Thread.currentThread().getName() + "\t ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½");
             try {
                 myResource.myProd();
             } catch (Exception e) {
@@ -67,15 +67,19 @@ public class ProdConsumer_BlockQueueDemo {
             }
         }, "Prod").start();
         new Thread(() -> {
-            System.out.println(Thread.currentThread().getName() + "\t Ïû·ÑÏß³ÌÆô¶¯");
+            System.out.println(Thread.currentThread().getName() + "\t ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½");
             try {
                 myResource.myConsumer();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }, "Consumer").start();
-        try {TimeUnit.SECONDS.sleep(5);} catch (InterruptedException e) {e.printStackTrace();}
-        System.out.println("5ÃëÖÓÊ±¼äµ½£¬´óÀÏ°åmainÏß³Ì½ÐÍ££¬»î¶¯½áÊø");
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("5ï¿½ï¿½ï¿½ï¿½Ê±ï¿½äµ½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½mainï¿½ß³Ì½ï¿½Í£ï¿½ï¿½ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½");
         myResource.stop();
     }
 }

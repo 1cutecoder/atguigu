@@ -20,7 +20,7 @@ public class Code01_BFS {
         while (!queue.isEmpty()) {
             Node cur = queue.poll();
             System.out.println(cur.value);
-            for(Node next : cur.nexts) {
+            for (Node next : cur.nexts) {
                 if (!set.contains(next)) {
                     queue.add(next);
                     set.add(next);

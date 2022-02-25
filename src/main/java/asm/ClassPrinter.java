@@ -73,7 +73,7 @@ public class ClassPrinter extends ClassVisitor {
         ClassPrinter cp = new ClassPrinter();
 
         ClassReader cr = new ClassReader("java.lang.Runnable");
-        cr.accept(cp,0);
+        cr.accept(cp, 0);
 
     }
 }

@@ -12,23 +12,24 @@ import java.lang.reflect.Method;
  */
 public class ProxyFactory implements MethodInterceptor {
     private TrainStation trainStation = new TrainStation();
-    public TrainStation getProxyObject(){
-        //´´½¨Enhancer¶ÔÏó£¬ÀàËÆÓÚJDK¶¯Ì¬´úÀíµÄProxyÀà
+
+    public TrainStation getProxyObject() {
+        //ï¿½ï¿½ï¿½ï¿½Enhancerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JDKï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Proxyï¿½ï¿½
         Enhancer enhancer = new Enhancer();
-        //ÉèÖÃ¸¸ÀàµÄ×Ö½ÚÂë¶ÔÏó
+        //ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         enhancer.setSuperclass(TrainStation.class);
-        //ÉèÖÃ»Øµ÷º¯Êı
+        //ï¿½ï¿½ï¿½Ã»Øµï¿½ï¿½ï¿½ï¿½ï¿½
         enhancer.setCallback(this);
-        //´´½¨´úÀí¶ÔÏó
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         TrainStation proxyObject = (TrainStation) enhancer.create();
         return proxyObject;
     }
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        System.out.println("´úÀíµãÊÕÈ¡Ò»µãÊÖĞø·Ñstart");
-        method.invoke(trainStation,objects);
-        System.out.println("´úÀíµãÊÕÈ¡Ò»µãÊÖĞø·Ñend");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½start");
+        method.invoke(trainStation, objects);
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½end");
 
         return null;
     }

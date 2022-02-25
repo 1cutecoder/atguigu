@@ -22,7 +22,7 @@ public class TestMessageCodec {
         LoginRequestMessage message = new LoginRequestMessage("zhangsan", "123");
         //channel.writeOutbound(message);
         ByteBuf buf = ByteBufAllocator.DEFAULT.buffer();
-        new MessageCodec().encode(null,message,buf);
+        new MessageCodec().encode(null, message, buf);
         ByteBuf buf1 = buf.slice(0, 100);
         ByteBuf buf2 = buf.slice(100, buf.readableBytes() - 100);
         buf1.retain();

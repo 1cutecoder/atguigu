@@ -3,25 +3,25 @@ package se.reflection;
 import java.lang.reflect.Field;
 
 /**
- Class:
-    ×Ö¶Î ÊôĞÔ ±äÁ¿
-    getFields,
-        »ñÈ¡¸ÃÀàÒÔ¼°¸ÃÀàµÄ¸¸ÀàÖĞËùÓĞ¹«¹²³ÉÔ±±äÁ¿
-    getDeclaredFields
-        »ñÈ¡¸ÃÀàÖĞ¶¨ÒåµÄËùÓĞ³ÉÔ±±äÁ¿
-     getField,
-        »ñÈ¡¸ÃÀàÒÔ¼°¸ÃÀàµÄ¸¸ÀàÖĞµ¥¸ö¹«¹²³ÉÔ±±äÁ¿
-     getDeclaredField
-        »ñÈ¡¸ÃÀàÖĞ¶¨ÒåµÄµ¥¸ö³ÉÔ±±äÁ¿
-     Field:
-         Field Ìá¹©ÓĞ¹ØÀà»ò½Ó¿ÚµÄµ¥¸ö×Ö¶ÎµÄĞÅÏ¢
-     Object get(Object obj)
-     getXXX()  »ñÈ¡»ù±¾Êı¾İÀàĞÍ
-     void set(Object obj, Object value)
-     setXXX() ÉèÖÃ»ù±¾Êı¾İÀàĞÍµÄÖµ
-     int getModifiers()
-        ÒÔÕûÊıĞÎÊ½·µ»ØÓÉ´Ë Field ¶ÔÏó±íÊ¾µÄ×Ö¶ÎµÄ Java ÓïÑÔĞŞÊÎ·û¡£
-     String getName()
+ * Class:
+ * ï¿½Ö¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ * getFields,
+ * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
+ * getDeclaredFields
+ * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ³ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
+ * getField,
+ * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
+ * getDeclaredField
+ * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
+ * Field:
+ * Field ï¿½á¹©ï¿½Ğ¹ï¿½ï¿½ï¿½ï¿½Ó¿ÚµÄµï¿½ï¿½ï¿½ï¿½Ö¶Îµï¿½ï¿½ï¿½Ï¢
+ * Object get(Object obj)
+ * getXXX()  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * void set(Object obj, Object value)
+ * setXXX() ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Öµ
+ * int getModifiers()
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½É´ï¿½ Field ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ö¶Îµï¿½ Java ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½
+ * String getName()
  */
 public class FieldDemo {
     public static void main(String[] args) throws Exception {
@@ -38,9 +38,9 @@ public class FieldDemo {
         Dog dog = dogClass.newInstance();
         Field field = dogClass.getDeclaredField("num");
         field.setAccessible(true);
-        //ÉèÖÃÊôĞÔ
-        field.set(dog,100);
-        //»ñÈ¡ÄÄ¸ö¶ÔÏóµÄÊôĞÔ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        field.set(dog, 100);
+        //ï¿½ï¿½È¡ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Object o = field.get(dog);
         System.out.println("o = " + o);
         int anInt = field.getInt(dog);

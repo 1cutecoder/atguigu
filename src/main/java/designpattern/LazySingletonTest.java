@@ -21,17 +21,22 @@ public class LazySingletonTest {
     }
 
 }
-class LazySingleton{
+
+class LazySingleton {
     private static LazySingleton instance;
 
     public LazySingleton() {
     }
-    public static LazySingleton getInstance(){
+
+    public static LazySingleton getInstance() {
         if (instance == null) {
-            synchronized (LazySingleton.class){
+            synchronized (LazySingleton.class) {
 
                 try {
-                    TimeUnit.SECONDS.sleep(5);} catch (InterruptedException e) {e.printStackTrace();}
+                    TimeUnit.SECONDS.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 if (instance == null) {
                     synchronized (LazySingleton.class) {
                         instance = new LazySingleton();

@@ -9,68 +9,78 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date 2021/9/3 9:55
  */
 /*
- * Ê¹ÓÃLock´úÌæSynchronizedÀ´ÊµÏÖÐÂ°æµÄÉú²úÕßºÍÏû·ÑÕßÄ£Ê½ !
+ * Ê¹ï¿½ï¿½Lockï¿½ï¿½ï¿½ï¿½Synchronizedï¿½ï¿½Êµï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ !
  * */
 @SuppressWarnings("all")
 public class ThreadWaitNotifyDemo {
     public static void main(String[] args) {
-        AirCondition airCondition=new AirCondition();
+        AirCondition airCondition = new AirCondition();
 
-        new Thread(()->{ for (int i = 0; i <10 ; i++) airCondition.decrement();},"Ïß³ÌA").start();
-        new Thread(()->{ for (int i = 0; i <10 ; i++) airCondition.increment();},"Ïß³ÌB").start();
-        new Thread(()->{ for (int i = 0; i <10 ; i++) airCondition.decrement();},"Ïß³ÌC").start();
-        new Thread(()->{ for (int i = 0; i <10 ; i++) airCondition.increment();},"Ïß³ÌD").start();
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) airCondition.decrement();
+        }, "ï¿½ß³ï¿½A").start();
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) airCondition.increment();
+        }, "ï¿½ß³ï¿½B").start();
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) airCondition.decrement();
+        }, "ï¿½ß³ï¿½C").start();
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) airCondition.increment();
+        }, "ï¿½ß³ï¿½D").start();
     }
 }
-class AirCondition{
-    private int number=0;
-    //¶¨ÒåLockËø¶ÔÏó
-    final Lock lock=new ReentrantLock();
-    final Condition condition  = lock.newCondition();
 
-    //Éú²úÕß,Èç¹ûnumber=0¾Í number++
-    public  void increment(){
+class AirCondition {
+    private int number = 0;
+    //ï¿½ï¿½ï¿½ï¿½Lockï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    final Lock lock = new ReentrantLock();
+    final Condition condition = lock.newCondition();
+
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½number=0ï¿½ï¿½ number++
+    public void increment() {
         lock.lock();
         try {
-            //1.ÅÐ¶Ï
-            while(number!=0){
+            //1.ï¿½Ð¶ï¿½
+            while (number != 0) {
                 try {
                     condition.await();//this.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            //2.¸É»î
+            //2.ï¿½É»ï¿½
             number++;
-            System.out.println(Thread.currentThread().getName()+":\t"+number);
-            //3.»½ÐÑ
+            System.out.println(Thread.currentThread().getName() + ":\t" + number);
+            //3.ï¿½ï¿½ï¿½ï¿½
             condition.signalAll();//this.notifyAll();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }
-    //Ïû·ÑÕß,Èç¹ûnumber=1,¾Í number--
-    public   void decrement(){
+
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½number=1,ï¿½ï¿½ number--
+    public void decrement() {
         lock.lock();
         try {
-            //1.ÅÐ¶Ï
-            while(number==0){
+            //1.ï¿½Ð¶ï¿½
+            while (number == 0) {
                 try {
                     condition.await();//this.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            //2.¸É»î
+            //2.ï¿½É»ï¿½
             number--;
-            System.out.println(Thread.currentThread().getName()+":\t"+number);
-            //3.»½ÐÑ
+            System.out.println(Thread.currentThread().getName() + ":\t" + number);
+            //3.ï¿½ï¿½ï¿½ï¿½
             condition.signalAll();//this.notifyAll();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }

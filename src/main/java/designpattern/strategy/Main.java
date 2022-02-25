@@ -8,25 +8,25 @@ import java.util.Arrays;
  */
 public class Main {
     public static void main(String[] args) {
-        //¼òµ¥ÊµÏÖ²ßÂÔ
+        //ï¿½ï¿½Êµï¿½Ö²ï¿½ï¿½ï¿½
         /* Cat[] a = {new Cat(1,1),new Cat(5,5),new Cat(3,3)};
         Sorter sorter = new Sorter();
         sorter.sort(a);
         System.out.println(Arrays.toString(a));*/
-        //·ºÐÍ
+        //ï¿½ï¿½ï¿½ï¿½
        /*Dog[] a = {new Dog(1),new Dog(5),new Dog(3)};
         Sorter sorter = new Sorter();
         sorter.sort(a);
         System.out.println(Arrays.toString(a));*/
-        Dog[] a = {new Dog(1),new Dog(5),new Dog(3)};
+        Dog[] a = {new Dog(1), new Dog(5), new Dog(3)};
         Sorter sorter = new Sorter<Dog>();
-        sorter.sort(a,new DogComparator());
+        sorter.sort(a, new DogComparator());
         System.out.println(Arrays.toString(a));
-        //°´ÖØÁ¿¶ÔÃ¨½øÐÐÅÅÐò
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         System.out.println("======================");
-        Cat[] cats = {new Cat(7,1),new Cat(5,5),new Cat(3,3)};
+        Cat[] cats = {new Cat(7, 1), new Cat(5, 5), new Cat(3, 3)};
         Sorter<Cat> sorter1 = new Sorter();
-        sorter1.sort(cats,(t1,t2)->{
+        sorter1.sort(cats, (t1, t2) -> {
             if (t1.weight < t2.weight) return -1;
             else if (t1.weight > t2.weight) return 1;
             return 0;

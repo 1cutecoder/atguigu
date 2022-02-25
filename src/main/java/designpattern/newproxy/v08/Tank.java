@@ -15,7 +15,7 @@ import java.util.Random;
 public class Tank implements Movable {
     @Override
     public void move() {
-         System.out.println("Tank moving claclacla...");
+        System.out.println("Tank moving claclacla...");
         try {
             Thread.sleep(new Random().nextInt(10000));
         } catch (InterruptedException e) {
@@ -27,7 +27,7 @@ public class Tank implements Movable {
         Tank tank = new Tank();
         System.out.println("1=================");
 //        System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles", "true");
-        //reflection Í¨¹ý¶þ½øÖÆ×Ö½ÚÂë·ÖÎöÀàµÄÊôÐÔºÍ·½·¨
+        //reflection Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÔºÍ·ï¿½ï¿½ï¿½
         Movable m = (Movable) Proxy.newProxyInstance(Tank.class.getClassLoader(), new Class[]{Movable.class}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

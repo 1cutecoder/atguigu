@@ -16,7 +16,7 @@ public class ConvertToTitle168a {
                     sb.append('Z');
                     columnNumber -= 26;
                 } else {
-                    sb.append((char)('A' +r -1));
+                    sb.append((char) ('A' + r - 1));
                 }
                 columnNumber /= 26;
             }

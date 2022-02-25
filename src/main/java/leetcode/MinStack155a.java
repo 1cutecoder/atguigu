@@ -22,7 +22,7 @@ public class MinStack155a {
         public void push(int val) {
             if (!stack.empty()) {
                 int minElement = minStack.peek();
-                if ( val < minElement) {
+                if (val < minElement) {
                     minStack.push(val);
                 } else {
                     minStack.push(minElement);

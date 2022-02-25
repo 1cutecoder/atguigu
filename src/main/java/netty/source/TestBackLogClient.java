@@ -23,11 +23,12 @@ public class TestBackLogClient {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new LoggingHandler());
-                        ch.pipeline().addLast(new ChannelInboundHandlerAdapter(){
+                        ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
                             @Override
                             public void channelActive(ChannelHandlerContext ctx) throws Exception {
-                                ByteBuf buf = ctx.alloc().buffer();buf.writeBytes("hello!".getBytes());
-                                log.debug("client buf:{}",buf);
+                                ByteBuf buf = ctx.alloc().buffer();
+                                buf.writeBytes("hello!".getBytes());
+                                log.debug("client buf:{}", buf);
                                 ctx.writeAndFlush(buf);
                             }
                         });

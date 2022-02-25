@@ -21,19 +21,19 @@ public class TestByteBuf {
     public static void main(String[] args) throws InterruptedException {
         new ServerBootstrap()
                 .group(new NioEventLoopGroup())
-                .option(ChannelOption.TCP_NODELAY,Boolean.TRUE)
+                .option(ChannelOption.TCP_NODELAY, Boolean.TRUE)
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new LoggingHandler());
-                        ch.pipeline().addLast(new ChannelInboundHandlerAdapter(){
+                        ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
                             @Override
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                 /*ByteBuf buf = ctx.alloc().buffer();
                                 log.debug("alloc buf{}",buf);*/
                                 //netty 网络io强制使用直接内存
-                                log.debug("receive buf",msg);
+                                log.debug("receive buf", msg);
                                 System.out.println("");
                             }
                         });

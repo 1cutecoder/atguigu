@@ -3,7 +3,7 @@ package leetcode;
 import java.util.*;
 
 /**
- * 给定一个大小为 n 的整数数组，找出其中所有出现超过 ? n/3 ? 次的元素。
+ * 锟斤拷锟斤拷一锟斤拷锟斤拷小为 n 锟斤拷锟斤拷锟斤拷锟斤拷锟介，锟揭筹拷锟斤拷锟斤拷锟斤拷锟叫筹拷锟街筹拷锟斤拷 ? n/3 ? 锟轿碉拷元锟截★拷
  *
  * @author zcl
  * @date 2021/10/22 16:20
@@ -15,7 +15,7 @@ public class GetMode {
             List<Integer> list = new ArrayList<Integer>();
             for (int num : nums) {
                 map.put(num, map.get(num) == null ? 1 : (map.get(num) + 1));
-                if(map.get(num) >(nums.length / 3)) {
+                if (map.get(num) > (nums.length / 3)) {
                     list.add(num);
                 }
             }

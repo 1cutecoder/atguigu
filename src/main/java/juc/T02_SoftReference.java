@@ -15,8 +15,8 @@ public class T02_SoftReference {
         System.gc();
         try {
             TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         Byte[] bytes = new Byte[1024 * 1024 * 3];
         System.out.println("softReference = " + softReference.get());

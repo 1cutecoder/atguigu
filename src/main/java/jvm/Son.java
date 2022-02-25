@@ -2,7 +2,7 @@ package jvm;
 
 class Father {
     public Father() {
-        System.out.println("fatherµÄ¹¹ÔìÆ÷");
+        System.out.println("fatherï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
 
     public static void showStatic(String str) {
@@ -14,14 +14,14 @@ class Father {
     }
 
     public void showCommon() {
-        System.out.println("father ÆÕÍ¨·½·¨");
+        System.out.println("father ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½");
     }
 }
 
 /**
  * @author zcl
  * @date 2021/10/15 15:47
- * invokestaticºÍinvokespecialµ÷ÓÃµÄÊÇ·ÇÐé·½·¨
+ * invokestaticï¿½ï¿½invokespecialï¿½ï¿½ï¿½Ãµï¿½ï¿½Ç·ï¿½ï¿½é·½ï¿½ï¿½
  */
 public class Son extends Father {
     public Son() {
@@ -31,7 +31,8 @@ public class Son extends Father {
     public Son(int age) {
         this();
     }
-//²»ÊÇÖØÐ´µÄ¸¸ÀàµÄ·½·¨
+
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ä¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
     public static void showStatic(String str) {
         System.out.println("son " + str);
     }
@@ -45,7 +46,7 @@ public class Son extends Father {
         super.showStatic("good!");
         showPrivate("hello!");
         super.showCommon();
-        //invokevirtual ÒòÎª´Ë·½·¨±»ÉùÃ÷Îªfinal²»ÄÜ±»×ÓÀàÖØÐ´£¬¹ÊÒ²ÈÏÎªÊÇ·ÇÐé·½·¨
+        //invokevirtual ï¿½ï¿½Îªï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªfinalï¿½ï¿½ï¿½Ü±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Îªï¿½Ç·ï¿½ï¿½é·½ï¿½ï¿½
         showFinal();
         super.showFinal();
         info();
@@ -55,12 +56,14 @@ public class Son extends Father {
 
     public void info() {
     }
-interface MethodInterface{
-    /**
-     * ²âÊÔ
-     */
-    void methodA();
-}
+
+    interface MethodInterface {
+        /**
+         * ï¿½ï¿½ï¿½ï¿½
+         */
+        void methodA();
+    }
+
     public static void main(String[] args) {
         Son son = new Son();
         son.show();

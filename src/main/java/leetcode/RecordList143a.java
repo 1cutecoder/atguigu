@@ -7,9 +7,9 @@ import java.util.ArrayList;
  * @date 2022/1/13 14:15
  */
 public class RecordList143a {
-     static class Solution {
+    static class Solution {
         public void reorderList(ListNode head) {
-            if (head ==null) {
+            if (head == null) {
                 return;
             }
             ArrayList<ListNode> listNodes = new ArrayList<>();
@@ -18,8 +18,8 @@ public class RecordList143a {
                 listNodes.add(node);
                 node = node.next;
             }
-            int i = 0,j=listNodes.size()-1;
-            while (i < j){
+            int i = 0, j = listNodes.size() - 1;
+            while (i < j) {
                 listNodes.get(i).next = listNodes.get(j);
                 i++;
                 listNodes.get(j).next = listNodes.get(i);

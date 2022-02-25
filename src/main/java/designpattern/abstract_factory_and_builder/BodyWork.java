@@ -6,5 +6,6 @@ package designpattern.abstract_factory_and_builder;
  */
 public abstract class BodyWork {
     public abstract void setColor();
+
     public abstract String show();
 }

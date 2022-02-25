@@ -19,7 +19,7 @@ class Child {
         observers.add(new Dad());
         observers.add(new Mom());
         observers.add(new Dog());
-        observers.add((wakeupEvent)-> System.out.println("ppp"));
+        observers.add((wakeupEvent) -> System.out.println("ppp"));
     }
 
     public void wakeup() {

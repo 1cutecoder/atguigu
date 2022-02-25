@@ -7,7 +7,7 @@ package leetcode;
 public class InvertTree226a {
     class Solution {
         public TreeNode invertTree(TreeNode root) {
-            if(root==null) {
+            if (root == null) {
                 return root;
             }
             TreeNode temp = root.left;

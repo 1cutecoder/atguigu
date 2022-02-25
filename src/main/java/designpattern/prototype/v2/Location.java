@@ -4,7 +4,7 @@ package designpattern.prototype.v2;
  * @author zcl
  * @date 2021/12/28 14:41
  */
-public class Location implements Cloneable{
+public class Location implements Cloneable {
     public String street;
     public int roomNo;
 

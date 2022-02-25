@@ -45,9 +45,9 @@ public class ChatServer {
                     ch.pipeline().addLast(new ProtocolFrameDecoder());
                     ch.pipeline().addLast(LOOGING_HANDLER);
                     ch.pipeline().addLast(messageCodecSharable);
-                    ch.pipeline().addLast(new IdleStateHandler(60,0,0));
+                    ch.pipeline().addLast(new IdleStateHandler(60, 0, 0));
                     //入站和出站处理器
-                    ch.pipeline().addLast(new ChannelDuplexHandler(){
+                    ch.pipeline().addLast(new ChannelDuplexHandler() {
                         @Override
                         public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
                             IdleStateEvent event = (IdleStateEvent) evt;

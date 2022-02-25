@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class Animal {
     @MyAnnotation(value = Date.class)
-    public void show(){
+    public void show() {
 
     }
 }

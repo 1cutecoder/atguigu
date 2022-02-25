@@ -7,35 +7,34 @@ import java.lang.reflect.Modifier;
 /**
  * @author zcl
  * @date 2021/10/8 14:11
- *     Class:
- *         ClassÀàµÄÊµÀý±íÊ¾ÕýÔÚÔËÐÐµÄ Java Ó¦ÓÃ³ÌÐòÖÐµÄÀàºÍ½Ó¿Ú¡£Ã¶¾ÙÊÇÒ»ÖÖÀà£¬×¢½âÊÇÒ»ÖÖ½Ó¿Ú.
- *
- *     ·½·¨£º
- *         Class.forName(String className)
- *         getName();
- *         newInstance(); // Ä¬ÈÏµ÷ÓÃÎÞ²Î¹¹ÔìÆ÷£¬Èç¹ûÃ»ÓÐÎÞ²Î¹¹ÔìÆ÷»á±¨´í
- *
- *         »ñÈ¡¹¹ÔìÆ÷£º
- *             getConstructors
- *                 // »ñÈ¡¸ÃÀàµÄËùÓÐ¹«ÓÐµÄ¹¹Ôì·½·¨
- * 		    getDeclaredConstructors
- * 		       // »ñÈ¡¸ÃÀàÖÐÉùÃ÷µÄËùÓÐ¹¹Ôì·½·¨
- *             Constructor<T> getConstructor(Class<?>... parameterTypes)
- *             Constructor<T> getDeclaredConstructor(Class<?>... parameterTypes)
- *
- *             Constructor:
- *                 T newInstance(Object... initargs)
- *                 String getName()
- *                 int getModifiers()
- *                 00000000_00000000_00000000_00000000
- *
- *            AccessibleObject:
- *                 AccessibleObject ÀàÊÇ Field¡¢Method ºÍ Constructor ¶ÔÏóµÄ»ùÀà¡£
- *                     static void setAccessible(AccessibleObject[] array, boolean flag)
- *                             Ê¹ÓÃµ¥Ò»°²È«ÐÔ¼ì²é£¨ÎªÁËÌá¸ßÐ§ÂÊ£©ÎªÒ»×é¶ÔÏóÉèÖÃ accessible ±êÖ¾µÄ±ã½Ý·½·¨¡£
- *                     void setAccessible(boolean flag)
- *
- *  */
+ * Class:
+ * Classï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ Java Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Í½Ó¿Ú¡ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½à£¬×¢ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ö½Ó¿ï¿½.
+ * <p>
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * Class.forName(String className)
+ * getName();
+ * newInstance(); // Ä¬ï¿½Ïµï¿½ï¿½ï¿½ï¿½Þ²Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Þ²Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á±¨ï¿½ï¿½
+ * <p>
+ * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * getConstructors
+ * // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ÐµÄ¹ï¿½ï¿½ì·½ï¿½ï¿½
+ * getDeclaredConstructors
+ * // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ì·½ï¿½ï¿½
+ * Constructor<T> getConstructor(Class<?>... parameterTypes)
+ * Constructor<T> getDeclaredConstructor(Class<?>... parameterTypes)
+ * <p>
+ * Constructor:
+ * T newInstance(Object... initargs)
+ * String getName()
+ * int getModifiers()
+ * 00000000_00000000_00000000_00000000
+ * <p>
+ * AccessibleObject:
+ * AccessibleObject ï¿½ï¿½ï¿½ï¿½ Fieldï¿½ï¿½Method ï¿½ï¿½ Constructor ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½à¡£
+ * static void setAccessible(AccessibleObject[] array, boolean flag)
+ * Ê¹ï¿½Ãµï¿½Ò»ï¿½ï¿½È«ï¿½Ô¼ï¿½é£¨Îªï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½Ê£ï¿½ÎªÒ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ accessible ï¿½ï¿½Ö¾ï¿½Ä±ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½
+ * void setAccessible(boolean flag)
+ */
 public class ConstrutorDemo {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         Class<?> aClass = Class.forName("main.java.se.reflection.Animal");
@@ -60,7 +59,7 @@ public class ConstrutorDemo {
         Object o1 = declaredConstructor.newInstance();
         System.out.println("declaredConstructor1 = " + declaredConstructor1.getName());
         System.out.println(Modifier.toString(declaredConstructor.getModifiers()));
-        // ±©Á¦·ÃÎÊ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         declaredConstructor1.setAccessible(true);
         Object o2 = declaredConstructor1.newInstance(100);
         System.out.println("declaredConstructor1 = " + declaredConstructor1.getName());

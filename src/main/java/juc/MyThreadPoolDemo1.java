@@ -9,20 +9,20 @@ import java.util.concurrent.Executors;
  */
 public class MyThreadPoolDemo1 {
     public static void main(String[] args) {
-        //Ò»³ØnÏß³Ì
+        //Ò»ï¿½ï¿½nï¿½ß³ï¿½
         ExecutorService threadPool = Executors.newCachedThreadPool();
-        //Ä£Äâ10¸öÓÃ»§À´°ìÀíÒµÎñ£¬Ã¿Ò»¸öÓÃ»§¾ÍÊÇÒ»¸öÀ´×ÔÍâ²¿µÄÇëÇóÏß³Ì
+        //Ä£ï¿½ï¿½10ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Ã¿Ò»ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
         try {
             for (int i = 0; i < 10; i++) {
                 threadPool.execute(() -> {
-                    System.out.println(Thread.currentThread().getName() + "\t °ìÀíÒµÎñ");
+                    System.out.println(Thread.currentThread().getName() + "\t ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½");
                 });
-                //ÔÝÍ£Ò»»á¶ùÏß³Ì
-               /** try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }*/
+                //ï¿½ï¿½Í£Ò»ï¿½ï¿½ï¿½ï¿½ß³ï¿½
+                /** try {
+                 TimeUnit.SECONDS.sleep(1);
+                 } catch (InterruptedException e) {
+                 e.printStackTrace();
+                 }*/
             }
 
         } catch (Exception e) {

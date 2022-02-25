@@ -30,7 +30,7 @@ public class Main {
         }
         System.out.println("do it end =========================");
         System.out.println("undo it start =========================");
-        for (int i = commands.size()-1;  i >=0 ; i--) {
+        for (int i = commands.size() - 1; i >= 0; i--) {
             System.out.println(c.msg + "  ");
             commands.get(i).undoit();
         }

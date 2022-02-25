@@ -8,6 +8,6 @@ public class Client {
     public static void main(String[] args) throws CloneNotSupportedException {
         Realizetype realizetype = new Realizetype();
         Realizetype clone = realizetype.clone();
-        System.out.println("Ô­ÐÍ¶ÔÏóºÍ¿ËÂ¡³öÀ´µÄÊÇ·ñÊÇÍ¬Ò»¸ö¶ÔÏó£¿"+(realizetype == clone));
+        System.out.println("Ô­ï¿½Í¶ï¿½ï¿½ï¿½Í¿ï¿½Â¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + (realizetype == clone));
     }
 }

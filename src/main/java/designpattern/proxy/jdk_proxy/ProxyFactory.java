@@ -12,19 +12,19 @@ public class ProxyFactory {
     private TrainStation trainStation = new TrainStation();
 
     public SellTickets getProxyObject() {
-        //·µ»Ø´úÀí¶ÔÏó¼´¿É
+        //ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ó¼´¿ï¿½
         SellTickets proxyInstance = (SellTickets) Proxy.newProxyInstance(
                 trainStation.getClass().getClassLoader(),
                 trainStation.getClass().getInterfaces(),
                 new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                System.out.println("´úÀíµãÊÕµã·þÎñ·Ñstart");
-                method.invoke(trainStation, args);
-                System.out.println("´úÀíµãÊÕµã·þÎñ·Ñend");
-                return null;
-            }
-        });
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½start");
+                        method.invoke(trainStation, args);
+                        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½end");
+                        return null;
+                    }
+                });
         return proxyInstance;
     }
 }

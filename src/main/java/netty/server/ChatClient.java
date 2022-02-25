@@ -47,9 +47,9 @@ public class ChatClient {
                     ch.pipeline().addLast(new ProtocolFrameDecoder());
                     ch.pipeline().addLast(LOOGING_HANDLER);
                     ch.pipeline().addLast(messageCodecSharable);
-                    ch.pipeline().addLast(new IdleStateHandler(0,5,0));
+                    ch.pipeline().addLast(new IdleStateHandler(0, 5, 0));
                     //入站和出站处理器
-                    ch.pipeline().addLast(new ChannelDuplexHandler(){
+                    ch.pipeline().addLast(new ChannelDuplexHandler() {
                         @Override
                         public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
                             IdleStateEvent event = (IdleStateEvent) evt;
@@ -65,12 +65,12 @@ public class ChatClient {
                             new Thread(() -> {
                                 System.out.println("请输入用户名");
                                 String username = scanner.nextLine();
-                                if(exit.get()){
+                                if (exit.get()) {
                                     return;
                                 }
                                 System.out.println("请输入密码");
                                 String password = scanner.nextLine();
-                                if(exit.get()){
+                                if (exit.get()) {
                                     return;
                                 }
                                 LoginRequestMessage message = new LoginRequestMessage(username, password);
@@ -96,7 +96,7 @@ public class ChatClient {
                                     System.out.println("quit");
                                     System.out.println("==================================");
                                     String command = scanner.nextLine();
-                                    if(exit.get()){
+                                    if (exit.get()) {
                                         return;
                                     }
                                     String[] s = command.split(" ");
@@ -156,7 +156,6 @@ public class ChatClient {
                             exit.set(true);
                         }
                     });
-
 
 
                 }

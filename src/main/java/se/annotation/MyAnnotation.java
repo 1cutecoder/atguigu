@@ -6,6 +6,8 @@ package se.annotation;
  */
 public @interface MyAnnotation {
     String name() default "Henson_z";
+
     int age() default 18;
+
     Class value();
 }

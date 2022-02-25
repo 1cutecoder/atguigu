@@ -9,7 +9,7 @@ import java.util.Properties;
  * @date 2021/10/8 15:06
  */
 public class ReflectionDemo1 {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Properties properties = new Properties();
         FileReader reader = new FileReader("F:\\20210526demo\\src\\se\\properties\\a.properties");
         properties.load(reader);

@@ -8,7 +8,7 @@ import java.util.HashSet;
  * @date 2022/2/8 10:57
  */
 public class Graph {
-    public HashMap<Integer,Node> nodes;
+    public HashMap<Integer, Node> nodes;
     public HashSet<Edge> edges;
 
     public Graph() {

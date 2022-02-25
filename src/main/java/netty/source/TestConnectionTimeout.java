@@ -30,7 +30,7 @@ public class TestConnectionTimeout {
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(group);
             bootstrap.channel(NioSocketChannel.class);
-            bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS,2000);
+            bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 2000);
             bootstrap.handler(LOOGING_HANDLER);
             Channel channel = bootstrap.connect(new InetSocketAddress("localhost", 8080)).sync().channel();
             channel.closeFuture().sync();

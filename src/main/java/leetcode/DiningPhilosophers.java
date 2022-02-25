@@ -12,11 +12,12 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 class DiningPhilosophers {
     /**
-     * ÉèÖÃ 1 ¸öÁÙ½çÇøÒÔÊµÏÖ 1 ¸öÕÜÑ§¼Ò ¡°Í¬Ê±¡±ÄÃÆð×óÓÒ 22 °Ñ²æ×ÓµÄÐ§¹û¡£
-     * ¼´½øÈëÁÙ½çÇøÖ®ºó£¬±£Ö¤³É¹¦»ñÈ¡µ½×óÓÒ 2 °Ñ²æ×Ó ²¢ Ö´ÐÐÏà¹Ø´úÂëºó£¬²ÅÍË³öÁÙ½çÇø¡£
+     * ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ï¿½Ù½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 22 ï¿½Ñ²ï¿½ï¿½Óµï¿½Ð§ï¿½ï¿½ï¿½ï¿½
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù½ï¿½ï¿½ï¿½Ö®ï¿½ó£¬±ï¿½Ö¤ï¿½É¹ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2 ï¿½Ñ²ï¿½ï¿½ï¿½ ï¿½ï¿½ Ö´ï¿½ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½Ë³ï¿½ï¿½Ù½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
-    ReentrantLock[] locks = {new ReentrantLock(),new ReentrantLock(),new ReentrantLock(),new ReentrantLock(),new ReentrantLock()};
+    ReentrantLock[] locks = {new ReentrantLock(), new ReentrantLock(), new ReentrantLock(), new ReentrantLock(), new ReentrantLock()};
     Semaphore pickBothForks = new Semaphore(1);
+
     public DiningPhilosophers() {
 
     }
@@ -30,7 +31,7 @@ class DiningPhilosophers {
                            Runnable putRightFork) throws InterruptedException {
         pickBothForks.acquire();
         locks[philosopher].lock();
-        locks[(philosopher+1)%5].lock();
+        locks[(philosopher + 1) % 5].lock();
         pickBothForks.release();
         pickLeftFork.run();
         pickRightFork.run();
@@ -38,6 +39,6 @@ class DiningPhilosophers {
         putLeftFork.run();
         putRightFork.run();
         locks[philosopher].unlock();
-        locks[(philosopher+1)%5].unlock();
+        locks[(philosopher + 1) % 5].unlock();
     }
 }

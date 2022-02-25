@@ -23,7 +23,7 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, ByteBuf out) throws Exception {
         //magic num
-        out.writeBytes(new byte[]{1,2,3,4});
+        out.writeBytes(new byte[]{1, 2, 3, 4});
         //version
         out.writeByte(1);
         //序列化方式 0 jdk 1 json
@@ -55,13 +55,14 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         in.readByte();
         int length = in.readInt();
         byte[] content = new byte[length];
-        in.readBytes(content,0,length); Message message = null;
+        in.readBytes(content, 0, length);
+        Message message = null;
         if (serializerAlgorithm == 0) {
             ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(content));
             message = (Message) ois.readObject();
         }
-        log.debug("magicNum:{},version:{},serializerAlgorithm:{},messageType:{},sequenceId:{},length:{}",magicNum,version,serializerAlgorithm,messageType,sequenceId,length);
-        log.debug("message:{}",message);
+        log.debug("magicNum:{},version:{},serializerAlgorithm:{},messageType:{},sequenceId:{},length:{}", magicNum, version, serializerAlgorithm, messageType, sequenceId, length);
+        log.debug("message:{}", message);
         out.add(message);
 
     }

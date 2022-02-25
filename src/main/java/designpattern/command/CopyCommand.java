@@ -4,7 +4,7 @@ package designpattern.command;
  * @author zcl
  * @date 2021/12/28 16:37
  */
-public class CopyCommand  extends Command{
+public class CopyCommand extends Command {
     Content c;
 
     public CopyCommand(Content c) {
@@ -18,6 +18,6 @@ public class CopyCommand  extends Command{
 
     @Override
     public void undoit() {
-       c.msg =  c.msg.substring(0,c.msg.length()/2);
+        c.msg = c.msg.substring(0, c.msg.length() / 2);
     }
 }

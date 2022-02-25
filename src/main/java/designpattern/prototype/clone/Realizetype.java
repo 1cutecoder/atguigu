@@ -4,14 +4,14 @@ package designpattern.prototype.clone;
  * @author zcl
  * @date 2021/12/8 15:26
  */
-public class Realizetype implements Cloneable{
+public class Realizetype implements Cloneable {
     public Realizetype() {
-        System.out.println("¾ßÌåµÄÔ­ÐÍ¶ÔÏó´´½¨Íê³É£¡");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Í¶ï¿½ï¿½ó´´½ï¿½ï¿½ï¿½É£ï¿½");
     }
 
     @Override
     protected Realizetype clone() throws CloneNotSupportedException {
-        System.out.println("¾ßÌåµÄÔ­ÐÍ¶ÔÏó¸´ÖÆ³É¹¦£¡");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Í¶ï¿½ï¿½ï¿½ï¿½Æ³É¹ï¿½ï¿½ï¿½");
         return (Realizetype) super.clone();
     }
 }

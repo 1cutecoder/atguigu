@@ -19,14 +19,14 @@ public class Demo01_19 {
         Emp emp1 = new Emp();
         emp1.setName("lisi");
 
-        dept.setEmps(Arrays.asList(emp,emp1));
+        dept.setEmps(Arrays.asList(emp, emp1));
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(dept));
 
     }
 }
 
-class Emp{
+class Emp {
     private String name;
     private Dept dept;
 
@@ -56,7 +56,7 @@ class Emp{
     }
 }
 
-class Dept{
+class Dept {
     private String name;
 
     private List<Emp> emps;

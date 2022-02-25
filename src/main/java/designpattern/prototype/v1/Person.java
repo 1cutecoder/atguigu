@@ -5,13 +5,13 @@ package designpattern.prototype.v1;
  * @author zcl
  * @date 2021/12/28 14:35
  */
-public class Person implements Cloneable{
+public class Person implements Cloneable {
     int id;
     String name;
     int age;
     double weight;
     int score;
-    Location loc = new Location("bj",2);
+    Location loc = new Location("bj", 2);
 
     public Person() {
     }

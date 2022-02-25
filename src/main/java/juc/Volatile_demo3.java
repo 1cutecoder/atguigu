@@ -6,39 +6,41 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author zcl
  * @date 2021/9/3 9:28
  */
-    public class Volatile_demo3 {
-        public static void main(String[] args) {
-            /* System.out.println(Thread.activeCount());*/
-            AutoResource autoResource=new AutoResource();
-            //20¸öÏß³ÌÃ¿¸öÏß³ÌÑ­»·100´Î
-            for (int i = 1; i <=20; i++) {
-                new Thread(()->{
-                    for (int j = 1; j <=100; j++) {
-                        autoResource.numberPlusPlus();
-                        autoResource.addAtomicInteger();
-                    }
-                },String.valueOf(i)).start();
-            }
-            //ÐèÒªµÈ´ýÉÏÃæ20¸öÏß³Ì¶¼È«²¿¼ÆËãÍêºó,ÔÙÓÃmainÏß³ÌÈ¡µÃµÄ×îÖÕµÄ½á¹ûÖµÊÇ¶àÉÙ
-            //Ä¬ÈÏÓÐÁ½¸öÏß³Ì,Ò»¸ömainÏß³Ì,¶þÊÇºóÌ¨gcÏß³Ì
-            while(Thread.activeCount()>2){
-                Thread.yield();
-            }
-            System.out.println(Thread.currentThread().getName()+"\t int type "+autoResource.number);
-            System.out.println(Thread.currentThread().getName()+"\t AutoInteger type "+autoResource.atomicInteger.get());
+public class Volatile_demo3 {
+    public static void main(String[] args) {
+        /* System.out.println(Thread.activeCount());*/
+        AutoResource autoResource = new AutoResource();
+        //20ï¿½ï¿½ï¿½ß³ï¿½Ã¿ï¿½ï¿½ï¿½ß³ï¿½Ñ­ï¿½ï¿½100ï¿½ï¿½
+        for (int i = 1; i <= 20; i++) {
+            new Thread(() -> {
+                for (int j = 1; j <= 100; j++) {
+                    autoResource.numberPlusPlus();
+                    autoResource.addAtomicInteger();
+                }
+            }, String.valueOf(i)).start();
         }
+        //ï¿½ï¿½Òªï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½20ï¿½ï¿½ï¿½ß³Ì¶ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½mainï¿½ß³ï¿½È¡ï¿½Ãµï¿½ï¿½ï¿½ï¿½ÕµÄ½ï¿½ï¿½Öµï¿½Ç¶ï¿½ï¿½ï¿½
+        //Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½,Ò»ï¿½ï¿½mainï¿½ß³ï¿½,ï¿½ï¿½ï¿½Çºï¿½Ì¨gcï¿½ß³ï¿½
+        while (Thread.activeCount() > 2) {
+            Thread.yield();
+        }
+        System.out.println(Thread.currentThread().getName() + "\t int type " + autoResource.number);
+        System.out.println(Thread.currentThread().getName() + "\t AutoInteger type " + autoResource.atomicInteger.get());
     }
-    class AutoResource{
-        volatile int number=0;
+}
 
-        public void numberPlusPlus(){
-            number++;
+class AutoResource {
+    volatile int number = 0;
 
-        }
-        //Ê¹ÓÃAutoInteger±£Ö¤Ô­×ÓÐÔ
-        AtomicInteger atomicInteger=new AtomicInteger();
+    public void numberPlusPlus() {
+        number++;
 
-        public void addAtomicInteger(){
-            atomicInteger.getAndIncrement();
-        }
     }
+
+    //Ê¹ï¿½ï¿½AutoIntegerï¿½ï¿½Ö¤Ô­ï¿½ï¿½ï¿½ï¿½
+    AtomicInteger atomicInteger = new AtomicInteger();
+
+    public void addAtomicInteger() {
+        atomicInteger.getAndIncrement();
+    }
+}

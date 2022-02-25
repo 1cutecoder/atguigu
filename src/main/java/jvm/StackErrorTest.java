@@ -1,14 +1,16 @@
 package jvm;
 
 /**
- * ÑÝÊ¾Õ»ÖÐµÄÒì³££ºStackOverflowError
+ * ï¿½ï¿½Ê¾Õ»ï¿½Ðµï¿½ï¿½ì³£ï¿½ï¿½StackOverflowError
+ *
  * @author zcl
  * @date 2021/10/13 11:26
- * Ä¬ÈÏÇé¿öÏÂ count = 6545
- * ÉèÖÃÕ»µÄ´óÐ¡£º-Xss256k count = 1978
+ * Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ count = 6545
+ * ï¿½ï¿½ï¿½ï¿½Õ»ï¿½Ä´ï¿½Ð¡ï¿½ï¿½-Xss256k count = 1978
  */
 public class StackErrorTest {
-    public static  int count = 1;
+    public static int count = 1;
+
     public static void main(String[] args) {
         System.out.println("count = " + count);
         count++;

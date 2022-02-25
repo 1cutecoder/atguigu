@@ -23,7 +23,7 @@ abstract class F {
     abstract void op2();
 }
 
-class C1 extends F{
+class C1 extends F {
 
     @Override
     void op1() {

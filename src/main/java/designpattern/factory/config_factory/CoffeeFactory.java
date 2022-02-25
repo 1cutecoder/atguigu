@@ -11,25 +11,27 @@ import java.util.Properties;
  */
 public class CoffeeFactory {
     /**
-     * ¼ÓÔØÅäÖÃÎÄ¼ş£¬»ñÈ¡ÅäÖÃÎÄ¼şÖĞÅäÖÃµÄÈ«ÀàÃû£¬²¢´´½¨¸ÃÀàµÄ¶ÔÏó½øĞĞ´æ´¢
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´æ´¢
      */
 
-    private static Map<String,Coffee> map = new HashMap<>();
+    private static Map<String, Coffee> map = new HashMap<>();
+
     static {
         Properties properties = new Properties();
         InputStream inputStream = CoffeeFactory.class.getClassLoader().getResourceAsStream("main/java/bean.properties");
         try {
             properties.load(inputStream);
-            for (Object key: properties.keySet()) {
+            for (Object key : properties.keySet()) {
                 String className = properties.getProperty((String) key);
                 Class<?> clazz = Class.forName(className);
                 Coffee instance = (Coffee) clazz.newInstance();
-                map.put((String)key,instance);
+                map.put((String) key, instance);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public static Coffee createCoffee(String name) {
         return map.get(name);
     }

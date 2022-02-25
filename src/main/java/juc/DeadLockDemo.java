@@ -2,7 +2,7 @@ package juc;
 
 import java.util.concurrent.TimeUnit;
 
-class HoldLockThread implements  Runnable {
+class HoldLockThread implements Runnable {
     private String lockA;
     private String lockB;
 
@@ -14,26 +14,31 @@ class HoldLockThread implements  Runnable {
     @Override
     public void run() {
         synchronized (lockA) {
-            System.out.println(Thread.currentThread().getName() + "\t ×Ô¼º³ÖÓÐ"+lockA+"\t ³¢ÊÔ»ñµÃ"+lockB);
-            try {TimeUnit.SECONDS.sleep(2);} catch (InterruptedException e) {e.printStackTrace();}
+            System.out.println(Thread.currentThread().getName() + "\t ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½" + lockA + "\t ï¿½ï¿½ï¿½Ô»ï¿½ï¿½" + lockB);
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             synchronized (lockB) {
-                System.out.println(Thread.currentThread().getName() + "\t ×Ô¼º³ÖÓÐ"+lockB+"\t ³¢ÊÔ»ñµÃ"+lockA);
+                System.out.println(Thread.currentThread().getName() + "\t ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½" + lockB + "\t ï¿½ï¿½ï¿½Ô»ï¿½ï¿½" + lockA);
             }
         }
     }
 }
+
 /**
  * @author zcl
  * @date 2021/9/7 15:00
  */
 public class DeadLockDemo {
     public static void main(String[] args) {
-        String  lockA="lockA";
-        String  lockB="lockB";
-        new Thread(new HoldLockThread(lockA,lockB),"ThreadAAA").start();
-        new Thread(new HoldLockThread(lockB,lockA),"ThreadBBB").start();
+        String lockA = "lockA";
+        String lockB = "lockB";
+        new Thread(new HoldLockThread(lockA, lockB), "ThreadAAA").start();
+        new Thread(new HoldLockThread(lockB, lockA), "ThreadBBB").start();
         /**
-         * windowsÏÂµÄ jps=ps ef...
+         * windowsï¿½Âµï¿½ jps=ps ef...
          */
 
     }

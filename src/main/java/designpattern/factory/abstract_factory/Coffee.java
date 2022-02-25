@@ -6,16 +6,18 @@ package designpattern.factory.abstract_factory;
  */
 public abstract class Coffee {
     /**
-     * »ñÈ¡Ãû³Æ
+     * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+     *
      * @return
      */
     public abstract String getName();
 
 
-    public void addSugar(){
-        System.out.println("¼ÓÌÇ");
+    public void addSugar() {
+        System.out.println("ï¿½ï¿½ï¿½ï¿½");
     }
-    public void addMilk(){
-        System.out.println("¼ÓÄÌ");
+
+    public void addMilk() {
+        System.out.println("ï¿½ï¿½ï¿½ï¿½");
     }
 }

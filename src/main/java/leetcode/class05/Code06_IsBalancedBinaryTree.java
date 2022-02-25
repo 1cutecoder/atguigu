@@ -6,7 +6,7 @@ package leetcode.class05;
  */
 public class Code06_IsBalancedBinaryTree {
 
-    public static class ReturnType{
+    public static class ReturnType {
         public boolean isBalanced;
         public int height;
 
@@ -15,15 +15,16 @@ public class Code06_IsBalancedBinaryTree {
             this.height = height;
         }
     }
+
     public static ReturnType process(Node x) {
         if (x == null) {
-            return new ReturnType(true,0);
+            return new ReturnType(true, 0);
         }
         ReturnType leftData = process(x.left);
         ReturnType rightData = process(x.right);
-        int height = Math.max(leftData.height ,rightData.height) + 1;
+        int height = Math.max(leftData.height, rightData.height) + 1;
         boolean isBalanced = leftData.isBalanced && rightData.isBalanced && Math.abs(leftData.height - rightData.height) < 2;
-        return new ReturnType(isBalanced,height);
+        return new ReturnType(isBalanced, height);
     }
 
     public static void main(String[] args) {
@@ -39,7 +40,7 @@ public class Code06_IsBalancedBinaryTree {
         node1.left = node3;
         node1.right = node4;
         Node node5 = new Node(4);
-        Node node6= new Node(4);
+        Node node6 = new Node(4);
         node3.left = node5;
         node3.right = node6;
         ReturnType returnType = process(node0);

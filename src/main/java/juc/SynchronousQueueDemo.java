@@ -25,14 +25,26 @@ public class SynchronousQueueDemo {
         }, "AAA").start();
         new Thread(() -> {
             try {
-                try {TimeUnit.SECONDS.sleep(5);} catch (InterruptedException e) {e.printStackTrace();}
-                System.out.println(Thread.currentThread().getName() + "\t "+ synchronousQueue.take());
-                try {TimeUnit.SECONDS.sleep(5);} catch (InterruptedException e) {e.printStackTrace();}
-                System.out.println(Thread.currentThread().getName() + "\t "+ synchronousQueue.take());
-                try {TimeUnit.SECONDS.sleep(5);} catch (InterruptedException e) {e.printStackTrace();}
-                System.out.println(Thread.currentThread().getName() + "\t "+ synchronousQueue.take());
+                try {
+                    TimeUnit.SECONDS.sleep(5);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() + "\t " + synchronousQueue.take());
+                try {
+                    TimeUnit.SECONDS.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() + "\t " + synchronousQueue.take());
+                try {
+                    TimeUnit.SECONDS.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() + "\t " + synchronousQueue.take());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }, "BBB").start();
     }

@@ -28,10 +28,10 @@ public class Singleton {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        //Æô¶¯100¸öÏß³Ì£¬Ö®ÐÄ20_000´Î£¬Ö»ÒªÒ»´ÎÉú³ÉÁËÁ½¸ö¶ÔÏó¾ÍÅ×Òì³£
+        //ï¿½ï¿½ï¿½ï¿½100ï¿½ï¿½ï¿½ß³Ì£ï¿½Ö®ï¿½ï¿½20_000ï¿½Î£ï¿½Ö»ÒªÒ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£
         CyclicBarrier cyclicBarrier = new CyclicBarrier(1000);
         for (int i = 0; i < 1000_000; i++) {
-            if (i % 50000 == 0 ) {
+            if (i % 50000 == 0) {
                 System.out.println("i = " + i);
             }
             cyclicBarrier.reset();
@@ -41,9 +41,9 @@ public class Singleton {
                     cyclicBarrier.await();
                     Singleton instance = Singleton.getInstance();
                     if (instance.x == null) {
-                        throw  new RuntimeException("ÄÃµ½ÁËÎ´±»³õÊ¼»¯µÄ¶ÔÏó");
+                        throw new RuntimeException("ï¿½Ãµï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½");
                     }
-                    return instance ;
+                    return instance;
                 });
             }
             List<Future<Singleton>> futures = executorService.invokeAll(list);
@@ -52,12 +52,12 @@ public class Singleton {
                 singletonHashSet.add(future.get());
             }
             if (singletonHashSet.size() > 1) {
-                System.out.println("²¢·¢Éú³É¶à¸öÊµÀý");
+                System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¶ï¿½ï¿½Êµï¿½ï¿½");
                 throw new RuntimeException();
             }
             Singleton.removeInstance();
         }
-        System.out.println("Õý³£½áÊø");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
 
 

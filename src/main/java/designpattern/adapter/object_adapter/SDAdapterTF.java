@@ -4,7 +4,7 @@ package designpattern.adapter.object_adapter;
  * @author zcl
  * @date 2021/12/10 17:53
  */
-public class SDAdapterTF implements SDCard{
+public class SDAdapterTF implements SDCard {
     private TFCard tfCard;
 
     public SDAdapterTF(TFCard tfCard) {

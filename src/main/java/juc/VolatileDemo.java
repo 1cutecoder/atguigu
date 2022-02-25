@@ -3,11 +3,11 @@ package juc;
 import java.util.concurrent.TimeUnit;
 
 
-    /**
-    ÑéÖ¤volatileµÄ¿É¼ûĞÔ:
-    1.¼ÓÈëint number=0; number±äÁ¿Ö®Ç°Ã»ÓĞÌí¼Óvolatile¹Ø¼ü×ÖĞŞÊÎ,Ã»ÓĞ¿É¼ûĞÔ
-    2.Ìí¼ÓÁËvolatile,¿ÉÒÔ½â¾ö¿É¼ûĞÔÎÊÌâ
-    */
+/**
+ * ï¿½ï¿½Ö¤volatileï¿½Ä¿É¼ï¿½ï¿½ï¿½:
+ * 1.ï¿½ï¿½ï¿½ï¿½int number=0; numberï¿½ï¿½ï¿½ï¿½Ö®Ç°Ã»ï¿½ï¿½ï¿½ï¿½ï¿½volatileï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Ã»ï¿½Ğ¿É¼ï¿½ï¿½ï¿½
+ * 2.ï¿½ï¿½ï¿½ï¿½ï¿½volatile,ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ */
 class Resource {
     //volatile int number=0;
     volatile int number = 0;
@@ -16,6 +16,7 @@ class Resource {
         this.number = 60;
     }
 }
+
 /**
  * @author zcl
  * @date 2021/9/3 9:24
@@ -32,13 +33,13 @@ public class VolatileDemo {
             }
             resource.addNumber();
             System.out.println(Thread.currentThread().getName() + "\t update " + resource.number);
-        }, "Ïß³ÌA").start();
+        }, "ï¿½ß³ï¿½A").start();
 
-        //Èç¹ûÖ÷Ïß³Ì·ÃÎÊresource.number==0,ÄÇÃ´¾ÍÒ»Ö±½øĞĞÑ­»·
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì·ï¿½ï¿½ï¿½resource.number==0,ï¿½ï¿½Ã´ï¿½ï¿½Ò»Ö±ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
         while (resource.number == 0) {
 
         }
-        //Èç¹ûÖ´ĞĞµ½ÁËÕâÀï,Ö¤Ã÷mainÏÖÔÚÍ¨¹ıresource.numberµÄÖµÎª60
+        //ï¿½ï¿½ï¿½Ö´ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Ö¤ï¿½ï¿½mainï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½resource.numberï¿½ï¿½ÖµÎª60
         System.out.println(Thread.currentThread().getName() + "\t" + resource.number);
 
     }

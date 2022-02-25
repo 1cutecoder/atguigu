@@ -24,7 +24,7 @@ public class RectangleDemo {
         }
     }
 
-    public static void printLengthAndWidth(Rectangle rectangle){
+    public static void printLengthAndWidth(Rectangle rectangle) {
         System.out.println("rectangle.getLength() = " + rectangle.getLength());
         System.out.println("rectangle.getWidth() = " + rectangle.getWidth());
     }

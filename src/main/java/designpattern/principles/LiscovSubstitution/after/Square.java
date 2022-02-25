@@ -4,7 +4,7 @@ package designpattern.principles.LiscovSubstitution.after;
  * @author zcl
  * @date 2021/11/29 15:57
  */
-public class Square implements Quadrilateral{
+public class Square implements Quadrilateral {
     private double side;
 
     public void setSide(double side) {
