@@ -3,6 +3,7 @@ package leetcode.class01;
 /**
  * @author zcl
  * @date 2022/3/4 9:40
+ * @description bit calculation
  */
 public class Code07_EvenTimes {
     /**
