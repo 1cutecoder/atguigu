@@ -35,7 +35,7 @@ public class Code03_InsertionSort {
         printArray(arr0);
         System.out.println("========================================");
         //generateRandomARRAY
-        int testTime = 5000;
+        int testTime = 500000;
         int maxSize = 100;
         int maxValue = 100;
         boolean succeed = true;
