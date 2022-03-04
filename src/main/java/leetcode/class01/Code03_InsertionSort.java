@@ -1,17 +1,19 @@
 package leetcode.class01;
 
+import java.util.Arrays;
+
 /**
  * @author zcl
  * @date 2022/3/4 10:22
  */
 public class Code03_InsertionSort {
-    public static void insertionSort(int[] arr ){
+    public static void insertionSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
         for (int i = 1; i < arr.length; i++) {
-            for (int j = i -1; j >= 0 && arr[j] > arr[j + 1]; j--) {
-                swap(arr,j,j+1);
+            for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
+                swap(arr, j, j + 1);
 
             }
         }
@@ -24,17 +26,94 @@ public class Code03_InsertionSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[] {8,7,6,5,4,3,2,1};
+        int[] arr0 = new int[]{8, 7, 6, 5, 4, 3, 2, 1};
         System.out.println("========================================");
-        for (int i : arr) {
-            System.out.println(i);
+        printArray(arr0);
+        System.out.println("========================================");
+        insertionSort(arr0);
+        System.out.println("========================================");
+        printArray(arr0);
+        System.out.println("========================================");
+        //generateRandomARRAY
+        int testTime = 5000;
+        int maxSize = 100;
+        int maxValue = 100;
+        boolean succeed = true;
+        for (int i = 0; i < testTime; i++) {
+            int[] arr1 = generateRandomArray(maxSize, maxValue);
+            int[] arr2 = copyArray(arr1);
+            insertionSort(arr1);
+            comparator(arr2);
+            if (!isEqual(arr1, arr2)) {
+                succeed = false;
+                break;
+            }
         }
-        System.out.println("========================================");
+        System.out.println(succeed ? "Nice!" : "Fucking fucked!");
+        int[] arr = generateRandomArray(maxSize, maxValue);
+        printArray(arr);
         insertionSort(arr);
-        System.out.println("========================================");
-        for (int i : arr) {
-            System.out.println(i);
+        printArray(arr);
+    }
+
+
+    public static int[] generateRandomArray(int maxSize, int maxValue) {
+        //int range [0,maxSize]
+        int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
         }
-        System.out.println("========================================");
+        return arr;
+    }
+
+    /**
+     * for test
+     */
+    public static int[] copyArray(int[] arr) {
+        if (arr == null) {
+            return null;
+        }
+        int[] res = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            res[i] = arr[i];
+        }
+        return res;
+    }
+
+    /**
+     * for test
+     */
+    public static boolean isEqual(int[] arr1, int[] arr2) {
+        if (arr1 == null && arr2 != null) {
+            return false;
+        }
+        if (arr1 != null && arr2 == null) {
+            return false;
+        }
+        if (arr1.length != arr2.length) {
+            return false;
+        }
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void comparator(int[] arr) {
+        Arrays.sort(arr);
+    }
+
+    public static void printArray(int[] arr) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i : arr) {
+            sb.append(i);
+            sb.append(",");
+        }
+        String s = sb.substring(0, sb.length() - 1);
+        s += "]";
+        System.out.println(s);
     }
 }
