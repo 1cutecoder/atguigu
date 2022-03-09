@@ -1,10 +1,12 @@
 package leetcode.class02;
 
+import leetcode.DataComparator;
+
 /**
  * 类描述
  *
  * @author zcl
- * @Description TODO
+ * @Description 归并排序
  * @Date 2022/3/5 11:58
  */
 public class Code01_MergeSort {
@@ -43,6 +45,7 @@ public class Code01_MergeSort {
         while (p1 <= M && p2 <= R) {
             help[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++];
         }
+        //要么p1>M 要么P2>R 所以以下两个while循环先后顺序不影响
         while (p1 <= M) {
             help[i++] = arr[p1++];
         }
