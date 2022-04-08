@@ -40,27 +40,22 @@ public class MorrisAlgorithm {
             return;
         }
         Node cur = head;
-        Node mostRight = head;
+        Node mostRight = null;
         while (cur != null) {
-            if (mostRight.right != null && mostRight.right != cur) {
-                System.out.print("\t" + cur.value);
-            }
-            if (cur.left == null) {
-                cur = cur.right;
-            } else {
-                mostRight = cur.left;
+            mostRight = cur.left;
+            if (mostRight != null) {
                 while (mostRight.right != null && mostRight.right != cur) {
                     mostRight = mostRight.right;
                 }
                 if (mostRight.right == null) {
                     mostRight.right = cur;
                     cur = cur.left;
-                }
-                if (mostRight.right == cur) {
+                    continue;
+                } else {
                     mostRight.right = null;
-                    cur = cur.right;
                 }
             }
+            cur = cur.right;
         }
 
     }
