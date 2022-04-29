@@ -10,7 +10,7 @@ public class Dameon {
             try {
                 SleepUtils.second(10);
             } finally {
-                System.out.println("DaemonThread finally run.");
+                System.out.println("DaemonThread finally CODE BLOCK.");
             }
         }, "daemonThread");
         thread.setDaemon(true);
