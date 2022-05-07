@@ -1,2 +1,12 @@
 查询数据库隔离级别
 select @@transaction_isolation \G;
+查询ip、账号和密码加密串
+select host,user,authentication_string from mysql.user;
+查询隔离级别
+select @@transaction_isolation \G;
+自增长插入时所用锁模式
+show variables like '%innodb_autoinc_lock_mode%';
+查询是否开启慢查询日志
+show variables like '%slow_query_log%';
+慢查询日志文件所在位置
+show variables like '%slow_query_log_file%';
