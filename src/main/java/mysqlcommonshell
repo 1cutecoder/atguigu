@@ -1,0 +1,2 @@
+查询数据库隔离级别
+select @@transaction_isolation \G;
