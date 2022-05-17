@@ -15,11 +15,24 @@ public class WaitNotify {
     public static void main(String[] args) throws Exception {
         Thread waitThread = new Thread(new Wait(), "WaitThread");
         waitThread.start();
-        TimeUnit.SECONDS.sleep(1);
+        TimeUnit.SECONDS.sleep(10);
         Thread notifyThread = new Thread(new Notify(), "NotifyThread");
         notifyThread.start();
     }
 
+    /**
+     * 等待方遵循如下原则。
+     * 1）获取对象的锁。
+     * 2）如果条件不满足，那么调用对象的wait()方法，被通知后仍要检查条件。
+     * 3）条件满足则执行对应的逻辑。
+     * 对应的伪代码如下。
+     synchronized(对象) {
+       while(条件不满足) {
+       对象.wait();
+       }
+       对应的处理逻辑
+       }
+     */
     static class Wait implements Runnable {
         public void run() {
 // 加锁，拥有lock的Monitor
@@ -40,6 +53,17 @@ public class WaitNotify {
         }
     }
 
+    /**
+     * 通知方遵循如下原则。
+     * 1）获得对象的锁。
+     * 2）改变条件。
+     * 3）通知所有等待在对象上的线程
+     * 对应的伪代码如下。
+       synchronized(对象) {
+       改变条件
+       对象.notifyAll();
+     }
+     */
     static class Notify implements Runnable {
         public void run() {
 // 加锁，拥有lock的Monitor
@@ -48,8 +72,8 @@ public class WaitNotify {
 // 直到当前线程释放了lock后，WaitThread才能从wait方法中返回
                 System.out.println(Thread.currentThread() + " hold lock. notify @ " +
                         new SimpleDateFormat("HH:mm:ss").format(new Date()));
-                lock.notifyAll();
                 flag = false;
+                lock.notifyAll();
                 SleepUtils.second(5);
             }
 // 再次加锁
