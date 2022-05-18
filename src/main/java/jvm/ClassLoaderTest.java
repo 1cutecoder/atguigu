@@ -12,16 +12,16 @@ import java.security.Provider;
  */
 public class ClassLoaderTest {
     public static void main(String[] args) {
-        System.out.println("***********************Æô¶¯Àà¼ÓÔØÆ÷***************************");
-        //»ñÈ¡BootStrapClassLoaderÄÜ¹»¼ÓÔØµÄapiµÄÂ·¾¶
+        System.out.println("***********************å¯åŠ¨ç±»åŠ è½½å™¨***************************");
+        //è·å–BootStrapClassLoaderèƒ½å¤ŸåŠ è½½çš„apiçš„è·¯å¾„
         URL[] urLs = Launcher.getBootstrapClassPath().getURLs();
         for (URL urL : urLs) {
             System.out.println(urL.toExternalForm());
         }
-        //´ÓÉÏÃæµÄÂ·¾¶ÖĞËæÒâÑ¡ÔñÒ»¸öÀà£¬¿´¼ÓÔØÆ÷ÊÇÊ²Ã´
+        //ä»ä¸Šé¢çš„è·¯å¾„ä¸­éšæ„é€‰æ‹©ä¸€ä¸ªç±»ï¼Œçœ‹åŠ è½½å™¨æ˜¯ä»€ä¹ˆ
         ClassLoader classLoader = Provider.class.getClassLoader();
         System.out.println("Provider.class.getClassLoader(): " + classLoader);
-        System.out.println("**********************ÍØÕ¹Àà¼ÓÔØÆ÷**************************************");
+        System.out.println("**********************æ‹“å±•ç±»åŠ è½½å™¨**************************************");
         String extDirs = System.getProperty("java.ext.dirs");
         for (String path : extDirs.split(";")) {
             System.out.println(path);
