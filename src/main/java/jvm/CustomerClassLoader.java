@@ -24,8 +24,8 @@ public class CustomerClassLoader extends ClassLoader {
     }
 
     private static byte[] getClassFromCustomerPath(String name) {
-        //从自定义路径中加载指定类
-        //如果指定路径的字节码文件进行了加密，则需要在此方法中进行解密操作
+        //浠庤嚜瀹氫箟璺緞涓姞杞芥寚瀹氱被
+        //濡傛灉鎸囧畾璺緞鐨勫瓧鑺傜爜鏂囦欢杩涜浜嗗姞瀵嗭紝鍒欓渶瑕佸湪姝ゆ柟娉曚腑杩涜瑙ｅ瘑鎿嶄綔
         return null;
     }
 }
