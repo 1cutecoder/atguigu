@@ -21,7 +21,7 @@ public class MyThreadPoolDemo {
         try {
             for (int i = 0; i < 10; i++) {
                 threadPool.execute(() -> {
-                    System.out.println(Thread.currentThread().getName() + "\t °ìÀíÒµÎñ");
+                    System.out.println(Thread.currentThread().getName() + "\t åŠç†ä¸šåŠ¡");
                 });
             }
 
@@ -34,19 +34,19 @@ public class MyThreadPoolDemo {
 
     public static void threadPoolInit() {
         //System.out.println(Runtime.getRuntime().availableProcessors());
-        //Ò»³Ø5¸ö´¦ÀíÏß³Ì
+        //ä¸€æ± 5ä¸ªå¤„ç†çº¿ç¨‹
         //ExecutorService threadPool = Executors.newFixedThreadPool(5);
-        //Ò»³Ø1¸ö´¦ÀíÏß³Ì
+        //ä¸€æ± 1ä¸ªå¤„ç†çº¿ç¨‹
         //ExecutorService threadPool = Executors.newSingleThreadExecutor();
-        //Ò»³ØnÏß³Ì
+        //ä¸€æ± nçº¿ç¨‹
         ExecutorService threadPool = Executors.newCachedThreadPool();
-        //Ä£Äâ10¸öÓÃ»§À´°ìÀíÒµÎñ£¬Ã¿Ò»¸öÓÃ»§¾ÍÊÇÒ»¸öÀ´×ÔÍâ²¿µÄÇëÇóÏß³Ì
+        //æ¨¡æ‹Ÿ10ä¸ªç”¨æˆ·æ¥åŠç†ä¸šåŠ¡ï¼Œæ¯ä¸€ä¸ªç”¨æˆ·å°±æ˜¯ä¸€ä¸ªæ¥è‡ªå¤–éƒ¨çš„è¯·æ±‚çº¿ç¨‹
         try {
             for (int i = 0; i < 10; i++) {
                 threadPool.execute(() -> {
-                    System.out.println(Thread.currentThread().getName() + "\t °ìÀíÒµÎñ");
+                    System.out.println(Thread.currentThread().getName() + "\t åŠç†ä¸šåŠ¡");
                 });
-                //ÔİÍ£Ò»»á¶ùÏß³Ì
+                //æš‚åœä¸€ä¼šå„¿çº¿ç¨‹
                 /** try {
                  TimeUnit.SECONDS.sleep(1);
                  } catch (InterruptedException e) {
