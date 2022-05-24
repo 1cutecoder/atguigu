@@ -1,4 +1,4 @@
-package juc.blackhorse;
+package juc.darkhorse;
 
 import lombok.extern.slf4j.Slf4j;
 
