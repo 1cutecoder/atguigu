@@ -18,7 +18,7 @@ public class a19RemoveNthFromEnd {
             ListNode cur = head;
             int index = 0;
             int preIndex = 0;
-            if (cur.next == null && n == 1) {
+            if (head.next == null && n == 1) {
                 return null;
             }
             if (n == 1) {
@@ -33,11 +33,14 @@ public class a19RemoveNthFromEnd {
             while (cur.next != null) {
                 cur = cur.next;
                 index++;
-                if ((index - preIndex) > n) {
+                if ((index - preIndex ) > n) {
                     pre = pre.next;
                     suc = suc.next;
                     preIndex++;
                 }
+            }
+            if((index - preIndex ) == n) {
+                return head.next;
             }
             pre.next = suc;
             return head;
@@ -51,7 +54,7 @@ public class a19RemoveNthFromEnd {
         ListNode listNode2 = new ListNode(2, listNode3);
         ListNode listNode1 = new ListNode(1, listNode2);
         Solution solution = new Solution();
-        solution.removeNthFromEnd(listNode1, 4);
+        solution.removeNthFromEnd(listNode1, 2);
         while (listNode1 != null) {
             System.out.print(listNode1.val + " ");
             listNode1 = listNode1.next;
