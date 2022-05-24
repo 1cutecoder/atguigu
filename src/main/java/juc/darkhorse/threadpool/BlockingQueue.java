@@ -14,19 +14,49 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 @Slf4j
 public class BlockingQueue<T> {
-
+    /**
+     * 任务队列
+     */
     private Deque<T> queue = new ArrayDeque<>();
-
+    /**
+     * 锁
+     */
     private ReentrantLock lock = new ReentrantLock();
-
+    /**
+     * 生产者条件变量
+     */
     private Condition fullWaitSet = lock.newCondition();
-
+    /**
+     * 消费者条件变量
+     */
     private Condition emptyWaitSet = lock.newCondition();
-
+    /**
+     * 队列容量
+     */
     private int capacity;
 
     public BlockingQueue(int capacity) {
         this.capacity = capacity;
+    }
+
+    /**
+     * 阻塞获取
+     */
+    public T take() {
+        lock.lock();
+        try {
+            while (queue.isEmpty()) {
+                emptyWaitSet.await();
+            }
+            T t = queue.removeFirst();
+            fullWaitSet.signal();
+            return t;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+        return null;
     }
 
     /**
@@ -41,6 +71,7 @@ public class BlockingQueue<T> {
                     if (nanos < 0) {
                         return null;
                     }
+                    //返回的剩余的时间，小于等于零是说明超时了
                     nanos = emptyWaitSet.awaitNanos(nanos);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -96,9 +127,10 @@ public class BlockingQueue<T> {
             while (queue.size() == capacity) {
                 try {
                     if (nanos <= 0) {
+                        log.debug("超时{}...", task);
                         return false;
                     }
-                    log.debug("等待加入阻塞队列{}...", task);
+                    log.debug("等待加入任务队列{}...", task);
                     nanos = fullWaitSet.awaitNanos(nanos);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -115,7 +147,7 @@ public class BlockingQueue<T> {
         return true;
     }
 
-    public int size(){
+    public int size() {
         lock.lock();
         try {
             return queue.size();
@@ -124,16 +156,16 @@ public class BlockingQueue<T> {
         }
     }
 
-    public void tryPut(RejectPolicy<T> rejectPolicy,T task) {
+    public void tryPut(RejectPolicy<T> rejectPolicy, T task) {
         lock.lock();
         try {
-                if (queue.size() == capacity) {
-                    rejectPolicy.reject(this,task);
-                }else {
-                    log.debug("加入任务队列{}...", task);
-                    queue.addLast(task);
-                    emptyWaitSet.signal();
-                }
+            if (queue.size() == capacity) {
+                rejectPolicy.reject(this, task);
+            } else {
+                log.debug("加入任务队列{}...", task);
+                queue.addLast(task);
+                emptyWaitSet.signal();
+            }
         } finally {
             lock.unlock();
         }
