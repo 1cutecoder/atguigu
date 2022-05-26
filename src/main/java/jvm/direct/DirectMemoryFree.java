@@ -7,6 +7,7 @@ import java.nio.ByteBuffer;
  * @author zcl
  * @date 2022/5/26 15:44
  * 直接内存的释放
+ * 禁用显示的垃圾回收 -XX:DisablesExplicitGC
  */
 public class DirectMemoryFree {
     static int _1Gb = 1024 * 1024 * 1024;
