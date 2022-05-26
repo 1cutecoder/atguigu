@@ -6,9 +6,9 @@ import java.nio.ByteBuffer;
 /**
  * @author zcl
  * @date 2022/5/26 15:44
- * 直接内存的释放
+ * 禁用显示的垃圾回收 -XX:DisablesExplicitGC
  */
-public class DirectMemoryFree {
+public class DirectMemoryFreeMinoGC {
     static int _1Gb = 1024 * 1024 * 1024;
 
     public static void main(String[] args) throws IOException {
@@ -17,7 +17,7 @@ public class DirectMemoryFree {
         System.in.read();
         System.out.println("开始释放...");
         byteBuffer = null;
-        System.gc();//full gc
+        System.gc();
         System.in.read();
     }
 }
