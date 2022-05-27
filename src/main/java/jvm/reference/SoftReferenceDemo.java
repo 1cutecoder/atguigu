@@ -9,19 +9,19 @@ import java.util.List;
 /**
  * @author zcl
  * @date 2022/5/27 10:26
- * 演示软引用
+ * 演示软引用 用于内存敏感的场景下
  * -Xmx20m -XX:+PrintGCDetails -verbose:gc
  */
 public class SoftReferenceDemo {
     static int _4Mb = 4 * 1024 * 1024;
 
     public static void main(String[] args) throws IOException {
-        List<byte[]> list = new ArrayList<>();
+        /*List<byte[]> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             list.add(new byte[_4Mb]);
         }
-        System.in.read();
-      // soft();
+        System.in.read();*/
+       soft();
     }
 
     public static void soft() {
