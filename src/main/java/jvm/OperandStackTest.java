@@ -6,7 +6,7 @@ package jvm;
  */
 public class OperandStackTest {
     public void testAndOperation() {
-        //byte¡¢short¡¢char¡¢boolean ¶¼ÓÃintĞÍÀ´±£´æ
+        //byteã€shortã€charã€boolean éƒ½ç”¨intå‹æ¥ä¿å­˜
         byte i = 15;
         int j = 8;
         int k = i + j;
@@ -21,31 +21,31 @@ public class OperandStackTest {
     }
 
     public void testGetSUM() {
-        //»ñÈ¡ÉÏÒ»¸öÕ»èå·µ»ØµÄ½á¹û
+        //è·å–ä¸Šä¸€ä¸ªæ ˆæ¡¢è¿”å›çš„ç»“æœ
         int i = getSum();
         int j = 10;
     }
 
     /**
-     * ³£¼ûµÄ i++ºÍ++iµÄÇø±ğ
+     * å¸¸è§çš„ i++å’Œ++içš„åŒºåˆ«
      */
     public void add() {
-        //µÚÒ»ÀàÎÊÌâ
+        //ç¬¬ä¸€ç±»é—®é¢˜
         int i1 = 10;
         i1++;
         int i2 = 10;
         ++i2;
-        //µÚ¶şÀàÎÊÌâ
+        //ç¬¬äºŒç±»é—®é¢˜
         int i3 = 10;
         int i4 = i3++;
         int i5 = 10;
         int i6 = ++i3;
-        //µÚÈıÀàÎÊÌâ
+        //ç¬¬ä¸‰ç±»é—®é¢˜
         int i7 = 10;
         i7 = i7++;
         int i8 = 10;
         i8 = ++i8;
-        //µÚËÄÀàÎÊÌâ
+        //ç¬¬å››ç±»é—®é¢˜
         int i9 = 10;
         int i10 = i9++ + ++i9;
     }

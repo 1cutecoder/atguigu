@@ -3,13 +3,13 @@ package jvm;
 
 class Animal {
     public void eat() {
-        System.out.println("¶¯Îï½øÊ³");
+        System.out.println("åŠ¨ç‰©è¿›é£Ÿ");
     }
 }
 
 interface Huntable {
     /**
-     * ²¶Ê³
+     * æ•é£Ÿ
      */
     void hunt();
 }
@@ -17,22 +17,22 @@ interface Huntable {
 class Dog extends Animal implements Huntable {
     @Override
     public void eat() {
-        System.out.println("¹·³Ô¹ÇÍ·");
+        System.out.println("ç‹—åƒéª¨å¤´");
     }
 
     public void hunt() {
-        System.out.println("²¶Ê³ºÄ×Ó£¬¶à¹ÜÏĞÊÂ");
+        System.out.println("æ•é£Ÿè€—å­ï¼Œå¤šç®¡é—²äº‹");
     }
 }
 
 class Cat extends Animal implements Huntable {
     @Override
     public void eat() {
-        System.out.println("Ã¨³ÔÓã");
+        System.out.println("çŒ«åƒé±¼");
     }
 
     public void hunt() {
-        System.out.println("Ã¨×½ÀÏÊó£¬Ìì¾­µØÒå");
+        System.out.println("çŒ«æ‰è€é¼ ï¼Œå¤©ç»åœ°ä¹‰");
     }
 }
 
@@ -42,12 +42,12 @@ class Cat extends Animal implements Huntable {
  */
 public class AnimalTest {
     public void showAnimal(Animal animal) {
-        //±íÏÖÎª£º¡¢ÍíÆÚ°ó¶¨
+        //è¡¨ç°ä¸ºï¼šã€æ™šæœŸç»‘å®š
         animal.eat();
     }
 
     public void showHunt(Huntable h) {
-        //±íÏÖÎª£ºÍíÆÚ°ó¶¨
+        //è¡¨ç°ä¸ºï¼šæ™šæœŸç»‘å®š
         h.hunt();
     }
 }

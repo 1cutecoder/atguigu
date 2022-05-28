@@ -55,6 +55,16 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.8.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.16-TEST</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jgroups</groupId>
+            <artifactId>jgroups</artifactId>
+            <version>3.6.15.Final</version>
+        </dependency>
     </dependencies>
     <modelVersion>4.0.0</modelVersion>
     <version>1.0.0</version>

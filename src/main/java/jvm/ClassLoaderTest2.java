@@ -10,10 +10,10 @@ public class ClassLoaderTest2 {
             //1.
             ClassLoader classLoader = Class.forName("java.lang.String").getClassLoader();
             System.out.println(classLoader);
-            //2.当前线程
+            //2.褰撳墠绾跨▼
             ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
             System.out.println(contextClassLoader);
-            //3.获取系统类加载器-->扩展类加载器
+            //3.鑾峰彇绯荤粺绫诲姞杞藉櫒-->鎵╁睍绫诲姞杞藉櫒
             ClassLoader parent = ClassLoader.getSystemClassLoader().getParent();
             System.out.println(parent);
         } catch (ClassNotFoundException e) {

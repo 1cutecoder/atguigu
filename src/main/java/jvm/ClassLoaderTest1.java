@@ -6,21 +6,21 @@ package jvm;
  */
 public class ClassLoaderTest1 {
     public static void main(String[] args) {
-        //»ñÈ¡ÏµÍ³Àà¼ÓÔØÆ÷ sun.misc.Launcher$AppClassLoader@18b4aac2
+        //è·å–ç³»ç»Ÿç±»åŠ è½½å™¨ sun.misc.Launcher$AppClassLoader@18b4aac2
         ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
         System.out.println(systemClassLoader);
-        //»ñÈ¡ÆäÉÏ²ã£ºÍØÕ¹Àà¼ÓÔØÆ÷ sun.misc.Launcher$ExtClassLoader@4554617c
+        //è·å–å…¶ä¸Šå±‚ï¼šæ‹“å±•ç±»åŠ è½½å™¨ sun.misc.Launcher$ExtClassLoader@4554617c
         ClassLoader extClassLoader = systemClassLoader.getParent();
         System.out.println(extClassLoader);
-        //»ñÈ¡ÆäÉÏ²ã£ºnull
+        //è·å–å…¶ä¸Šå±‚ï¼šnull
         ClassLoader bootStrapClassLoader = extClassLoader.getParent();
         System.out.println(bootStrapClassLoader);
-        //¶ÔÓÚÓÃ»§×Ô¶¨ÒåÀàÀ´Ëµ sun.misc.Launcher$AppClassLoader@18b4aac2
-        //Ä¬ÈÏÊ¹ÓÃÏµÍ³Àà¼ÓÔØÆ÷¼ÓÔØ
+        //å¯¹äºç”¨æˆ·è‡ªå®šä¹‰ç±»æ¥è¯´ sun.misc.Launcher$AppClassLoader@18b4aac2
+        //é»˜è®¤ä½¿ç”¨ç³»ç»Ÿç±»åŠ è½½å™¨åŠ è½½
         ClassLoader classLoader = ClassLoaderTest1.class.getClassLoader();
         System.out.println(classLoader);
-        //StringÊÇÊ¹ÓÃÒıµ¼Àà¼ÓÔØÆ÷¼ÓÔØµÄ£¬---->javaµÄºËĞÄÀà¿âÊ¹ÓÃÒıµ¼Àà¼ÓÔØÆ÷¼ÓÔØµÄ
-        //»ñÈ¡Æä¼ÓÔØÆ÷£ºnull
+        //Stringæ˜¯ä½¿ç”¨å¼•å¯¼ç±»åŠ è½½å™¨åŠ è½½çš„ï¼Œ---->javaçš„æ ¸å¿ƒç±»åº“ä½¿ç”¨å¼•å¯¼ç±»åŠ è½½å™¨åŠ è½½çš„
+        //è·å–å…¶åŠ è½½å™¨ï¼šnull
         ClassLoader classLoader1 = String.class.getClassLoader();
         System.out.println(classLoader1);
 
