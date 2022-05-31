@@ -1,5 +1,7 @@
 package jvm.candy;
 
+import sun.reflect.generics.tree.ReturnType;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -29,6 +31,8 @@ public class Candy3 {
                 }
             }
         }
+        Class<?> returnType = test.getReturnType();
+            System.out.println("返回值类型 - "+returnType.getTypeName());
     }
 
     public Set<Integer> test(List<String> list, Map<Integer, Object> map) {
