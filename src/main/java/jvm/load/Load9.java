@@ -3,7 +3,8 @@ package jvm.load;
 /**
  * @author zcl
  * @date 2022/6/1 10:41
- * 访问静态内部类的staic成员变量（非String，非基本数据类型）时才会进行内部类的初始化
+ * 访问静态内部类的static成员变量（非String，非基本数据类型）时才会进行内部类的初始化
+ * 线程安全由类加载器保证
  */
 public class Load9 {
     public static void main(String[] args) {
