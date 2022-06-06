@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
  * @author zcl
  * @date 2022/6/6 10:39
  */
-public class TwoStepTerminateTest {
+public class TwoPhaseTerminateTest {
     public static void main(String[] args) {
         TwoPhaseTermination tpt = new TwoPhaseTermination();
         tpt.start();
