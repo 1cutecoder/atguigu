@@ -9,6 +9,7 @@ import java.util.List;
  * @author zcl
  * @date 2022/6/6 14:26
  * 保护性暂停
+ * 与join相比，无需等待t2完全结束，同时response是局部变量，无需设计全局变量
  */
 @Slf4j
 public class ProtectPauseTest {
