@@ -11,6 +11,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author zcl
  * @date 2022/6/6 15:04
+ * 执行流程：
+ *  判断核心线程数
+ *  判断任务能否加入任务队列
+ *  判断最大线程数
+ *  根据线程池的拒绝策略处理任务
  */
 @Slf4j
 public class ThreadPoolExecutorTest {
