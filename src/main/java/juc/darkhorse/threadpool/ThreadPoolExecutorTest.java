@@ -2,7 +2,9 @@ package juc.darkhorse.threadpool;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Scanner;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -12,18 +14,31 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 public class ThreadPoolExecutorTest {
+    private static volatile boolean isEnd = false;
+
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+        new Thread(() -> {
+            Scanner scanner = new Scanner(System.in);
+            while (scanner.hasNext()) {
+                String next = scanner.nextLine();
+                if ("stop".equals(next)) {
+                    isEnd = true;
+                    break;
+                }
+            }
+
+        }, "t0").start();
+        ExecutorService executor = new ThreadPoolExecutor(
                 2,
                 5,
                 10,
                 TimeUnit.SECONDS,
                 new ArrayBlockingQueue<Runnable>(10),
                 new ThreadPoolExecutor.AbortPolicy());
-                //new ThreadPoolExecutor.DiscardOldestPolicy());
-               // new ThreadPoolExecutor.CallerRunsPolicy());
-                //new ThreadPoolExecutor.DiscardPolicy());
-                //new ThreadPoolExecutor.AbortPolicy());
+        //new ThreadPoolExecutor.DiscardOldestPolicy());
+        // new ThreadPoolExecutor.CallerRunsPolicy());
+        //new ThreadPoolExecutor.DiscardPolicy());
+        //new ThreadPoolExecutor.AbortPolicy());
         for (int i = 0; i < 20; i++) {
             try {
                 executor.execute(new MyRunnable("第" + (i + 1) + "号线程"));
@@ -32,6 +47,8 @@ public class ThreadPoolExecutorTest {
                 e.printStackTrace();
             }
         }
+        executor.shutdown();
+
     }
 
     static class MyRunnable implements Runnable {
@@ -45,7 +62,9 @@ public class ThreadPoolExecutorTest {
         public void run() {
             log.debug(name + "start...");
             //System.out.println(Thread.currentThread()+"  "+name);
-            try {TimeUnit.SECONDS.sleep(4);} catch (InterruptedException e) {e.printStackTrace();}
+            while (!isEnd) {
+
+            }
             log.debug(name + "end...");
         }
     }
