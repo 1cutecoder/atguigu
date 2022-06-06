@@ -52,7 +52,10 @@ public class ThreadPoolExecutorTest {
                 e.printStackTrace();
             }
         }
+        //等待所有线程执行完再关闭
         executor.shutdown();
+        //立刻关闭
+        //executor.shutdownNow();
 
     }
 
