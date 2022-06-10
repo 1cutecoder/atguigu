@@ -8,6 +8,7 @@ public class BinaryTreeNode<T> {
     BinaryTreeNode leftChild;
     BinaryTreeNode rightChild;
     T value;
+    String color;
 
     public BinaryTreeNode(T value) {
         this.value = value;

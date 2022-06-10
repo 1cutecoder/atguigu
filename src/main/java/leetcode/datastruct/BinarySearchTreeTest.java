@@ -5,7 +5,7 @@ package leetcode.datastruct;
  * @date 2022/6/9 15:33
  */
 public class BinarySearchTreeTest {
-    public <T> void removeHelp(BinaryTreeNode<T> root, int value) {
+    public void removeHelp(BinaryTreeNode<Integer> root, int value) {
         if (root == null) {
             System.out.println("is not in the tree");
         }
@@ -21,7 +21,7 @@ public class BinarySearchTreeTest {
                 root = root.leftChild;
             } else {
                 temp = deleteMin(root.rightChild);
-                root.value = (T) temp.value;
+                root.value = (Integer) temp.value;
             }
         }
     }
