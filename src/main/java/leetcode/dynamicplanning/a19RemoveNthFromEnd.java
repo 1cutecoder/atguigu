@@ -1,4 +1,6 @@
-package leetcode;
+package leetcode.dynamicplanning;
+
+import leetcode.ListNode;
 
 /**
  * @author zcl
