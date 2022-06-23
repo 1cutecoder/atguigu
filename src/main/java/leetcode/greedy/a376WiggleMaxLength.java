@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.greedy;
 
 /**
  * 类描述
