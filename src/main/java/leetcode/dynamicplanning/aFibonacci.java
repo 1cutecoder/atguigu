@@ -4,18 +4,21 @@ package leetcode.dynamicplanning;
  * 类描述
  *
  * @author zcl
- * @Description TODO
+ * @Description 时间复杂度O(n) 空间复杂度O(1)
  * @Date 2022/6/25 11:31
  */
 public class aFibonacci {
     private static int Fibonacci0(int n) {
-        int[] dp = new int[n+1];
+        int[] dp = new int[2];
         dp[0] = 0;
         dp[1] = 1;
+        int sum = 0;
         for (int i = 2; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
+            sum = dp[0] +dp[1] ;
+            dp[0]=dp[1];
+            dp[1] = sum;
         }
-        return dp[n];
+        return sum;
     }
 
     private static int Fibonacci(int i) {
