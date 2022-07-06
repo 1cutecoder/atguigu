@@ -16,36 +16,24 @@ import leetcode.ListNode;
 public class a19RemoveNthFromEnd {
     static class Solution {
         public ListNode removeNthFromEnd(ListNode head, int n) {
-            ListNode pre = head;
-            ListNode cur = head;
-            int index = 0;
-            int preIndex = 0;
-            if (head.next == null && n == 1) {
-                return null;
-            }
-            if (n == 1) {
-                while (cur.next != null) {
-                    pre = cur;
-                    cur = cur.next;
-                }
-                pre.next = null;
-                return head;
-            }
-            ListNode suc = head.next.next;
-            while (cur.next != null) {
+            ListNode dummy = new ListNode(0, head);
+            int length = getLength(head);
+            ListNode cur = dummy;
+            for (int i = 1; i < length - n + 1; ++i) {
                 cur = cur.next;
-                index++;
-                if ((index - preIndex ) > n) {
-                    pre = pre.next;
-                    suc = suc.next;
-                    preIndex++;
-                }
             }
-            if((index - preIndex ) == n) {
-                return head.next;
+            cur.next = cur.next.next;
+            ListNode ans = dummy.next;
+            return ans;
+        }
+
+        public int getLength(ListNode head) {
+            int length = 0;
+            while (head != null) {
+                ++length;
+                head = head.next;
             }
-            pre.next = suc;
-            return head;
+            return length;
         }
     }
 
