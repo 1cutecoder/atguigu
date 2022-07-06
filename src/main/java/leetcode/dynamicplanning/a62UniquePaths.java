@@ -5,7 +5,12 @@ package leetcode.dynamicplanning;
  *
  * @author zcl
  * @Description 深度优先遍历栈过深，空间复杂度是指数级的
- * 不同路径
+ * 一个机器人位于一个 m x n网格的左上角 （起始点在下图中标记为 “Start” ）。
+ * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
+ * [start] [] [] [] [] [] []
+ * []...                  []
+ * []...                  [finish]
+ * 问总共有多少条不同的路径？
  * @Date 2022/6/25 15:17
  */
 public class a62UniquePaths {
