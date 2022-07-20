@@ -9,7 +9,8 @@ import java.util.Vector;
  * 类描述
  *
  * @author zcl
- * @Description TODO
+ * @Description 给定两个整数 n 和 k，返回范围 [1, n] 中所有可能的 k 个数的组合。
+ * 子集树
  * @Date 2022/6/21 11:21
  * 输入：n = 4, k = 2
  * 输出：
@@ -43,7 +44,7 @@ public class a77Composition {
                 result.add(new ArrayList<>(path));
                 return;
             }
-            for (int i = startIndex; i <= n - (k - path.size()) + 1; i++) {
+            for (int i = startIndex; i <= n - (k - path.size() -1); i++) {
                 path.add(i);
                 combineHelper(n, k, i + 1);
                 path.removeLast();
