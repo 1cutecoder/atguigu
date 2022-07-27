@@ -23,15 +23,15 @@ public class a131Partition {
         }
 
         private void backtracking(String s, int startIndex) {
-            if (startIndex >= (s.length() - 1)) {
+            if (startIndex >= s.length()) {
                 result.add(new LinkedList<>(path));
                 return;
             }
             for (int i = startIndex; i < s.length(); i++) {
                 if (isPalindrome(s, startIndex, i)) { // 是回文子串
                     // 获取[startIndex,i]在s中的子串
-                    String str = s.substring(startIndex, i - startIndex + 2);
-                    path.add(str);
+                    String str = s.substring(startIndex, i +1);
+                    path.addLast(str);
                 } else {                // 如果不是则直接跳过
                     continue;
                 }
