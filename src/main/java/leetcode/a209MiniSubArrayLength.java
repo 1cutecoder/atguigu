@@ -4,7 +4,7 @@ package leetcode;
  * 类描述
  *
  * @author zcl
- * @Description 删除重复元素
+ * @Description 最短连续子数组
  * @Date 2022/7/28 21:14
  * 给定一个含有n个正整数的数组和一个正整数 target 。
  * 找出该数组中满足其和 ≥ target 的长度最小的 连续子数组 [numsl, numsl+1, ..., numsr-1, numsr] ，
