@@ -40,8 +40,10 @@ public class QuickSort114 {
         int pivot = medium3(arr, left, right);
         int i = left, j = right - 1;
         for (; ; ) {
+            //从左往右找出第一个大于pivot的数
             while (arr[++i] < pivot) {
             }
+            //从右往左第一个小于pivot的数
             while (arr[--j] > pivot) {
             }
             if (i < j) {
@@ -70,7 +72,9 @@ public class QuickSort114 {
     }
 
     public static void swap(int[] arr, int left, int right) {
-        if (arr[left] == arr[right]) {return;}
+        if (arr[left] == arr[right]) {
+            return;
+        }
         arr[left] = arr[left] ^ arr[right];
         arr[right] = arr[left] ^ arr[right];
         arr[left] = arr[left] ^ arr[right];
