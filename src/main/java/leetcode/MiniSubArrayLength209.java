@@ -10,7 +10,7 @@ package leetcode;
  * 找出该数组中满足其和 ≥ target 的长度最小的 连续子数组 [numsl, numsl+1, ..., numsr-1, numsr] ，
  * 并返回其长度。如果不存在符合条件的子数组，返回 0 。
  */
-public class a209MiniSubArrayLength {
+public class MiniSubArrayLength209 {
     static class Solution {
         /**
          * 如何移动起始位置，j表示终止位置

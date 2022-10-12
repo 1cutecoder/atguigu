@@ -7,7 +7,7 @@ package leetcode.dynamicplanning;
  * @Description 不同路径带障碍物
  * @Date 2022/6/25 16:15
  */
-public class a63UniquePathsWithObstacles {
+public class UniquePathsWithObstacles63 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int m = obstacleGrid.length;
         int n = obstacleGrid[0].length;
@@ -44,7 +44,7 @@ public class a63UniquePathsWithObstacles {
     }
 
     public static void main(String[] args) {
-        a63UniquePathsWithObstacles solution = new a63UniquePathsWithObstacles();
+        UniquePathsWithObstacles63 solution = new UniquePathsWithObstacles63();
         //int[][] obstacleGrid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
         //int[][] obstacleGrid = {{0,1},{0,0}};
         int[][] obstacleGrid = {{1, 0}};

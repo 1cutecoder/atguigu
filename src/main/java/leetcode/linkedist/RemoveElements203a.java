@@ -12,7 +12,7 @@ import leetcode.ListNode;
  * 示例 2：
  * @Date 2022/8/6 11:11
  */
-public class a203RemoveElements {
+public class RemoveElements203a {
     static class Solution {
         public ListNode removeElements(ListNode head, int val) {
             if (head == null) {

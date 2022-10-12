@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @Description TODO
  * @Date 2022/6/21 14:36
  */
-public class a455ContentChildrenWithBiscuit {
+public class ContentChildrenWithBiscuit455 {
     public int findContentChildren(int[] g, int[] s) {
         Arrays.sort(g);
         Arrays.sort(s);
@@ -25,7 +25,7 @@ public class a455ContentChildrenWithBiscuit {
     }
 
     public static void main(String[] args) {
-        a455ContentChildrenWithBiscuit solution = new a455ContentChildrenWithBiscuit();
+        ContentChildrenWithBiscuit455 solution = new ContentChildrenWithBiscuit455();
         int[] g = {1, 2, 3};
         int[] s = {1, 2, 4};
         int result = solution.findContentChildren(g, s);

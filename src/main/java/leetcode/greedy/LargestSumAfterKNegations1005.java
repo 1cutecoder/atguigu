@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
  * @Description TODO
  * @Date 2022/6/25 11:04
  */
-public class a1005LargestSumAfterKNegations {
+public class LargestSumAfterKNegations1005 {
     public int largestSumAfterKNegations(int[] nums, int k) {
         nums = IntStream.of(nums)
                 .boxed()
@@ -31,7 +31,7 @@ public class a1005LargestSumAfterKNegations {
     }
 
     public static void main(String[] args) {
-        a1005LargestSumAfterKNegations solution = new a1005LargestSumAfterKNegations();
+        LargestSumAfterKNegations1005 solution = new LargestSumAfterKNegations1005();
         int nums[]={4,2,3};
         int  k = 1;
         System.out.println(solution.largestSumAfterKNegations(nums, k));

@@ -19,7 +19,7 @@ import java.util.List;
  * 1 + 2 + 4 = 7
  * 没有其他符合的组合了。
  */
-public class a216CombinationSum {
+public class CombinationSum216 {
     List<List<Integer>> result = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<>();
     private int target;
@@ -40,7 +40,7 @@ public class a216CombinationSum {
             return;
         }
         for (int i = startIndex; i <= n - (k - path.size()) + 1; i++) {
-            path.add(i);
+            path.addLast(i);
             sum += i;
             combineHelper(n, k, i + 1);
             sum -= i;
@@ -49,7 +49,7 @@ public class a216CombinationSum {
     }
 
     public static void main(String[] args) {
-        a216CombinationSum solution = new a216CombinationSum();
+        CombinationSum216 solution = new CombinationSum216();
         System.out.println(solution.combinationSum3(3, 9));
     }
 }

@@ -9,7 +9,7 @@ package leetcode.dynamicplanning;
  * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶
  * @Date 2022/6/25 13:48
  */
-public class a70ClimbStairs {
+public class ClimbStairs70 {
     public int climbStairs(int n) {
         if (n == 1) return 1;
         int dp1 = 1;
@@ -25,7 +25,7 @@ public class a70ClimbStairs {
     }
 
     public static void main(String[] args) {
-        a70ClimbStairs solution = new a70ClimbStairs();
+        ClimbStairs70 solution = new ClimbStairs70();
         int stairs = solution.climbStairs(1);
         System.out.println("stairs = " + stairs);
     }

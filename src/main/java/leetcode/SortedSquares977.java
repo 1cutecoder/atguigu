@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @Date 2022/7/28 20:58
  * 给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。
  */
-public class a977SortedSquares {
+public class SortedSquares977 {
     static class Solution {
         public int[] sortedSquares(int[] nums) {
             int k = nums.length - 1;

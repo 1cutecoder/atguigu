@@ -9,7 +9,7 @@ package leetcode.dynamicplanning;
  * 给定两个整数数组 gas 和 cost ，如果你可以绕环路行驶一周，则返回出发时加油站的编号，否则返回 -1 。如果存在解，则 保证 它是 唯一 的。
  * @Date 2022/6/25 11:48
  */
-public class a134CanCompleteCircuit {
+public class CanCompleteCircuit134 {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int len = gas.length;
         int curSum = 0;
@@ -38,7 +38,7 @@ public class a134CanCompleteCircuit {
     }
 
     public static void main(String[] args) {
-        a134CanCompleteCircuit solution = new a134CanCompleteCircuit();
+        CanCompleteCircuit134 solution = new CanCompleteCircuit134();
         int gas[] = {1, 2, 3, 4, 5};
         int cost[] = {3, 4, 5, 1, 2};
         int pos = solution.canCompleteCircuit(gas, cost);

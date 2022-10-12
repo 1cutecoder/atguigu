@@ -13,7 +13,7 @@ import leetcode.ListNode;
  * 输入：head = [1,2], n = 1
  * 输出：[1]
  */
-public class a19RemoveNthFromEnd {
+public class RemoveNthFromEnd19 {
     static class Solution {
         public ListNode removeNthFromEnd(ListNode head, int n) {
             ListNode dummy = new ListNode(0, head);

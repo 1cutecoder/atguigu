@@ -23,7 +23,7 @@ import java.util.Vector;
  * [1,4],
  * ]
  */
-public class a77Composition {
+public class Composition77 {
 
     static class Solution {
         List<List<Integer>> result = new ArrayList<>();
@@ -44,6 +44,8 @@ public class a77Composition {
                 result.add(new ArrayList<>(path));
                 return;
             }
+            //startindex 从1开始，此时path.size = 0,故计算时需要加1，即访问过的节点数为 k - (path.size() + 1)
+            //n - (k - (path.size() + 1)) = n - (k - path.size() -1)
             for (int i = startIndex; i <= n - (k - path.size() -1); i++) {
                 path.add(i);
                 combineHelper(n, k, i + 1);

@@ -13,7 +13,7 @@ package leetcode.dynamicplanning;
  * 问总共有多少条不同的路径？
  * @Date 2022/6/25 15:17
  */
-public class a62UniquePaths {
+public class UniquePaths62 {
     public int uniquePaths(int m, int n) {
         return dfs(1, 1, m, n);
     }
@@ -29,7 +29,7 @@ public class a62UniquePaths {
     }
 
     public static void main(String[] args) {
-        a62UniquePaths solution = new a62UniquePaths();
+        UniquePaths62 solution = new UniquePaths62();
         int paths = solution.uniquePaths(3, 7);
         System.out.println("paths = " + paths);
     }

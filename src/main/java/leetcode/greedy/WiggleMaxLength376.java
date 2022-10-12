@@ -7,7 +7,7 @@ package leetcode.greedy;
  * @Description TODO
  * @Date 2022/6/21 14:59
  */
-public class a376WiggleMaxLength {
+public class WiggleMaxLength376 {
     public int wiggleMaxLength(int[] nums) {
         if (nums.length <= 1) {
             return nums.length;
@@ -26,7 +26,7 @@ public class a376WiggleMaxLength {
     }
 
     public static void main(String[] args) {
-        a376WiggleMaxLength solution = new a376WiggleMaxLength();
+        WiggleMaxLength376 solution = new WiggleMaxLength376();
         int[] nums = {1,17,5,10,13,15,10,5,16,8};
         int result = solution.wiggleMaxLength(nums);
         System.out.println("result = " + result);

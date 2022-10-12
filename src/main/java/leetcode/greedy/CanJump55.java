@@ -7,7 +7,7 @@ package leetcode.greedy;
  * @Description TODO
  * @Date 2022/6/23 9:47
  */
-public class a55CanJump {
+public class CanJump55 {
     public boolean canJump(int[] nums) {
         int cover = 0;
         for (int i=0;i<= cover;i++){
@@ -20,7 +20,7 @@ public class a55CanJump {
     }
 
     public static void main(String[] args) {
-        a55CanJump solution = new a55CanJump();
+        CanJump55 solution = new CanJump55();
         int[] nums = {2,3,1,1,4};
         int[] nums1 = {3,2,1,0,4};
         boolean canJump = solution.canJump(nums);

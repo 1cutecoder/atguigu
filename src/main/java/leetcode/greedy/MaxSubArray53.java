@@ -7,7 +7,7 @@ package leetcode.greedy;
  * @Description TODO
  * @Date 2022/6/21 15:32
  */
-public class a53MaxSubArray {
+public class MaxSubArray53 {
     public int maxSubArray(int[] nums) {
         int count = 0;
         int result = Integer.MIN_VALUE;
@@ -27,7 +27,7 @@ public class a53MaxSubArray {
     }
 
     public static void main(String[] args) {
-        a53MaxSubArray solution = new a53MaxSubArray();
+        MaxSubArray53 solution = new MaxSubArray53();
         //{1}、{5,4,-1,7,8}
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int result = solution.maxSubArray(nums);

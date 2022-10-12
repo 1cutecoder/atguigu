@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @Description 给你一个正整数 n ，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
  * @Date 2022/7/31 19:09
  */
-public class a59GenerateMatrix {
+public class GenerateMatrix59a {
     public int[][] generateMatrix(int n) {
         // 控制循环次数
         int loop = 0;
@@ -83,7 +83,7 @@ public class a59GenerateMatrix {
     }
 
     public static void main(String[] args) {
-        a59GenerateMatrix solutuion = new a59GenerateMatrix();
+        GenerateMatrix59a solutuion = new GenerateMatrix59a();
         int[][] ints = solutuion.generateMatrix(3);
         int[][] ints2 = solutuion.generateMatrix2(3);
         System.out.println(Arrays.toString(ints));

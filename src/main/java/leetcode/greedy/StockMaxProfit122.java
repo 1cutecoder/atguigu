@@ -7,7 +7,7 @@ package leetcode.greedy;
  * @Description TODO
  * @Date 2022/6/21 22:46
  */
-public class a122StockMaxProfit {
+public class StockMaxProfit122 {
     public int maxProfit(int[] prices) {
         int max = 0;
         for (int i = 0; i < prices.length - 1; i++) {
@@ -21,7 +21,7 @@ public class a122StockMaxProfit {
     }
 
     public static void main(String[] args) {
-        a122StockMaxProfit solution = new a122StockMaxProfit();
+        StockMaxProfit122 solution = new StockMaxProfit122();
         int prices[] = {7, 1, 5, 10, 3, 6, 4};
         int maxProfit = solution.maxProfit(prices);
         System.out.println("maxProfit = " + maxProfit);

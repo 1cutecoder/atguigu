@@ -7,7 +7,7 @@ package leetcode;
  * @Description  快慢指针实现O(n)复杂度删除目标元素
  * @Date 2022/7/28 20:30
  */
-public class a27RemoveElement {
+public class RemoveElement27a {
     static class Solution {
         public int removeElement(int[] nums, int val) {
             int slow = 0;

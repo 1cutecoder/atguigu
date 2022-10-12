@@ -11,7 +11,7 @@ import java.util.Vector;
  * @Description TODO
  * @Date 2022/7/20 22:10
  */
-public class a131Partition {
+public class Partition131 {
     static class Solution {
         List<List<String>> result= new LinkedList<>();
         // 放已经回文的子串

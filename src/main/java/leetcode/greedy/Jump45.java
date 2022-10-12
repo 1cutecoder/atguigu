@@ -9,7 +9,7 @@ package leetcode.greedy;
  * 你的目标是使用最少的跳跃次数到达数组的最后一个位置。
  * @Date 2022/6/24 11:01
  */
-public class a45Jump {
+public class Jump45 {
     public int jump(int[] nums) {
         if (nums.length == 1) {
             return 0;
@@ -35,7 +35,7 @@ public class a45Jump {
     }
 
     public static void main(String[] args) {
-        a45Jump solution = new a45Jump();
+        Jump45 solution = new Jump45();
         int[] nums = {2, 1, 1, 1, 4};
         int jump = solution.jump(nums);
         System.out.println("jump = " + jump);

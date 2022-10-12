@@ -10,7 +10,7 @@ package leetcode.dynamicplanning;
  * 请你计算并返回达到楼梯顶部的最低花费。
  * @Date 2022/6/25 14:42
  */
-public class a746MinCostClimbingStairs {
+public class MinCostClimbingStairs746 {
     public int minCostClimbingStairs(int[] cost) {
         int[] dp = new int[cost.length];
         dp[0] = cost[0];
@@ -22,7 +22,7 @@ public class a746MinCostClimbingStairs {
     }
 
     public static void main(String[] args) {
-        a746MinCostClimbingStairs solution = new a746MinCostClimbingStairs();
+        MinCostClimbingStairs746 solution = new MinCostClimbingStairs746();
         int[] cost = {10, 15, 20};
         int[] cost1 = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
         int min = solution.minCostClimbingStairs(cost);
