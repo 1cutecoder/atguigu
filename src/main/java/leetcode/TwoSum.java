@@ -1,32 +1,28 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author zcl
  * @date 2022/3/14 11:30
  */
 public class TwoSum {
-    public static int[] solution(int[] arr, int target) {
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
-        for (int i = 0; i < arr.length; i++) {
-            hashMap.put(arr[i], i);
-        }
-        for (int i = 0; i < arr.length; i++) {
-            int key = target - arr[i];
-            if (hashMap.containsKey(key)) {
-                int index = hashMap.get(key);
-                if (i != index) {
-                    return new int[]{i,index};
-                }
+    public static int[] solution(int[] nums, int target) {
+        int n = nums.length;
+        Map map = new HashMap<Integer,Integer>();
+        for (int i = 0; i < n; ++i) {
+            if(map.containsKey(target - nums[i])){
+                return new int[]{nums[i],(target - nums[i])};
             }
+            map.put(nums[i],target - nums[i]);
         }
-        return new int[]{-1,-1};
+        return new int[0];
     }
 
     public static void main(String[] args) {
         int[] arr = {2, 7, 11, 15};
-        int[] result = solution(arr, 26);
+        int[] result = solution(arr, 9);
         System.out.println(result[0] + " " + result[1]);
     }
 
