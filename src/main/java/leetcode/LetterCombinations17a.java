@@ -16,7 +16,7 @@ public class LetterCombinations17a {
 
 
         public List<String> letterCombinations(String digits) {
-            List result = new ArrayList<LinkedList<String>>();
+            List result = new ArrayList<String>();
             StringBuffer buffer = new StringBuffer();
 
             String[] strs = digits.split("");
