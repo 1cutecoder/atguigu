@@ -16,6 +16,7 @@ public class Code04_Kruskal {
             priorityQueue.add(edge);
         }
         Set<Edge> result = new HashSet<>();
+        //将边加入到队列里，按权重从小到大排列，之后先取出权重最小的边开始构建最小生成树
         while (!priorityQueue.isEmpty()) {
             Edge edge = priorityQueue.poll();
             if (!mySets.isSameSet(edge.from, edge.to)) {
